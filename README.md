@@ -5,21 +5,6 @@ An intelligent Agentic AI web application for student performance prediction and
 
 ---
 
-## 📁 Project Structure
-
-```
-nextgen_learners/
-├── app.py                    # Flask backend + OpenAI integration
-├── requirements.txt          # Python dependencies
-├── templates/
-│   └── index.html           # Full-stack UI (dark theme)
-└── data/
-    ├── combined_student_dataset.xlsx      # Main student dataset
-    └── canvas_plugin_student_dataset.xlsx # Canvas plugin data
-```
-
----
-
 ## 🚀 Quick Start
 
 ### Step 1 — Install dependencies
