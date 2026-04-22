@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Learners — AI Campus Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0c14;
+  --surface: #111420;
+  --surface2: #181d2e;
+  --border: #232840;
+  --accent: #6c63ff;
+  --accent2: #00d4aa;
+  --accent3: #ff6b6b;
+  --accent4: #ffd166;
+  --text: #e8eaf6;
+  --text-dim: #8892b0;
+  --text-muted: #4a5280;
+  --high: #00d4aa;
+  --medium: #6c63ff;
+  --low: #ff6b6b;
+  --risk: #ff6b6b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Animated background */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 20% 20%, rgba(108,99,255,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(0,212,170,0.04) 0%, transparent 50%);
+  animation: bgshift 20s ease infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes bgshift {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(-3%,-3%); }
+}
+
+/* LAYOUT */
+.app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 60px 1fr;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* TOP BAR */
+.topbar {
+  grid-column: 1 / -1;
+  background: rgba(17,20,32,0.95);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+}
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+.logo-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--accent2);
+  border-radius: 50%;
+  margin-left: 6px;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.api-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: background 0.3s;
+}
+.api-status.active { background: var(--accent2); }
+
+/* SIDEBAR */
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 20px 0;
+}
+.sidebar-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 20px 8px;
+  margin-top: 8px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.nav-item:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+.nav-item.active {
+  background: rgba(108,99,255,0.1);
+  border-left-color: var(--accent);
+  color: var(--text);
+}
+.nav-icon { font-size: 16px; }
+
+/* Student selector */
+.student-search {
+  padding: 0 16px 12px;
+}
+.student-search input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+}
+.student-search input::placeholder { color: var(--text-muted); }
+.student-search input:focus { border-color: var(--accent); }
+
+.student-list-sidebar {
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 0 8px;
+}
+.student-list-sidebar::-webkit-scrollbar { width: 4px; }
+.student-list-sidebar::-webkit-scrollbar-track { background: transparent; }
+.student-list-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.student-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 2px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.student-chip:hover { background: var(--surface2); color: var(--text); }
+.student-chip.selected { background: rgba(108,99,255,0.15); color: var(--text); }
+.chip-risk { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.chip-risk.yes { background: var(--risk); }
+.chip-risk.no { background: var(--accent2); }
+
+/* MAIN CONTENT */
+.main {
+  overflow-y: auto;
+  background: var(--bg);
+}
+.main::-webkit-scrollbar { width: 6px; }
+.main::-webkit-scrollbar-track { background: transparent; }
+.main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+
+.page { display: none; padding: 28px; }
+.page.active { display: block; }
+
+/* DASHBOARD */
+.page-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.page-subtitle {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.stat-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60px; height: 60px;
+  border-radius: 0 0 0 60px;
+  opacity: 0.15;
+}
+.stat-card.purple::before { background: var(--accent); }
+.stat-card.teal::before { background: var(--accent2); }
+.stat-card.red::before { background: var(--accent3); }
+.stat-card.yellow::before { background: var(--accent4); }
+.stat-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-card.purple .stat-value { color: var(--accent); }
+.stat-card.teal .stat-value { color: var(--accent2); }
+.stat-card.red .stat-value { color: var(--accent3); }
+.stat-card.yellow .stat-value { color: var(--accent4); }
+.stat-label { font-size: 12px; color: var(--text-dim); }
+
+/* Charts row */
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+.chart-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+/* Bar chart */
+.bar-chart { display: flex; flex-direction: column; gap: 10px; }
+.bar-row { display: flex; align-items: center; gap: 10px; }
+.bar-label { font-size: 12px; color: var(--text-dim); width: 120px; flex-shrink: 0; }
+.bar-track { flex: 1; height: 8px; background: var(--surface2); border-radius: 10px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+.bar-val { font-size: 12px; color: var(--text-dim); width: 36px; text-align: right; flex-shrink: 0; }
+
+/* Donut */
+.donut-wrap { display: flex; align-items: center; gap: 20px; }
+.donut-legend { display: flex; flex-direction: column; gap: 10px; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* STUDENT TABLE */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.table-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.table-header-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.search-input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 12px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+  width: 200px;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--surface2);
+}
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; cursor: pointer; }
+tbody tr:hover { background: rgba(108,99,255,0.05); }
+tbody td { padding: 12px 16px; font-size: 13px; color: var(--text-dim); }
+tbody td:first-child { color: var(--text); font-weight: 500; }
+
+.perf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.perf-badge.High { background: rgba(0,212,170,0.12); color: var(--high); }
+.perf-badge.Medium { background: rgba(108,99,255,0.12); color: var(--medium); }
+.perf-badge.Low { background: rgba(255,107,107,0.12); color: var(--low); }
+
+.risk-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+.risk-dot { width: 7px; height: 7px; border-radius: 50%; }
+.risk-dot.yes { background: var(--risk); animation: blink 1.5s ease infinite; }
+.risk-dot.no { background: var(--accent2); }
+@keyframes blink { 0%,100% {opacity:1;} 50%{opacity:0.3;} }
+
+/* STUDENT PROFILE PAGE */
+.profile-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: font-size;
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.profile-info h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.profile-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.meta-item .badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.module-card:hover { transform: translateY(-2px); }
+.module-card.weak { border-color: rgba(255,107,107,0.4); }
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.module-name { font-weight: 600; font-size: 14px; color: var(--text); }
+.module-subject {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--surface2);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.module-score {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.module-score.good { color: var(--accent2); }
+.module-score.ok { color: var(--accent4); }
+.module-score.bad { color: var(--accent3); }
+.module-score-label { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; }
+.mini-stats { display: flex; gap: 12px; }
+.mini-stat { flex: 1; }
+.mini-stat-val { font-size: 13px; font-weight: 600; color: var(--text); }
+.mini-stat-label { font-size: 10px; color: var(--text-muted); }
+
+/* AI CHAT PAGE */
+.chat-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 16px;
+  height: calc(100vh - 120px);
+}
+.chat-sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chat-sidebar-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.selected-student-info {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+.sel-student-id {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.sel-student-meta { font-size: 12px; color: var(--text-dim); }
+
+.quick-prompts-title {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+.quick-prompt {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1.4;
+}
+.quick-prompt:hover {
+  background: rgba(108,99,255,0.1);
+  border-color: var(--accent);
+  color: var(--text);
+}
+.quick-prompt-icon { margin-right: 6px; }
+
+.chat-main {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.chat-topbar {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chat-topbar-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.agent-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.agent-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent2);
+  animation: pulse 2s ease infinite;
+}
+.clear-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 5px 12px;
+  color: var(--text-dim);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.clear-btn:hover { background: var(--surface2); color: var(--text); }
+
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.messages-area::-webkit-scrollbar { width: 4px; }
+.messages-area::-webkit-scrollbar-track { background: transparent; }
+.messages-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.message {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.message.user { flex-direction: row-reverse; }
+.msg-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.message.user .msg-avatar { background: linear-gradient(135deg, var(--accent), #8b85ff); }
+.message.ai .msg-avatar { background: linear-gradient(135deg, var(--accent2), #00a880); }
+.msg-bubble {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.message.user .msg-bubble {
+  background: rgba(108,99,255,0.15);
+  border: 1px solid rgba(108,99,255,0.3);
+  color: var(--text);
+  border-bottom-right-radius: 4px;
+}
+.message.ai .msg-bubble {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.msg-bubble pre {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  overflow-x: auto;
+  font-size: 12px;
+  margin: 8px 0;
+}
+.msg-bubble strong { color: var(--accent2); }
+.msg-bubble em { color: var(--accent4); font-style: normal; }
+.msg-time { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 8px 4px;
+}
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: typing 1.2s ease infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing { 0%,60%,100%{transform:translateY(0);opacity:0.5;} 30%{transform:translateY(-6px);opacity:1;} }
+
+.chat-input-area {
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+.chat-input {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+  max-height: 120px;
+  line-height: 1.5;
+  transition: border-color 0.2s;
+}
+.chat-input:focus { border-color: var(--accent); }
+.chat-input::placeholder { color: var(--text-muted); }
+.send-btn {
+  background: linear-gradient(135deg, var(--accent), #8b85ff);
+  border: none;
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.send-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(108,99,255,0.4); }
+.send-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Welcome message */
+.welcome-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: var(--text-muted);
+  gap: 12px;
+}
+.welcome-msg .icon { font-size: 40px; }
+.welcome-msg h3 { font-family: 'Syne', sans-serif; font-size: 18px; color: var(--text-dim); }
+.welcome-msg p { font-size: 13px; max-width: 300px; line-height: 1.6; }
+
+/* Scrollbar global */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: var(--text);
+  transform: translateY(60px);
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast.error { border-color: var(--accent3); color: var(--accent3); }
+.toast.success { border-color: var(--accent2); color: var(--accent2); }
+
+/* Responsive markdown formatting */
+.msg-bubble h1, .msg-bubble h2, .msg-bubble h3 {
+  font-family: 'Syne', sans-serif;
+  margin: 10px 0 6px;
+  color: var(--text);
+}
+.msg-bubble h1 { font-size: 16px; }
+.msg-bubble h2 { font-size: 15px; }
+.msg-bubble h3 { font-size: 14px; color: var(--accent2); }
+.msg-bubble ul, .msg-bubble ol { padding-left: 20px; }
+.msg-bubble li { margin: 4px 0; }
+.msg-bubble p { margin: 6px 0; }
+.msg-bubble code {
+  background: var(--bg);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--accent4);
+}
+
+/* AT RISK PAGE */
+.risk-alert {
+  background: rgba(255,107,107,0.06);
+  border: 1px solid rgba(255,107,107,0.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.risk-alert-icon { font-size: 20px; }
+.risk-alert-text { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+.risk-alert-text strong { color: var(--accent3); }
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.risk-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,107,107,0.2);
+  border-radius: 12px;
+  padding: 18px;
+  transition: transform 0.2s;
+}
+.risk-card:hover { transform: translateY(-2px); }
+.risk-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.risk-card-id { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--accent3); }
+.risk-card-score { font-size: 13px; color: var(--text-dim); }
+.risk-factors { display: flex; flex-direction: column; gap: 6px; }
+.risk-factor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-dim);
+  background: var(--surface2);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.rf-icon { font-size: 14px; }
+.analyze-btn {
+  margin-top: 12px;
+  width: 100%;
+  background: rgba(255,107,107,0.1);
+  border: 1px solid rgba(255,107,107,0.3);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--accent3);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.analyze-btn:hover { background: rgba(255,107,107,0.2); }
+
+/* empty state */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<div class="app-layout">
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="font-size:20px">🎓</span>
+      <span class="logo">NextGen Learners</span>
+      <span class="logo-dot"></span>
+    </div>
+    <div style="font-size:12px;color:var(--text-muted);margin-left:12px;">AI Campus Intelligence System</div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-section-title">Navigation</div>
+    <div class="nav-item active" onclick="showPage('dashboard',this)">
+      <span class="nav-icon">📊</span> Dashboard
+    </div>
+    <div class="nav-item" onclick="showPage('students',this)">
+      <span class="nav-icon">👥</span> All Students
+    </div>
+    <div class="nav-item" onclick="showPage('atrisk',this)">
+      <span class="nav-icon">⚠️</span> At-Risk Monitor
+    </div>
+    <div class="nav-item" onclick="showPage('chat',this)">
+      <span class="nav-icon">🤖</span> AI Advisor Chat
+    </div>
+
+    <div class="sidebar-section-title" style="margin-top:16px;">Quick Select Student</div>
+    <div class="student-search">
+      <input type="text" placeholder="Search student ID..." oninput="filterSidebarStudents(this.value)" id="sidebarSearch">
+    </div>
+    <div class="student-list-sidebar" id="sidebarStudentList">
+      <!-- populated by JS -->
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- DASHBOARD PAGE -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-title">Campus Overview</div>
+      <div class="page-subtitle">Real-time academic performance across {{ stats.total_students }} students</div>
+
+      <div class="stats-grid">
+        <div class="stat-card purple">
+          <div class="stat-value">{{ stats.total_students }}</div>
+          <div class="stat-label">Total Students</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-value">{{ stats.at_risk_count }}</div>
+          <div class="stat-label">At-Risk Students</div>
+        </div>
+        <div class="stat-card teal">
+          <div class="stat-value">{{ stats.high_performers }}</div>
+          <div class="stat-label">High Performers</div>
+        </div>
+        <div class="stat-card yellow">
+          <div class="stat-value">{{ stats.avg_score }}</div>
+          <div class="stat-label">Avg Campus Score</div>
+        </div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="chart-title">📚 Subject Average Scores</div>
+          <div class="bar-chart" id="subjectBars"></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">📈 Performance Distribution</div>
+          <div class="donut-wrap">
+            <canvas id="donutCanvas" width="130" height="130"></canvas>
+            <div class="donut-legend">
+              <div class="legend-item">
+                <div class="legend-dot" style="background:var(--high)"></div>
+                High — {{ stats.high_performers }} students
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background:var(--medium)"></div>
+                Medium — {{ stats.medium_performers }} students
+              </div>
+              <div class="legend-item">
+                <div class="legend-dot" style="background:var(--low)"></div>
+                Low — {{ stats.low_performers }} students
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header">
+          <div class="table-header-title">Recent Student Performance</div>
+          <input type="text" class="search-input" placeholder="🔍 Filter students..." oninput="filterTable(this.value)">
+        </div>
+        <div style="overflow-x:auto; max-height:320px; overflow-y:auto;">
+          <table id="studentTable">
+            <thead>
+              <tr>
+                <th>Student ID</th>
+                <th>Avg Score</th>
+                <th>Performance</th>
+                <th>At Risk</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody">
+              {% for s in students %}
+              <tr onclick="selectStudentAndGo('{{ s.student_id }}')" data-id="{{ s.student_id }}" data-perf="{{ s.performance_category }}" data-risk="{{ s.at_risk }}">
+                <td>{{ s.student_id }}</td>
+                <td>{{ s.avg_score }}</td>
+                <td><span class="perf-badge {{ s.performance_category }}">{{ s.performance_category }}</span></td>
+                <td>
+                  <span class="risk-indicator">
+                    <span class="risk-dot {{ s.at_risk | lower }}"></span>
+                    {{ s.at_risk }}
+                  </span>
+                </td>
+                <td style="color:var(--accent);font-size:12px;">View Profile →</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALL STUDENTS PAGE -->
+    <div class="page" id="page-students">
+      <div class="page-title">Student Profiles</div>
+      <div class="page-subtitle">Select a student to view detailed module performance</div>
+
+      <div class="modules-grid" id="allStudentCards">
+        {% for s in students %}
+        <div class="module-card" onclick="selectStudentAndGo('{{ s.student_id }}')" style="cursor:pointer">
+          <div class="module-header">
+            <div>
+              <div class="module-name">{{ s.student_id }}</div>
+              <div class="module-subject">{{ s.performance_category }}</div>
+            </div>
+            {% if s.at_risk == 'Yes' %}
+            <span style="font-size:16px;" title="At Risk">⚠️</span>
+            {% endif %}
+          </div>
+          <div class="module-score {% if s.avg_score >= 75 %}good{% elif s.avg_score >= 60 %}ok{% else %}bad{% endif %}">
+            {{ s.avg_score }}
+          </div>
+          <div class="module-score-label">Average Score</div>
+          <div style="height:4px;background:var(--surface2);border-radius:4px;overflow:hidden;">
+            <div style="height:100%;width:{{ s.avg_score }}%;background:{% if s.avg_score >= 75 %}var(--accent2){% elif s.avg_score >= 60 %}var(--accent4){% else %}var(--accent3){% endif %};border-radius:4px;transition:width 1s ease;"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- STUDENT PROFILE PAGE (dynamic) -->
+    <div class="page" id="page-profile">
+      <div id="profileContent">
+        <div class="empty-state">Select a student to view their profile</div>
+      </div>
+    </div>
+
+    <!-- AT RISK PAGE -->
+    <div class="page" id="page-atrisk">
+      <div class="page-title">⚠️ At-Risk Monitor</div>
+      <div class="page-subtitle">Students flagged for early intervention</div>
+      
+      <div class="risk-alert">
+        <span class="risk-alert-icon">🔔</span>
+        <div class="risk-alert-text">
+          <strong id="riskCount">0</strong> students require immediate attention. Early intervention can significantly improve outcomes. Use the AI Advisor to generate personalized support plans.
+        </div>
+      </div>
+
+      <div class="risk-grid" id="riskGrid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- AI CHAT PAGE -->
+    <div class="page" id="page-chat">
+      <div class="chat-layout">
+        <div class="chat-sidebar">
+          <div class="chat-sidebar-title">🎯 Context</div>
+
+          <!-- ROLE SWITCHER -->
+          <div style="margin-bottom:10px;">
+            <div style="font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">User Role</div>
+            <div style="display:flex;gap:6px;">
+              <button onclick="setRole('student')" id="roleBtn-student"
+                style="flex:1;padding:6px 4px;border-radius:7px;border:1px solid var(--accent);background:rgba(108,99,255,0.15);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;">
+                🎓 Student
+              </button>
+              <button onclick="setRole('faculty')" id="roleBtn-faculty"
+                style="flex:1;padding:6px 4px;border-radius:7px;border:1px solid var(--border);background:none;color:var(--text-dim);font-size:11px;font-weight:600;cursor:pointer;">
+                👨‍🏫 Faculty
+              </button>
+              <button onclick="setRole('admin')" id="roleBtn-admin"
+                style="flex:1;padding:6px 4px;border-radius:7px;border:1px solid var(--border);background:none;color:var(--text-dim);font-size:11px;font-weight:600;cursor:pointer;">
+                🏛 Admin
+              </button>
+            </div>
+          </div>
+
+          <!-- STUDENT INFO -->
+          <div id="chatStudentInfo">
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">
+              No student selected. Using general campus data. Select a student for personalized advice.
+            </div>
+          </div>
+
+          <!-- ADAPTIVE INDICATOR -->
+          <div id="adaptiveIndicator" style="display:none;background:rgba(0,212,170,0.08);border:1px solid rgba(0,212,170,0.25);border-radius:8px;padding:8px 10px;font-size:11px;color:var(--accent2);">
+            🧠 <span id="adaptiveText">Adaptive mode active</span>
+          </div>
+
+          <!-- SMART REMINDERS -->
+          <div id="remindersPanel" style="display:none;">
+            <div style="font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin:10px 0 6px;">🔔 Smart Reminders</div>
+            <div id="remindersList"></div>
+          </div>
+
+          <!-- QUICK PROMPTS (dynamic by role) -->
+          <div class="quick-prompts-title">Quick Prompts</div>
+          <div id="quickPromptsList">
+            <div class="quick-prompt" onclick="sendQuickPrompt('Generate a personalized study plan for this student focusing on weak modules')">
+              <span class="quick-prompt-icon">📅</span>Generate Study Plan
+            </div>
+            <div class="quick-prompt" onclick="sendQuickPrompt('Identify the weakest modules and provide specific improvement strategies')">
+              <span class="quick-prompt-icon">🎯</span>Identify Weak Areas
+            </div>
+            <div class="quick-prompt" onclick="sendQuickPrompt('What upcoming exams and assignments should I prepare for?')">
+              <span class="quick-prompt-icon">🔔</span>My Reminders
+            </div>
+            <div class="quick-prompt" onclick="sendQuickPrompt('Predict this student\\'s future performance and risk level based on current data')">
+              <span class="quick-prompt-icon">🔮</span>Predict Performance
+            </div>
+            <div class="quick-prompt" onclick="sendQuickPrompt('Recommend campus resources and support services for this student')">
+              <span class="quick-prompt-icon">🏫</span>Campus Resources
+            </div>
+            <div class="quick-prompt" onclick="sendQuickPrompt('Create a 4-week improvement roadmap with daily goals')">
+              <span class="quick-prompt-icon">🗺️</span>4-Week Roadmap
+            </div>
+            <div class="quick-prompt" onclick="sendQuickPrompt('List all at-risk students and their primary risk factors')">
+              <span class="quick-prompt-icon">⚠️</span>At-Risk Overview
+            </div>
+            <div class="quick-prompt" onclick="sendQuickPrompt('Summarize the overall campus performance and top insights')">
+              <span class="quick-prompt-icon">🏆</span>Campus Summary
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-main">
+          <div class="chat-topbar">
+            <div class="chat-topbar-info">
+              <div class="agent-indicator">
+                <div class="agent-dot"></div>
+                NextGen AI Advisor
+              </div>
+              <div style="font-size:12px;color:var(--text-muted);margin-left:8px;" id="chatContext">General Campus Mode</div>
+            </div>
+            <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+          </div>
+          
+          <div class="messages-area" id="messagesArea">
+            <div class="welcome-msg" id="welcomeMsg">
+              <div class="icon">🤖</div>
+              <h3>NextGen AI Academic Advisor</h3>
+              <p>Powered by OpenAI GPT-4. Enter your API key and ask anything about student performance, study plans, or campus resources.</p>
+            </div>
+          </div>
+
+          <div class="chat-input-area">
+            <textarea 
+              class="chat-input" 
+              id="chatInput" 
+              placeholder="Ask about study plans, performance analysis, campus resources..." 
+              rows="1"
+              onkeydown="handleChatKey(event)"
+              oninput="autoResize(this)"
+            ></textarea>
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============ DATA ============
+const studentsData = {{ students | tojson }};
+let selectedStudentId = null;
+let conversationHistory = [];
+let isLoading = false;
+
+// ============ INIT ============
+document.addEventListener('DOMContentLoaded', () => {
+  renderSidebarStudents(studentsData);
+  renderRiskGrid();
+  renderSubjectBars();
+  renderDonut();
+});
+
+// ============ NAVIGATION ============
+function showPage(page, navEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  if (navEl) navEl.classList.add('active');
+}
+
+// ============ SIDEBAR STUDENTS ============
+function renderSidebarStudents(students) {
+  const list = document.getElementById('sidebarStudentList');
+  list.innerHTML = students.map(s => `
+    <div class="student-chip ${s.student_id === selectedStudentId ? 'selected' : ''}" 
+         onclick="selectStudent('${s.student_id}')" id="chip-${s.student_id}">
+      <span>${s.student_id}</span>
+      <span class="chip-risk ${s.at_risk.toLowerCase()}"></span>
+    </div>
+  `).join('');
+}
+
+function filterSidebarStudents(val) {
+  const filtered = studentsData.filter(s => s.student_id.toLowerCase().includes(val.toLowerCase()));
+  renderSidebarStudents(filtered);
+}
+
+function selectStudent(id) {
+  selectedStudentId = id;
+  document.querySelectorAll('.student-chip').forEach(c => c.classList.remove('selected'));
+  const chip = document.getElementById('chip-' + id);
+  if (chip) chip.classList.add('selected');
+  loadStudentProfile(id);
+  updateChatContext(id);
+}
+
+function selectStudentAndGo(id) {
+  selectStudent(id);
+  showPage('profile', null);
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+}
+
+// ============ STUDENT PROFILE ============
+async function loadStudentProfile(studentId) {
+  const container = document.getElementById('profileContent');
+  container.innerHTML = '<div class="empty-state">Loading...</div>';
+  
+  try {
+    const resp = await fetch('/api/student/' + studentId);
+    const data = await resp.json();
+    if (data.error) { container.innerHTML = `<div class="empty-state">${data.error}</div>`; return; }
+    
+    const { modules, summary } = data;
+    const avgScore = summary.avg_score || 0;
+    const perf = summary.performance_category || 'Unknown';
+    const atRisk = summary.at_risk || 'No';
+    
+    // Group by subject
+    const subjects = {};
+    modules.forEach(m => {
+      if (!subjects[m.subject_name]) subjects[m.subject_name] = [];
+      subjects[m.subject_name].push(m);
+    });
+    
+    let modulesHTML = '';
+    for (const [subj, mods] of Object.entries(subjects)) {
+      modulesHTML += mods.map(m => {
+        const scoreClass = m.module_score >= 75 ? 'good' : m.module_score >= 60 ? 'ok' : 'bad';
+        const isWeak = m.module_score < 60;
+        return `
+        <div class="module-card ${isWeak ? 'weak' : ''}">
+          <div class="module-header">
+            <div>
+              <div class="module-name">${m.module_name} ${isWeak ? '⚠️' : ''}</div>
+              <div class="module-subject">${m.subject_name}</div>
+            </div>
+          </div>
+          <div class="module-score ${scoreClass}">${m.module_score}</div>
+          <div class="module-score-label">Module Score / 100</div>
+          <div style="height:4px;background:var(--surface2);border-radius:4px;overflow:hidden;margin-bottom:14px;">
+            <div style="height:100%;width:${m.module_score}%;background:${m.module_score>=75?'var(--accent2)':m.module_score>=60?'var(--accent4)':'var(--accent3)'};border-radius:4px;"></div>
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <div class="mini-stat-val">${m.attendance_percentage}%</div>
+              <div class="mini-stat-label">Attendance</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-val">${m.assignment_score}</div>
+              <div class="mini-stat-label">Assignment</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-val">${m.quiz_score}</div>
+              <div class="mini-stat-label">Quiz</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-val">${m.study_hours_per_week}h</div>
+              <div class="mini-stat-label">Study/wk</div>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+    
+    container.innerHTML = `
+      <div class="profile-header">
+        <div class="profile-avatar">${studentId.slice(-2)}</div>
+        <div class="profile-info">
+          <h2>${studentId}</h2>
+          <div class="profile-meta">
+            <div class="meta-item">
+              <span class="badge" style="background:rgba(108,99,255,0.15);color:var(--accent)">Score: ${avgScore}</span>
+            </div>
+            <div class="meta-item">
+              <span class="badge perf-badge ${perf}">${perf} Performance</span>
+            </div>
+            <div class="meta-item">
+              <span class="risk-dot ${atRisk.toLowerCase()}" style="width:9px;height:9px;border-radius:50%;display:inline-block;"></span>
+              At Risk: ${atRisk}
+            </div>
+          </div>
+        </div>
+        <button onclick="goToAIChat('${studentId}')" 
+          style="margin-left:auto;background:linear-gradient(135deg,var(--accent),#8b85ff);border:none;border-radius:10px;padding:10px 18px;color:white;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;font-weight:500;">
+          🤖 Ask AI Advisor
+        </button>
+      </div>
+      <div class="modules-grid">${modulesHTML}</div>`;
+  } catch(e) {
+    container.innerHTML = `<div class="empty-state">Error loading student data</div>`;
+  }
+}
+
+function goToAIChat(studentId) {
+  selectStudent(studentId);
+  showPage('chat', null);
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.textContent.includes('AI Advisor')) n.classList.add('active');
+    else n.classList.remove('active');
+  });
+}
+
+// ============ RISK GRID ============
+function renderRiskGrid() {
+  const riskStudents = studentsData.filter(s => s.at_risk === 'Yes');
+  document.getElementById('riskCount').textContent = riskStudents.length;
+  
+  const grid = document.getElementById('riskGrid');
+  grid.innerHTML = riskStudents.map(s => `
+    <div class="risk-card">
+      <div class="risk-card-header">
+        <div class="risk-card-id">${s.student_id}</div>
+        <div class="risk-card-score">Avg: ${s.avg_score}</div>
+      </div>
+      <div class="risk-factors">
+        <div class="risk-factor">
+          <span class="rf-icon">📉</span>
+          Score: ${s.avg_score}/100 — ${s.performance_category} Performance
+        </div>
+        <div class="risk-factor">
+          <span class="rf-icon">⚡</span>
+          Flagged for early intervention
+        </div>
+      </div>
+      <button class="analyze-btn" onclick="analyzeRiskStudent('${s.student_id}')">
+        🤖 Analyze with AI & Generate Plan
+      </button>
+    </div>
+  `).join('');
+}
+
+function analyzeRiskStudent(studentId) {
+  selectStudent(studentId);
+  showPage('chat', null);
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.textContent.includes('AI Advisor')) n.classList.add('active');
+    else n.classList.remove('active');
+  });
+  setTimeout(() => {
+    document.getElementById('chatInput').value = `Please analyze ${studentId}'s performance, identify all risk factors, and create an emergency study plan with specific daily goals to improve their grades.`;
+    sendMessage();
+  }, 400);
+}
+
+// ============ CHARTS ============
+function renderSubjectBars() {
+  const subjectData = {{ stats.subject_averages | tojson }};
+  const colors = ['var(--accent)', 'var(--accent2)', 'var(--accent3)'];
+  const container = document.getElementById('subjectBars');
+  container.innerHTML = Object.entries(subjectData).map(([subj, score], i) => `
+    <div class="bar-row">
+      <div class="bar-label">${subj}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${score}%;background:${colors[i % colors.length]};"></div>
+      </div>
+      <div class="bar-val">${score}</div>
+    </div>
+  `).join('');
+}
+
+function renderDonut() {
+  const canvas = document.getElementById('donutCanvas');
+  const ctx = canvas.getContext('2d');
+  const high = {{ stats.high_performers }};
+  const medium = {{ stats.medium_performers }};
+  const low = {{ stats.low_performers }};
+  const total = high + medium + low;
+  
+  const data = [
+    { value: high, color: '#00d4aa' },
+    { value: medium, color: '#6c63ff' },
+    { value: low, color: '#ff6b6b' }
+  ];
+  
+  let start = -Math.PI / 2;
+  const cx = 65, cy = 65, r = 50, inner = 28;
+  
+  ctx.clearRect(0, 0, 130, 130);
+  
+  data.forEach(d => {
+    const angle = (d.value / total) * 2 * Math.PI;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, start, start + angle);
+    ctx.closePath();
+    ctx.fillStyle = d.color;
+    ctx.fill();
+    start += angle;
+  });
+  
+  // Donut hole
+  ctx.beginPath();
+  ctx.arc(cx, cy, inner, 0, 2 * Math.PI);
+  ctx.fillStyle = '#111420';
+  ctx.fill();
+  
+  // Center text
+  ctx.fillStyle = '#e8eaf6';
+  ctx.font = 'bold 16px Syne';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(total, cx, cy);
+}
+
+// ============ TABLE FILTER ============
+function filterTable(val) {
+  const rows = document.querySelectorAll('#studentTableBody tr');
+  rows.forEach(row => {
+    row.style.display = row.dataset.id.toLowerCase().includes(val.toLowerCase()) ? '' : 'none';
+  });
+}
+
+// ============ AI CHAT ============
+
+
+async function updateChatContext(studentId) {
+  const student = studentsData.find(s => s.student_id === studentId);
+  if (!student) return;
+  
+  document.getElementById('chatContext').textContent = `${studentId} — ${student.performance_category} (${student.avg_score})`;
+  document.getElementById('chatStudentInfo').innerHTML = `
+    <div class="selected-student-info">
+      <div class="sel-student-id">${studentId}</div>
+      <div class="sel-student-meta">
+        ${student.performance_category} Performance<br>
+        Avg Score: ${student.avg_score}<br>
+        At Risk: <span style="color:${student.at_risk==='Yes'?'var(--accent3)':'var(--accent2)'}">${student.at_risk}</span>
+      </div>
+    </div>`;
+
+  // Fetch and display reminders for this student
+  try {
+    const resp = await fetch('/api/reminders/' + studentId);
+    const data = await resp.json();
+    renderReminders(data.reminders || []);
+  } catch(e) {
+    console.log('Could not load reminders');
+  }
+}
+
+function clearChat() {
+  conversationHistory = [];
+  const area = document.getElementById('messagesArea');
+  area.innerHTML = `
+    <div class="welcome-msg" id="welcomeMsg">
+      <div class="icon">🤖</div>
+      <h3>Chat Cleared</h3>
+      <p>Ready for a new conversation. Ask anything about student performance or campus resources.</p>
+    </div>`;
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+function handleChatKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function sendQuickPrompt(text) {
+  document.getElementById('chatInput').value = text;
+  sendMessage();
+}
+
+function renderMarkdown(text) {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>');
+}
+
+// ── Role management ──────────────────────────────────────────────────────────
+let currentRole = 'student';
+
+function setRole(role) {
+  currentRole = role;
+  ['student','faculty','admin'].forEach(r => {
+    const btn = document.getElementById('roleBtn-' + r);
+    if (r === role) {
+      btn.style.border = '1px solid var(--accent)';
+      btn.style.background = 'rgba(108,99,255,0.15)';
+      btn.style.color = 'var(--text)';
+    } else {
+      btn.style.border = '1px solid var(--border)';
+      btn.style.background = 'none';
+      btn.style.color = 'var(--text-dim)';
+    }
+  });
+
+  // Update context label
+  document.getElementById('chatContext').textContent =
+    role === 'faculty' ? 'Faculty Mode — At-Risk Dashboard' :
+    role === 'admin'   ? 'Admin Mode — Campus Analytics' :
+    selectedStudentId  ? `${selectedStudentId} — Student Mode` : 'Student Mode';
+
+  // Update quick prompts by role
+  const qp = document.getElementById('quickPromptsList');
+  if (role === 'faculty') {
+    qp.innerHTML = `
+      <div class="quick-prompt" onclick="sendQuickPrompt('List all at-risk students with their weakest modules and intervention recommendations')"><span class="quick-prompt-icon">⚠️</span>At-Risk List</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Which students have both low scores AND low attendance — double risk?')"><span class="quick-prompt-icon">🚨</span>Double-Risk Alert</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Which subject needs the most attention campus-wide?')"><span class="quick-prompt-icon">📊</span>Subject Analytics</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Give me intervention action plans for each at-risk student')"><span class="quick-prompt-icon">📋</span>Intervention Plans</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Compare class performance across Math, CS, and English')"><span class="quick-prompt-icon">📈</span>Class Comparison</div>`;
+  } else if (role === 'admin') {
+    qp.innerHTML = `
+      <div class="quick-prompt" onclick="sendQuickPrompt('Give me a full campus performance summary with statistics and percentages')"><span class="quick-prompt-icon">🏛</span>Campus Overview</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Who are the top 5 and bottom 5 performing students?')"><span class="quick-prompt-icon">🏆</span>Top & Bottom 5</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Which resources are most urgently needed and where to allocate budget?')"><span class="quick-prompt-icon">💰</span>Resource Planning</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Give me predictive insights — which students are likely to become at-risk?')"><span class="quick-prompt-icon">🔮</span>Predictive Alerts</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Provide strategic recommendations for improving campus performance next semester')"><span class="quick-prompt-icon">🎯</span>Strategy Report</div>`;
+  } else {
+    qp.innerHTML = `
+      <div class="quick-prompt" onclick="sendQuickPrompt('Generate a personalized study plan for this student focusing on weak modules')"><span class="quick-prompt-icon">📅</span>Generate Study Plan</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Identify the weakest modules and provide specific improvement strategies')"><span class="quick-prompt-icon">🎯</span>Identify Weak Areas</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('What upcoming exams and assignments should I prepare for?')"><span class="quick-prompt-icon">🔔</span>My Reminders</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Predict this student\\'s future performance and risk level based on current data')"><span class="quick-prompt-icon">🔮</span>Predict Performance</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Recommend campus resources and support services for this student')"><span class="quick-prompt-icon">🏫</span>Campus Resources</div>
+      <div class="quick-prompt" onclick="sendQuickPrompt('Create a 4-week improvement roadmap with daily goals')"><span class="quick-prompt-icon">🗺️</span>4-Week Roadmap</div>`;
+  }
+}
+
+// ── Reminders display ─────────────────────────────────────────────────────────
+function renderReminders(reminders) {
+  if (!reminders || reminders.length === 0) {
+    document.getElementById('remindersPanel').style.display = 'none';
+    return;
+  }
+  document.getElementById('remindersPanel').style.display = 'block';
+  const colors = { URGENT: '#ff6b6b', SOON: '#ffd166', UPCOMING: '#00d4aa' };
+  document.getElementById('remindersList').innerHTML = reminders.slice(0,5).map(r => `
+    <div style="background:var(--surface2);border-radius:7px;padding:7px 10px;margin-bottom:5px;border-left:3px solid ${colors[r.urgency]||'#6c63ff'}">
+      <div style="font-size:11px;font-weight:600;color:${colors[r.urgency]||'#6c63ff'}">${r.urgency} · ${r.type}</div>
+      <div style="font-size:12px;color:var(--text);margin:2px 0">${r.topic}</div>
+      <div style="font-size:11px;color:var(--text-muted)">${r.due_date} · ${r.due_days}d away</div>
+    </div>`).join('');
+}
+
+// ── Mode management (removed — Direct API only) ───────────────────────────────
+
+function appendModeBadge(text) {} // kept as no-op for safety
+
+async function sendMessage() {
+  if (isLoading) return;
+
+  const input = document.getElementById('chatInput');
+  const msg   = input.value.trim();
+  if (!msg) return;
+
+  const apiKey = '';  // API key is set in backend
+
+  const welcome = document.getElementById('welcomeMsg');
+  if (welcome) welcome.remove();
+
+  const time = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  appendMessage('user', msg, time);
+  conversationHistory.push({role: 'user', content: msg});
+
+  input.value = '';
+  input.style.height = 'auto';
+
+  const typingId = showTyping();
+  isLoading = true;
+  document.getElementById('sendBtn').disabled = true;
+
+  try {
+    const resp = await fetch('/api/chat', {
+      method:  'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        message:    msg,
+        student_id: selectedStudentId || '',
+        role:       currentRole,
+        history:    conversationHistory.slice(0, -1),
+      }),
+    });
+
+    const data = await resp.json();
+    removeTyping(typingId);
+
+    if (data.error) {
+      appendMessage('ai', '❌ Error: ' + data.error, time);
+      showToast(data.error, 'error');
+    } else {
+      appendMessage('ai', data.reply, time, true);
+      conversationHistory.push({role: 'assistant', content: data.reply});
+
+      // Update reminders
+      if (data.reminders && data.reminders.length > 0) renderReminders(data.reminders);
+
+      // Update adaptive indicator
+      if (data.adaptive_summary && data.adaptive_summary.total_sessions) {
+        const s  = data.adaptive_summary;
+        const ai = document.getElementById('adaptiveIndicator');
+        const at = document.getElementById('adaptiveText');
+        if (ai && at) {
+          ai.style.display = 'block';
+          let txt = `Session ${s.total_sessions}`;
+          if (s.streak_days > 1) txt += ` · 🔥 ${s.streak_days}-day streak`;
+          if (s.struggling_topics && s.struggling_topics.length)
+            txt += ` · ⚠ Struggling: ${s.struggling_topics.join(', ')}`;
+          at.textContent = txt;
+        }
+      }
+    }
+  } catch(e) {
+    removeTyping(typingId);
+    appendMessage('ai', '❌ Connection error. Please check your API key and try again.', time);
+  }
+
+  isLoading = false;
+  document.getElementById('sendBtn').disabled = false;
+}
+
+function appendMessage(role, content, time, isMarkdown=false) {
+  const area = document.getElementById('messagesArea');
+  const div = document.createElement('div');
+  div.className = `message ${role}`;
+  const icon = role === 'user' ? '👤' : '🤖';
+  const rendered = isMarkdown ? renderMarkdown(content) : content;
+  div.innerHTML = `
+    <div class="msg-avatar">${icon}</div>
+    <div>
+      <div class="msg-bubble">${rendered}</div>
+      <div class="msg-time">${time}</div>
+    </div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+function showTyping() {
+  const area = document.getElementById('messagesArea');
+  const id = 'typing-' + Date.now();
+  const div = document.createElement('div');
+  div.className = 'message ai';
+  div.id = id;
+  div.innerHTML = `
+    <div class="msg-avatar">🤖</div>
+    <div class="msg-bubble">
+      <div class="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+    </div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+  return id;
+}
+
+function removeTyping(id) {
+  const el = document.getElementById(id);
+  if (el) el.remove();
+}
+
+// ============ TOAST ============
+function showToast(msg, type='') {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = `toast ${type} show`;
+  setTimeout(() => toast.className = 'toast', 3500);
+}
+</script>
+</body>
+</html>

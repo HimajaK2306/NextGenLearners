@@ -1,0 +1,172 @@
+{
+  "student_id": "S103",
+  "created_at": "2026-04-20T20:00:53.986007",
+  "total_sessions": 9,
+  "sessions": [
+    {
+      "session_number": 1,
+      "timestamp": "2026-04-20T20:00:53.986043",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Trigonometry",
+        "Data Structures",
+        "Grammar",
+        "Comprehension"
+      ],
+      "progress": [
+        "still_struggling"
+      ],
+      "message_preview": "Show me my weak modules and make a study plan"
+    },
+    {
+      "session_number": 2,
+      "timestamp": "2026-04-20T20:07:33.658822",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [],
+      "progress": [],
+      "message_preview": "Show me my weak modules and make a study plan"
+    },
+    {
+      "session_number": 3,
+      "timestamp": "2026-04-20T20:08:05.582657",
+      "date": "2026-04-20",
+      "focus": "performance_analysis",
+      "topics": [],
+      "progress": [],
+      "message_preview": "1. A list of your modules and their respective grades or performance?\n2. Any specific areas within those modules where y"
+    },
+    {
+      "session_number": 4,
+      "timestamp": "2026-04-20T20:09:11.096726",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Trigonometry",
+        "Data Structures",
+        "Grammar",
+        "Comprehension"
+      ],
+      "progress": [],
+      "message_preview": "Show me my weak modules and make a study plan"
+    },
+    {
+      "session_number": 5,
+      "timestamp": "2026-04-20T20:10:53.583293",
+      "date": "2026-04-20",
+      "focus": "reminder",
+      "topics": [],
+      "progress": [],
+      "message_preview": "What upcoming exams and assignments should I prepare for?"
+    },
+    {
+      "session_number": 6,
+      "timestamp": "2026-04-20T20:12:48.216583",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Trigonometry",
+        "Data Structures",
+        "Grammar",
+        "Writing",
+        "Comprehension"
+      ],
+      "progress": [],
+      "message_preview": "Create a 4-week improvement roadmap with daily goals"
+    },
+    {
+      "session_number": 7,
+      "timestamp": "2026-04-20T20:14:13.733754",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Trigonometry",
+        "Data Structures",
+        "Grammar",
+        "Writing",
+        "Comprehension"
+      ],
+      "progress": [],
+      "message_preview": "Recommend campus resources and support services for this student"
+    },
+    {
+      "session_number": 8,
+      "timestamp": "2026-04-20T20:15:04.771635",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Trigonometry",
+        "Data Structures",
+        "Grammar",
+        "Writing",
+        "Comprehension"
+      ],
+      "progress": [],
+      "message_preview": "Recommend campus resources and support services for this student"
+    },
+    {
+      "session_number": 9,
+      "timestamp": "2026-04-20T20:15:27.433208",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Trigonometry",
+        "Data Structures",
+        "Grammar",
+        "Writing",
+        "Comprehension"
+      ],
+      "progress": [],
+      "message_preview": "Create a 4-week improvement roadmap with daily goals"
+    }
+  ],
+  "covered_topics": [
+    "Algebra",
+    "Calculus",
+    "Trigonometry",
+    "Data Structures",
+    "Grammar",
+    "Comprehension",
+    "Writing"
+  ],
+  "mastered_topics": [],
+  "struggling_topics": [
+    "Algebra",
+    "Calculus",
+    "Trigonometry",
+    "Data Structures",
+    "Grammar",
+    "Comprehension",
+    "Writing"
+  ],
+  "progress_log": [],
+  "last_focus": "study_plan",
+  "streak_days": 1,
+  "last_active": "2026-04-20T20:15:27.433208",
+  "goals": {
+    "week_target": 65,
+    "month_target": 75
+  },
+  "recommendations_given": [
+    "math tutoring lab",
+    "writing center",
+    "cs lab",
+    "library",
+    "academic counseling",
+    "khan academy",
+    "coursera"
+  ]
+}

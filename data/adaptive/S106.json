@@ -1,0 +1,134 @@
+{
+  "student_id": "S106",
+  "created_at": "2026-04-20T20:23:37.100765",
+  "total_sessions": 6,
+  "sessions": [
+    {
+      "session_number": 1,
+      "timestamp": "2026-04-20T20:23:37.100782",
+      "date": "2026-04-20",
+      "focus": "study_plan",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Dbms",
+        "Data Structures",
+        "Grammar",
+        "Writing",
+        "Comprehension"
+      ],
+      "progress": [
+        "positive_progress",
+        "still_struggling"
+      ],
+      "message_preview": "Generate a personalized study plan for this student focusing on weak modules"
+    },
+    {
+      "session_number": 2,
+      "timestamp": "2026-04-20T20:24:12.806606",
+      "date": "2026-04-20",
+      "focus": "performance_analysis",
+      "topics": [
+        "Algebra",
+        "Dbms",
+        "Data Structures",
+        "Writing",
+        "Comprehension"
+      ],
+      "progress": [
+        "still_struggling"
+      ],
+      "message_preview": "List all at-risk students and their primary risk factors"
+    },
+    {
+      "session_number": 3,
+      "timestamp": "2026-04-20T20:24:51.354766",
+      "date": "2026-04-20",
+      "focus": "performance_analysis",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Trigonometry",
+        "Dbms",
+        "Data Structures",
+        "Operating Systems",
+        "Grammar",
+        "Writing",
+        "Comprehension"
+      ],
+      "progress": [
+        "still_struggling"
+      ],
+      "message_preview": "now i want to the performance score"
+    },
+    {
+      "session_number": 4,
+      "timestamp": "2026-04-20T20:25:24.627343",
+      "date": "2026-04-20",
+      "focus": "general",
+      "topics": [],
+      "progress": [],
+      "message_preview": "can u tell me what is the current weather in maryville"
+    },
+    {
+      "session_number": 5,
+      "timestamp": "2026-04-20T20:27:29.803869",
+      "date": "2026-04-20",
+      "focus": "reminder",
+      "topics": [
+        "Algebra",
+        "Calculus",
+        "Data Structures",
+        "Grammar"
+      ],
+      "progress": [
+        "positive_progress",
+        "still_struggling"
+      ],
+      "message_preview": "What upcoming exams and assignments should I prepare for?"
+    },
+    {
+      "session_number": 6,
+      "timestamp": "2026-04-20T20:28:14.240309",
+      "date": "2026-04-20",
+      "focus": "reminder",
+      "topics": [
+        "Calculus"
+      ],
+      "progress": [],
+      "message_preview": "set a reminder for calculus problem set 3 of math at today 8:30 PM"
+    }
+  ],
+  "covered_topics": [
+    "Algebra",
+    "Calculus",
+    "Dbms",
+    "Data Structures",
+    "Grammar",
+    "Writing",
+    "Comprehension",
+    "Trigonometry",
+    "Operating Systems"
+  ],
+  "mastered_topics": [],
+  "struggling_topics": [
+    "Algebra",
+    "Dbms",
+    "Data Structures",
+    "Writing",
+    "Comprehension",
+    "Calculus",
+    "Grammar"
+  ],
+  "progress_log": [],
+  "last_focus": "reminder",
+  "streak_days": 1,
+  "last_active": "2026-04-20T20:28:14.240309",
+  "goals": {
+    "week_target": 65,
+    "month_target": 75
+  },
+  "recommendations_given": [
+    "writing center"
+  ]
+}
