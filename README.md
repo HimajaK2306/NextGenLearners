@@ -13,23 +13,22 @@ An intelligent Agentic AI web application for student performance prediction and
 pip install -r requirements.txt
 ```
 
-### Step 2 — Run the app
+### Step 2 - Set Open API Key
+```bash
+export OPENAI_API_KEY="your_api_key_here"
+```
+
+### Step 3 — Run the app
 
 ```bash
 python app.py
 ```
 
-### Step 3 — Open in browser
+### Step 4 — Open in browser
 
 ```
 http://localhost:5000
 ```
-
-### Step 4 — Enter your OpenAI API Key
-
-Paste your OpenAI API key in the top-right input field (format: `sk-...`)  
-Get one at: https://platform.openai.com/api-keys
-
 ---
 
 ## ✨ Features
@@ -80,12 +79,4 @@ The AI Advisor (powered by OpenAI GPT-4) can:
 
 ---
 
-## 🔧 Customization
-
-To switch to GPT-4 (more powerful), edit `app.py`:
-```python
-model="gpt-4o"  # instead of gpt-4o-mini
-```
-
-To add more students, just expand the Excel dataset — no code changes needed.
 
