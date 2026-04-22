@@ -1,7 +1,7 @@
 
 # 🎓 NextGen Learners — AI Campus Intelligence System
 
-An intelligent Agentic AI web application for student performance prediction and smart campus recommendations, built with Flask + OpenAI GPT-4.
+An intelligent Agentic AI web application for student performance prediction and smart campus recommendations, built with Flask + OpenAI.
 
 ---
 
