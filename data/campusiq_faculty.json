@@ -1,0 +1,5322 @@
+[
+  {
+    "prof_id": "P001",
+    "name": "Dr. Matthew Lopez",
+    "first_name": "Matthew",
+    "email": "matthew.lopez@campusiq.edu",
+    "department": "School of Agricultural Sciences",
+    "dept_id": "AGR",
+    "office": "Room 141, Martindale Hall",
+    "office_hours": "Mon/Wed 10am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "AGR-101",
+        "course_title": "Introduction to Agronomy",
+        "n_students": 11,
+        "class_avg": 73.0,
+        "class_attendance": 74.8
+      },
+      {
+        "course_code": "AGR-225",
+        "course_title": "Sustainable Farming Systems",
+        "n_students": 11,
+        "class_avg": 73.6,
+        "class_attendance": 73.3
+      },
+      {
+        "course_code": "AGR-410",
+        "course_title": "Precision Agriculture Technology",
+        "n_students": 10,
+        "class_avg": 75.5,
+        "class_attendance": 75.8
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 1,
+      "high_performers": 6,
+      "avg_score": 73.83,
+      "avg_attendance": 73.72
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S125",
+        "name": "Carter Moore",
+        "year": "Senior",
+        "avg_score": 47.3,
+        "avg_attendance": 52.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S125",
+        "name": "Carter Moore",
+        "year": "Senior",
+        "avg_score": 47.3,
+        "avg_attendance": 52.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S101",
+        "name": "Paisley Davis",
+        "year": "Freshman",
+        "avg_score": 66.2,
+        "avg_attendance": 69.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S173",
+        "name": "Gabriel Hernandez",
+        "year": "Junior",
+        "avg_score": 68.7,
+        "avg_attendance": 67.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S137",
+        "name": "Jackson Jones",
+        "year": "Sophomore",
+        "avg_score": 71.1,
+        "avg_attendance": 74.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S161",
+        "name": "Sarah Green",
+        "year": "Junior",
+        "avg_score": 78.1,
+        "avg_attendance": 77.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S185",
+        "name": "Christian Perez",
+        "year": "Freshman",
+        "avg_score": 79.4,
+        "avg_attendance": 78.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S149",
+        "name": "Willow Baker",
+        "year": "Senior",
+        "avg_score": 80.3,
+        "avg_attendance": 73.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S197",
+        "name": "Victoria Gonzalez",
+        "year": "Sophomore",
+        "avg_score": 80.8,
+        "avg_attendance": 82.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S113",
+        "name": "Penelope Martinez",
+        "year": "Sophomore",
+        "avg_score": 82.4,
+        "avg_attendance": 76.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S209",
+        "name": "Sebastian Ramirez",
+        "year": "Senior",
+        "avg_score": 84.0,
+        "avg_attendance": 86.0,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P002",
+    "name": "Prof. Kennedy White",
+    "first_name": "Prof.",
+    "email": "kennedy.white@campusiq.edu",
+    "department": "School of Agricultural Sciences",
+    "dept_id": "AGR",
+    "office": "Room 325, Colden Hall",
+    "office_hours": "Mon/Wed/Fri 9am\u201310am",
+    "courses_taught": [
+      {
+        "course_code": "AGR-210",
+        "course_title": "Animal Husbandry",
+        "n_students": 8,
+        "class_avg": 68.6,
+        "class_attendance": 67.2
+      },
+      {
+        "course_code": "AGR-340",
+        "course_title": "Agricultural Economics",
+        "n_students": 7,
+        "class_avg": 72.1,
+        "class_attendance": 69.5
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 1,
+      "high_performers": 6,
+      "avg_score": 73.83,
+      "avg_attendance": 73.72
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S125",
+        "name": "Carter Moore",
+        "year": "Senior",
+        "avg_score": 47.3,
+        "avg_attendance": 52.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S125",
+        "name": "Carter Moore",
+        "year": "Senior",
+        "avg_score": 47.3,
+        "avg_attendance": 52.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S101",
+        "name": "Paisley Davis",
+        "year": "Freshman",
+        "avg_score": 66.2,
+        "avg_attendance": 69.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S173",
+        "name": "Gabriel Hernandez",
+        "year": "Junior",
+        "avg_score": 68.7,
+        "avg_attendance": 67.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S137",
+        "name": "Jackson Jones",
+        "year": "Sophomore",
+        "avg_score": 71.1,
+        "avg_attendance": 74.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S161",
+        "name": "Sarah Green",
+        "year": "Junior",
+        "avg_score": 78.1,
+        "avg_attendance": 77.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S185",
+        "name": "Christian Perez",
+        "year": "Freshman",
+        "avg_score": 79.4,
+        "avg_attendance": 78.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S149",
+        "name": "Willow Baker",
+        "year": "Senior",
+        "avg_score": 80.3,
+        "avg_attendance": 73.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S197",
+        "name": "Victoria Gonzalez",
+        "year": "Sophomore",
+        "avg_score": 80.8,
+        "avg_attendance": 82.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S113",
+        "name": "Penelope Martinez",
+        "year": "Sophomore",
+        "avg_score": 82.4,
+        "avg_attendance": 76.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S209",
+        "name": "Sebastian Ramirez",
+        "year": "Senior",
+        "avg_score": 84.0,
+        "avg_attendance": 86.0,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P003",
+    "name": "Dr. Aria Williams",
+    "first_name": "Aria",
+    "email": "aria.williams@campusiq.edu",
+    "department": "School of Agricultural Sciences",
+    "dept_id": "AGR",
+    "office": "Room 336, Colden Hall",
+    "office_hours": "By appointment",
+    "courses_taught": [
+      {
+        "course_code": "AGR-450",
+        "course_title": "Food Science & Safety",
+        "n_students": 9,
+        "class_avg": 70.7,
+        "class_attendance": 70.4
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 1,
+      "high_performers": 6,
+      "avg_score": 73.83,
+      "avg_attendance": 73.72
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S125",
+        "name": "Carter Moore",
+        "year": "Senior",
+        "avg_score": 47.3,
+        "avg_attendance": 52.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S125",
+        "name": "Carter Moore",
+        "year": "Senior",
+        "avg_score": 47.3,
+        "avg_attendance": 52.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S101",
+        "name": "Paisley Davis",
+        "year": "Freshman",
+        "avg_score": 66.2,
+        "avg_attendance": 69.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S173",
+        "name": "Gabriel Hernandez",
+        "year": "Junior",
+        "avg_score": 68.7,
+        "avg_attendance": 67.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S137",
+        "name": "Jackson Jones",
+        "year": "Sophomore",
+        "avg_score": 71.1,
+        "avg_attendance": 74.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S161",
+        "name": "Sarah Green",
+        "year": "Junior",
+        "avg_score": 78.1,
+        "avg_attendance": 77.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S185",
+        "name": "Christian Perez",
+        "year": "Freshman",
+        "avg_score": 79.4,
+        "avg_attendance": 78.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S149",
+        "name": "Willow Baker",
+        "year": "Senior",
+        "avg_score": 80.3,
+        "avg_attendance": 73.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S197",
+        "name": "Victoria Gonzalez",
+        "year": "Sophomore",
+        "avg_score": 80.8,
+        "avg_attendance": 82.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S113",
+        "name": "Penelope Martinez",
+        "year": "Sophomore",
+        "avg_score": 82.4,
+        "avg_attendance": 76.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S209",
+        "name": "Sebastian Ramirez",
+        "year": "Senior",
+        "avg_score": 84.0,
+        "avg_attendance": 86.0,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P004",
+    "name": "Dr. Claire Lee",
+    "first_name": "Claire",
+    "email": "claire.lee@campusiq.edu",
+    "department": "Booth School of Business",
+    "dept_id": "BUS",
+    "office": "Room 102, Wells Hall",
+    "office_hours": "Tue 10am\u201312pm, Thu 3pm\u20135pm",
+    "courses_taught": [
+      {
+        "course_code": "BUS-101",
+        "course_title": "Principles of Management",
+        "n_students": 10,
+        "class_avg": 67.1,
+        "class_attendance": 71.7
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 1,
+      "high_performers": 0,
+      "avg_score": 67.12,
+      "avg_attendance": 67.1
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S198",
+        "name": "Isaac Lewis",
+        "year": "Sophomore",
+        "avg_score": 51.6,
+        "avg_attendance": 54.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S198",
+        "name": "Isaac Lewis",
+        "year": "Sophomore",
+        "avg_score": 51.6,
+        "avg_attendance": 54.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S126",
+        "name": "Paisley Singh",
+        "year": "Junior",
+        "avg_score": 64.0,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S102",
+        "name": "Asher Moore",
+        "year": "Sophomore",
+        "avg_score": 67.1,
+        "avg_attendance": 66.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S162",
+        "name": "Aaliyah Green",
+        "year": "Sophomore",
+        "avg_score": 67.4,
+        "avg_attendance": 67.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S186",
+        "name": "Aurora Thomas",
+        "year": "Junior",
+        "avg_score": 68.1,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S174",
+        "name": "Savannah Chen",
+        "year": "Senior",
+        "avg_score": 68.8,
+        "avg_attendance": 65.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S114",
+        "name": "Samantha Perez",
+        "year": "Freshman",
+        "avg_score": 69.0,
+        "avg_attendance": 70.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S138",
+        "name": "Eli Torres",
+        "year": "Junior",
+        "avg_score": 69.1,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S150",
+        "name": "Anthony Jones",
+        "year": "Senior",
+        "avg_score": 71.9,
+        "avg_attendance": 70.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S210",
+        "name": "Evelyn Gonzalez",
+        "year": "Junior",
+        "avg_score": 74.2,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      }
+    ]
+  },
+  {
+    "prof_id": "P005",
+    "name": "Dr. Allison Hall",
+    "first_name": "Allison",
+    "email": "allison.hall@campusiq.edu",
+    "department": "Booth School of Business",
+    "dept_id": "BUS",
+    "office": "Room 358, Hughes Fieldhouse",
+    "office_hours": "Tue 10am\u201312pm, Thu 3pm\u20135pm",
+    "courses_taught": [
+      {
+        "course_code": "BUS-220",
+        "course_title": "Financial Accounting",
+        "n_students": 13,
+        "class_avg": 73.6,
+        "class_attendance": 69.9
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 1,
+      "high_performers": 0,
+      "avg_score": 67.12,
+      "avg_attendance": 67.1
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S198",
+        "name": "Isaac Lewis",
+        "year": "Sophomore",
+        "avg_score": 51.6,
+        "avg_attendance": 54.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S198",
+        "name": "Isaac Lewis",
+        "year": "Sophomore",
+        "avg_score": 51.6,
+        "avg_attendance": 54.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S126",
+        "name": "Paisley Singh",
+        "year": "Junior",
+        "avg_score": 64.0,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S102",
+        "name": "Asher Moore",
+        "year": "Sophomore",
+        "avg_score": 67.1,
+        "avg_attendance": 66.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S162",
+        "name": "Aaliyah Green",
+        "year": "Sophomore",
+        "avg_score": 67.4,
+        "avg_attendance": 67.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S186",
+        "name": "Aurora Thomas",
+        "year": "Junior",
+        "avg_score": 68.1,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S174",
+        "name": "Savannah Chen",
+        "year": "Senior",
+        "avg_score": 68.8,
+        "avg_attendance": 65.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S114",
+        "name": "Samantha Perez",
+        "year": "Freshman",
+        "avg_score": 69.0,
+        "avg_attendance": 70.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S138",
+        "name": "Eli Torres",
+        "year": "Junior",
+        "avg_score": 69.1,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S150",
+        "name": "Anthony Jones",
+        "year": "Senior",
+        "avg_score": 71.9,
+        "avg_attendance": 70.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S210",
+        "name": "Evelyn Gonzalez",
+        "year": "Junior",
+        "avg_score": 74.2,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      }
+    ]
+  },
+  {
+    "prof_id": "P006",
+    "name": "Dr. Brooklyn Rivera",
+    "first_name": "Brooklyn",
+    "email": "brooklyn.rivera@campusiq.edu",
+    "department": "Booth School of Business",
+    "dept_id": "BUS",
+    "office": "Room 457, Garrett-Strong",
+    "office_hours": "Wed 1pm\u20134pm",
+    "courses_taught": [
+      {
+        "course_code": "BUS-240",
+        "course_title": "Marketing Fundamentals",
+        "n_students": 12,
+        "class_avg": 68.4,
+        "class_attendance": 67.9
+      },
+      {
+        "course_code": "BUS-310",
+        "course_title": "Business Statistics",
+        "n_students": 10,
+        "class_avg": 64.0,
+        "class_attendance": 64.8
+      },
+      {
+        "course_code": "BUS-360",
+        "course_title": "Operations Management",
+        "n_students": 10,
+        "class_avg": 67.8,
+        "class_attendance": 66.9
+      },
+      {
+        "course_code": "BUS-420",
+        "course_title": "Corporate Finance",
+        "n_students": 7,
+        "class_avg": 66.1,
+        "class_attendance": 65.8
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 1,
+      "high_performers": 0,
+      "avg_score": 67.12,
+      "avg_attendance": 67.1
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S198",
+        "name": "Isaac Lewis",
+        "year": "Sophomore",
+        "avg_score": 51.6,
+        "avg_attendance": 54.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S198",
+        "name": "Isaac Lewis",
+        "year": "Sophomore",
+        "avg_score": 51.6,
+        "avg_attendance": 54.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S126",
+        "name": "Paisley Singh",
+        "year": "Junior",
+        "avg_score": 64.0,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S102",
+        "name": "Asher Moore",
+        "year": "Sophomore",
+        "avg_score": 67.1,
+        "avg_attendance": 66.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S162",
+        "name": "Aaliyah Green",
+        "year": "Sophomore",
+        "avg_score": 67.4,
+        "avg_attendance": 67.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S186",
+        "name": "Aurora Thomas",
+        "year": "Junior",
+        "avg_score": 68.1,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S174",
+        "name": "Savannah Chen",
+        "year": "Senior",
+        "avg_score": 68.8,
+        "avg_attendance": 65.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S114",
+        "name": "Samantha Perez",
+        "year": "Freshman",
+        "avg_score": 69.0,
+        "avg_attendance": 70.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S138",
+        "name": "Eli Torres",
+        "year": "Junior",
+        "avg_score": 69.1,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S150",
+        "name": "Anthony Jones",
+        "year": "Senior",
+        "avg_score": 71.9,
+        "avg_attendance": 70.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S210",
+        "name": "Evelyn Gonzalez",
+        "year": "Junior",
+        "avg_score": 74.2,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      }
+    ]
+  },
+  {
+    "prof_id": "P007",
+    "name": "Prof. Kinsley Adams",
+    "first_name": "Prof.",
+    "email": "kinsley.adams@campusiq.edu",
+    "department": "School of Communication and Mass Media",
+    "dept_id": "COM",
+    "office": "Room 390, Hughes Fieldhouse",
+    "office_hours": "Fri 9am\u201312pm",
+    "courses_taught": [],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 3,
+      "avg_score": 69.56,
+      "avg_attendance": 70.16
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S139",
+        "name": "Layla Adams",
+        "year": "Senior",
+        "avg_score": 53.7,
+        "avg_attendance": 53.4,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S163",
+        "name": "Evelyn White",
+        "year": "Sophomore",
+        "avg_score": 58.2,
+        "avg_attendance": 67.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S139",
+        "name": "Layla Adams",
+        "year": "Senior",
+        "avg_score": 53.7,
+        "avg_attendance": 53.4,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S163",
+        "name": "Evelyn White",
+        "year": "Sophomore",
+        "avg_score": 58.2,
+        "avg_attendance": 67.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S211",
+        "name": "Layla Brown",
+        "year": "Freshman",
+        "avg_score": 62.3,
+        "avg_attendance": 65.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S115",
+        "name": "Isabella Harris",
+        "year": "Freshman",
+        "avg_score": 69.4,
+        "avg_attendance": 71.4,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S187",
+        "name": "Anna Young",
+        "year": "Sophomore",
+        "avg_score": 69.8,
+        "avg_attendance": 69.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S151",
+        "name": "Carter Hill",
+        "year": "Senior",
+        "avg_score": 70.9,
+        "avg_attendance": 69.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S199",
+        "name": "John Lopez",
+        "year": "Junior",
+        "avg_score": 74.7,
+        "avg_attendance": 73.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S127",
+        "name": "Oliver White",
+        "year": "Junior",
+        "avg_score": 75.1,
+        "avg_attendance": 76.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S103",
+        "name": "Alexander Rodriguez",
+        "year": "Freshman",
+        "avg_score": 79.3,
+        "avg_attendance": 76.5,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S175",
+        "name": "Layla Liu",
+        "year": "Sophomore",
+        "avg_score": 82.3,
+        "avg_attendance": 77.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P008",
+    "name": "Prof. Wyatt Nguyen",
+    "first_name": "Prof.",
+    "email": "wyatt.nguyen@campusiq.edu",
+    "department": "School of Communication and Mass Media",
+    "dept_id": "COM",
+    "office": "Room 393, Valk Center",
+    "office_hours": "By appointment",
+    "courses_taught": [
+      {
+        "course_code": "COM-101",
+        "course_title": "Introduction to Mass Communication",
+        "n_students": 15,
+        "class_avg": 69.5,
+        "class_attendance": 71.3
+      },
+      {
+        "course_code": "COM-210",
+        "course_title": "Digital Journalism",
+        "n_students": 10,
+        "class_avg": 72.7,
+        "class_attendance": 71.2
+      },
+      {
+        "course_code": "COM-360",
+        "course_title": "Social Media Strategy",
+        "n_students": 12,
+        "class_avg": 66.4,
+        "class_attendance": 67.5
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 3,
+      "avg_score": 69.56,
+      "avg_attendance": 70.16
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S139",
+        "name": "Layla Adams",
+        "year": "Senior",
+        "avg_score": 53.7,
+        "avg_attendance": 53.4,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S163",
+        "name": "Evelyn White",
+        "year": "Sophomore",
+        "avg_score": 58.2,
+        "avg_attendance": 67.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S139",
+        "name": "Layla Adams",
+        "year": "Senior",
+        "avg_score": 53.7,
+        "avg_attendance": 53.4,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S163",
+        "name": "Evelyn White",
+        "year": "Sophomore",
+        "avg_score": 58.2,
+        "avg_attendance": 67.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S211",
+        "name": "Layla Brown",
+        "year": "Freshman",
+        "avg_score": 62.3,
+        "avg_attendance": 65.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S115",
+        "name": "Isabella Harris",
+        "year": "Freshman",
+        "avg_score": 69.4,
+        "avg_attendance": 71.4,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S187",
+        "name": "Anna Young",
+        "year": "Sophomore",
+        "avg_score": 69.8,
+        "avg_attendance": 69.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S151",
+        "name": "Carter Hill",
+        "year": "Senior",
+        "avg_score": 70.9,
+        "avg_attendance": 69.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S199",
+        "name": "John Lopez",
+        "year": "Junior",
+        "avg_score": 74.7,
+        "avg_attendance": 73.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S127",
+        "name": "Oliver White",
+        "year": "Junior",
+        "avg_score": 75.1,
+        "avg_attendance": 76.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S103",
+        "name": "Alexander Rodriguez",
+        "year": "Freshman",
+        "avg_score": 79.3,
+        "avg_attendance": 76.5,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S175",
+        "name": "Layla Liu",
+        "year": "Sophomore",
+        "avg_score": 82.3,
+        "avg_attendance": 77.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P009",
+    "name": "Prof. David Rodriguez",
+    "first_name": "Prof.",
+    "email": "david.rodriguez@campusiq.edu",
+    "department": "School of Communication and Mass Media",
+    "dept_id": "COM",
+    "office": "Room 231, Garrett-Strong",
+    "office_hours": "Fri 9am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "COM-245",
+        "course_title": "Public Relations",
+        "n_students": 11,
+        "class_avg": 73.2,
+        "class_attendance": 71.8
+      },
+      {
+        "course_code": "COM-320",
+        "course_title": "Broadcast Production",
+        "n_students": 11,
+        "class_avg": 64.7,
+        "class_attendance": 68.7
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 3,
+      "avg_score": 69.56,
+      "avg_attendance": 70.16
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S139",
+        "name": "Layla Adams",
+        "year": "Senior",
+        "avg_score": 53.7,
+        "avg_attendance": 53.4,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S163",
+        "name": "Evelyn White",
+        "year": "Sophomore",
+        "avg_score": 58.2,
+        "avg_attendance": 67.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S139",
+        "name": "Layla Adams",
+        "year": "Senior",
+        "avg_score": 53.7,
+        "avg_attendance": 53.4,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S163",
+        "name": "Evelyn White",
+        "year": "Sophomore",
+        "avg_score": 58.2,
+        "avg_attendance": 67.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S211",
+        "name": "Layla Brown",
+        "year": "Freshman",
+        "avg_score": 62.3,
+        "avg_attendance": 65.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S115",
+        "name": "Isabella Harris",
+        "year": "Freshman",
+        "avg_score": 69.4,
+        "avg_attendance": 71.4,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S187",
+        "name": "Anna Young",
+        "year": "Sophomore",
+        "avg_score": 69.8,
+        "avg_attendance": 69.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S151",
+        "name": "Carter Hill",
+        "year": "Senior",
+        "avg_score": 70.9,
+        "avg_attendance": 69.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S199",
+        "name": "John Lopez",
+        "year": "Junior",
+        "avg_score": 74.7,
+        "avg_attendance": 73.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S127",
+        "name": "Oliver White",
+        "year": "Junior",
+        "avg_score": 75.1,
+        "avg_attendance": 76.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S103",
+        "name": "Alexander Rodriguez",
+        "year": "Freshman",
+        "avg_score": 79.3,
+        "avg_attendance": 76.5,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S175",
+        "name": "Layla Liu",
+        "year": "Sophomore",
+        "avg_score": 82.3,
+        "avg_attendance": 77.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P010",
+    "name": "Dr. Thomas Davis",
+    "first_name": "Thomas",
+    "email": "thomas.davis@campusiq.edu",
+    "department": "School of Computer Science and Information Systems",
+    "dept_id": "CSE",
+    "office": "Room 475, Colden Hall",
+    "office_hours": "Mon/Wed/Fri 9am\u201310am",
+    "courses_taught": [
+      {
+        "course_code": "CSE-101",
+        "course_title": "Introduction to Programming",
+        "n_students": 9,
+        "class_avg": 73.6,
+        "class_attendance": 70.9
+      },
+      {
+        "course_code": "CSE-310",
+        "course_title": "Operating Systems",
+        "n_students": 9,
+        "class_avg": 70.9,
+        "class_attendance": 69.6
+      },
+      {
+        "course_code": "CSE-420",
+        "course_title": "Machine Learning",
+        "n_students": 12,
+        "class_avg": 74.8,
+        "class_attendance": 70.6
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 3,
+      "avg_score": 70.72,
+      "avg_attendance": 70.16
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S152",
+        "name": "Savannah Taylor",
+        "year": "Freshman",
+        "avg_score": 63.4,
+        "avg_attendance": 64.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S176",
+        "name": "Genesis Martin",
+        "year": "Senior",
+        "avg_score": 61.6,
+        "avg_attendance": 61.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S212",
+        "name": "Kennedy Lee",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S176",
+        "name": "Genesis Martin",
+        "year": "Senior",
+        "avg_score": 61.6,
+        "avg_attendance": 61.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S152",
+        "name": "Savannah Taylor",
+        "year": "Freshman",
+        "avg_score": 63.4,
+        "avg_attendance": 64.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S212",
+        "name": "Kennedy Lee",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S128",
+        "name": "Michael Nelson",
+        "year": "Junior",
+        "avg_score": 66.2,
+        "avg_attendance": 68.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S200",
+        "name": "Leah Thomas",
+        "year": "Freshman",
+        "avg_score": 67.6,
+        "avg_attendance": 66.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S140",
+        "name": "Owen Wang",
+        "year": "Senior",
+        "avg_score": 68.3,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S116",
+        "name": "Hannah Khan",
+        "year": "Junior",
+        "avg_score": 70.2,
+        "avg_attendance": 68.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S164",
+        "name": "Audrey Roberts",
+        "year": "Freshman",
+        "avg_score": 78.6,
+        "avg_attendance": 77.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S188",
+        "name": "Audrey Rodriguez",
+        "year": "Senior",
+        "avg_score": 79.6,
+        "avg_attendance": 80.2,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S104",
+        "name": "Andrew Mitchell",
+        "year": "Freshman",
+        "avg_score": 86.4,
+        "avg_attendance": 81.3,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P011",
+    "name": "Dr. Jayden Gonzalez",
+    "first_name": "Jayden",
+    "email": "jayden.gonzalez@campusiq.edu",
+    "department": "School of Computer Science and Information Systems",
+    "dept_id": "CSE",
+    "office": "Room 375, Colden Hall",
+    "office_hours": "Wed 1pm\u20134pm",
+    "courses_taught": [
+      {
+        "course_code": "CSE-201",
+        "course_title": "Data Structures & Algorithms",
+        "n_students": 12,
+        "class_avg": 70.9,
+        "class_attendance": 71.4
+      },
+      {
+        "course_code": "CSE-240",
+        "course_title": "Database Management Systems",
+        "n_students": 8,
+        "class_avg": 66.7,
+        "class_attendance": 66.6
+      },
+      {
+        "course_code": "CSE-350",
+        "course_title": "Computer Networks",
+        "n_students": 12,
+        "class_avg": 68.3,
+        "class_attendance": 67.3
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 3,
+      "avg_score": 70.72,
+      "avg_attendance": 70.16
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S152",
+        "name": "Savannah Taylor",
+        "year": "Freshman",
+        "avg_score": 63.4,
+        "avg_attendance": 64.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S176",
+        "name": "Genesis Martin",
+        "year": "Senior",
+        "avg_score": 61.6,
+        "avg_attendance": 61.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S212",
+        "name": "Kennedy Lee",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S176",
+        "name": "Genesis Martin",
+        "year": "Senior",
+        "avg_score": 61.6,
+        "avg_attendance": 61.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S152",
+        "name": "Savannah Taylor",
+        "year": "Freshman",
+        "avg_score": 63.4,
+        "avg_attendance": 64.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S212",
+        "name": "Kennedy Lee",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S128",
+        "name": "Michael Nelson",
+        "year": "Junior",
+        "avg_score": 66.2,
+        "avg_attendance": 68.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S200",
+        "name": "Leah Thomas",
+        "year": "Freshman",
+        "avg_score": 67.6,
+        "avg_attendance": 66.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S140",
+        "name": "Owen Wang",
+        "year": "Senior",
+        "avg_score": 68.3,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S116",
+        "name": "Hannah Khan",
+        "year": "Junior",
+        "avg_score": 70.2,
+        "avg_attendance": 68.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S164",
+        "name": "Audrey Roberts",
+        "year": "Freshman",
+        "avg_score": 78.6,
+        "avg_attendance": 77.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S188",
+        "name": "Audrey Rodriguez",
+        "year": "Senior",
+        "avg_score": 79.6,
+        "avg_attendance": 80.2,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S104",
+        "name": "Andrew Mitchell",
+        "year": "Freshman",
+        "avg_score": 86.4,
+        "avg_attendance": 81.3,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P012",
+    "name": "Dr. Allison Roberts",
+    "first_name": "Allison",
+    "email": "allison.roberts@campusiq.edu",
+    "department": "School of Computer Science and Information Systems",
+    "dept_id": "CSE",
+    "office": "Room 118, Garrett-Strong",
+    "office_hours": "Mon/Thu 11am\u20131pm",
+    "courses_taught": [],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 3,
+      "avg_score": 70.72,
+      "avg_attendance": 70.16
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S152",
+        "name": "Savannah Taylor",
+        "year": "Freshman",
+        "avg_score": 63.4,
+        "avg_attendance": 64.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S176",
+        "name": "Genesis Martin",
+        "year": "Senior",
+        "avg_score": 61.6,
+        "avg_attendance": 61.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S212",
+        "name": "Kennedy Lee",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S176",
+        "name": "Genesis Martin",
+        "year": "Senior",
+        "avg_score": 61.6,
+        "avg_attendance": 61.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S152",
+        "name": "Savannah Taylor",
+        "year": "Freshman",
+        "avg_score": 63.4,
+        "avg_attendance": 64.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S212",
+        "name": "Kennedy Lee",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S128",
+        "name": "Michael Nelson",
+        "year": "Junior",
+        "avg_score": 66.2,
+        "avg_attendance": 68.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S200",
+        "name": "Leah Thomas",
+        "year": "Freshman",
+        "avg_score": 67.6,
+        "avg_attendance": 66.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S140",
+        "name": "Owen Wang",
+        "year": "Senior",
+        "avg_score": 68.3,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S116",
+        "name": "Hannah Khan",
+        "year": "Junior",
+        "avg_score": 70.2,
+        "avg_attendance": 68.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S164",
+        "name": "Audrey Roberts",
+        "year": "Freshman",
+        "avg_score": 78.6,
+        "avg_attendance": 77.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S188",
+        "name": "Audrey Rodriguez",
+        "year": "Senior",
+        "avg_score": 79.6,
+        "avg_attendance": 80.2,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S104",
+        "name": "Andrew Mitchell",
+        "year": "Freshman",
+        "avg_score": 86.4,
+        "avg_attendance": 81.3,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P013",
+    "name": "Dr. Olivia Martinez",
+    "first_name": "Olivia",
+    "email": "olivia.martinez@campusiq.edu",
+    "department": "School of Education",
+    "dept_id": "EDU",
+    "office": "Room 496, Hughes Fieldhouse",
+    "office_hours": "By appointment",
+    "courses_taught": [
+      {
+        "course_code": "EDU-245",
+        "course_title": "Classroom Management",
+        "n_students": 12,
+        "class_avg": 74.8,
+        "class_attendance": 74.3
+      },
+      {
+        "course_code": "EDU-330",
+        "course_title": "Curriculum Design",
+        "n_students": 10,
+        "class_avg": 70.9,
+        "class_attendance": 71.6
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 0,
+      "high_performers": 5,
+      "avg_score": 76.17,
+      "avg_attendance": 75.4
+    },
+    "at_risk_students": [],
+    "all_students": [
+      {
+        "student_id": "S153",
+        "name": "Caroline Campbell",
+        "year": "Freshman",
+        "avg_score": 68.9,
+        "avg_attendance": 65.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S213",
+        "name": "Ethan Nguyen",
+        "year": "Senior",
+        "avg_score": 69.1,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S117",
+        "name": "Skylar Taylor",
+        "year": "Freshman",
+        "avg_score": 69.3,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S201",
+        "name": "Jack Shah",
+        "year": "Freshman",
+        "avg_score": 71.9,
+        "avg_attendance": 74.9,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S141",
+        "name": "Elijah Taylor",
+        "year": "Sophomore",
+        "avg_score": 72.8,
+        "avg_attendance": 75.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S177",
+        "name": "Anna Adams",
+        "year": "Junior",
+        "avg_score": 78.4,
+        "avg_attendance": 77.3,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S165",
+        "name": "Anthony Lee",
+        "year": "Senior",
+        "avg_score": 81.3,
+        "avg_attendance": 81.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S189",
+        "name": "Victoria Patel",
+        "year": "Senior",
+        "avg_score": 81.9,
+        "avg_attendance": 79.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S129",
+        "name": "Nova Liu",
+        "year": "Freshman",
+        "avg_score": 82.5,
+        "avg_attendance": 81.9,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S105",
+        "name": "Claire Ramirez",
+        "year": "Freshman",
+        "avg_score": 85.5,
+        "avg_attendance": 84.4,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P014",
+    "name": "Prof. Alexander Baker",
+    "first_name": "Prof.",
+    "email": "alexander.baker@campusiq.edu",
+    "department": "School of Education",
+    "dept_id": "EDU",
+    "office": "Room 135, Wells Hall",
+    "office_hours": "Tue 10am\u201312pm, Thu 3pm\u20135pm",
+    "courses_taught": [
+      {
+        "course_code": "EDU-101",
+        "course_title": "Foundations of Education",
+        "n_students": 15,
+        "class_avg": 72.3,
+        "class_attendance": 71.4
+      },
+      {
+        "course_code": "EDU-410",
+        "course_title": "Teaching with Technology",
+        "n_students": 11,
+        "class_avg": 78.5,
+        "class_attendance": 76.0
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 0,
+      "high_performers": 5,
+      "avg_score": 76.17,
+      "avg_attendance": 75.4
+    },
+    "at_risk_students": [],
+    "all_students": [
+      {
+        "student_id": "S153",
+        "name": "Caroline Campbell",
+        "year": "Freshman",
+        "avg_score": 68.9,
+        "avg_attendance": 65.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S213",
+        "name": "Ethan Nguyen",
+        "year": "Senior",
+        "avg_score": 69.1,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S117",
+        "name": "Skylar Taylor",
+        "year": "Freshman",
+        "avg_score": 69.3,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S201",
+        "name": "Jack Shah",
+        "year": "Freshman",
+        "avg_score": 71.9,
+        "avg_attendance": 74.9,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S141",
+        "name": "Elijah Taylor",
+        "year": "Sophomore",
+        "avg_score": 72.8,
+        "avg_attendance": 75.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S177",
+        "name": "Anna Adams",
+        "year": "Junior",
+        "avg_score": 78.4,
+        "avg_attendance": 77.3,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S165",
+        "name": "Anthony Lee",
+        "year": "Senior",
+        "avg_score": 81.3,
+        "avg_attendance": 81.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S189",
+        "name": "Victoria Patel",
+        "year": "Senior",
+        "avg_score": 81.9,
+        "avg_attendance": 79.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S129",
+        "name": "Nova Liu",
+        "year": "Freshman",
+        "avg_score": 82.5,
+        "avg_attendance": 81.9,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S105",
+        "name": "Claire Ramirez",
+        "year": "Freshman",
+        "avg_score": 85.5,
+        "avg_attendance": 84.4,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P015",
+    "name": "Dr. Layla Wang",
+    "first_name": "Layla",
+    "email": "layla.wang@campusiq.edu",
+    "department": "School of Education",
+    "dept_id": "EDU",
+    "office": "Room 324, Garrett-Strong",
+    "office_hours": "Wed 1pm\u20134pm",
+    "courses_taught": [
+      {
+        "course_code": "EDU-210",
+        "course_title": "Child Development & Psychology",
+        "n_students": 10,
+        "class_avg": 76.1,
+        "class_attendance": 74.5
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 0,
+      "high_performers": 5,
+      "avg_score": 76.17,
+      "avg_attendance": 75.4
+    },
+    "at_risk_students": [],
+    "all_students": [
+      {
+        "student_id": "S153",
+        "name": "Caroline Campbell",
+        "year": "Freshman",
+        "avg_score": 68.9,
+        "avg_attendance": 65.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S213",
+        "name": "Ethan Nguyen",
+        "year": "Senior",
+        "avg_score": 69.1,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S117",
+        "name": "Skylar Taylor",
+        "year": "Freshman",
+        "avg_score": 69.3,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S201",
+        "name": "Jack Shah",
+        "year": "Freshman",
+        "avg_score": 71.9,
+        "avg_attendance": 74.9,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S141",
+        "name": "Elijah Taylor",
+        "year": "Sophomore",
+        "avg_score": 72.8,
+        "avg_attendance": 75.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S177",
+        "name": "Anna Adams",
+        "year": "Junior",
+        "avg_score": 78.4,
+        "avg_attendance": 77.3,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S165",
+        "name": "Anthony Lee",
+        "year": "Senior",
+        "avg_score": 81.3,
+        "avg_attendance": 81.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S189",
+        "name": "Victoria Patel",
+        "year": "Senior",
+        "avg_score": 81.9,
+        "avg_attendance": 79.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S129",
+        "name": "Nova Liu",
+        "year": "Freshman",
+        "avg_score": 82.5,
+        "avg_attendance": 81.9,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S105",
+        "name": "Claire Ramirez",
+        "year": "Freshman",
+        "avg_score": 85.5,
+        "avg_attendance": 84.4,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P016",
+    "name": "Prof. Lily Chen",
+    "first_name": "Prof.",
+    "email": "lily.chen@campusiq.edu",
+    "department": "School of Health Science and Wellness",
+    "dept_id": "HSW",
+    "office": "Room 315, Hughes Fieldhouse",
+    "office_hours": "Mon/Wed 10am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "HSW-250",
+        "course_title": "Community Health",
+        "n_students": 10,
+        "class_avg": 64.6,
+        "class_attendance": 67.3
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 0,
+      "avg_score": 66.22,
+      "avg_attendance": 67.58
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S106",
+        "name": "Emma Garcia",
+        "year": "Sophomore",
+        "avg_score": 54.7,
+        "avg_attendance": 56.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S154",
+        "name": "Caroline Wang",
+        "year": "Junior",
+        "avg_score": 52.0,
+        "avg_attendance": 56.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S154",
+        "name": "Caroline Wang",
+        "year": "Junior",
+        "avg_score": 52.0,
+        "avg_attendance": 56.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S106",
+        "name": "Emma Garcia",
+        "year": "Sophomore",
+        "avg_score": 54.7,
+        "avg_attendance": 56.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S202",
+        "name": "Ethan Adams",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 67.9,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S190",
+        "name": "Kinsley Clark",
+        "year": "Sophomore",
+        "avg_score": 65.4,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S166",
+        "name": "Liam Davis",
+        "year": "Junior",
+        "avg_score": 66.2,
+        "avg_attendance": 71.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S130",
+        "name": "Skylar Green",
+        "year": "Sophomore",
+        "avg_score": 67.4,
+        "avg_attendance": 70.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S118",
+        "name": "Emilia Robinson",
+        "year": "Freshman",
+        "avg_score": 72.1,
+        "avg_attendance": 72.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S178",
+        "name": "Jack Kim",
+        "year": "Senior",
+        "avg_score": 72.1,
+        "avg_attendance": 73.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S214",
+        "name": "Grayson Park",
+        "year": "Sophomore",
+        "avg_score": 73.0,
+        "avg_attendance": 71.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S142",
+        "name": "Victoria Mitchell",
+        "year": "Junior",
+        "avg_score": 73.9,
+        "avg_attendance": 70.1,
+        "at_risk": "No",
+        "category": "Medium"
+      }
+    ]
+  },
+  {
+    "prof_id": "P017",
+    "name": "Dr. Aubrey Chen",
+    "first_name": "Aubrey",
+    "email": "aubrey.chen@campusiq.edu",
+    "department": "School of Health Science and Wellness",
+    "dept_id": "HSW",
+    "office": "Room 379, Wells Hall",
+    "office_hours": "Mon/Wed 10am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "HSW-340",
+        "course_title": "Exercise Physiology",
+        "n_students": 8,
+        "class_avg": 64.4,
+        "class_attendance": 64.5
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 0,
+      "avg_score": 66.22,
+      "avg_attendance": 67.58
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S106",
+        "name": "Emma Garcia",
+        "year": "Sophomore",
+        "avg_score": 54.7,
+        "avg_attendance": 56.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S154",
+        "name": "Caroline Wang",
+        "year": "Junior",
+        "avg_score": 52.0,
+        "avg_attendance": 56.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S154",
+        "name": "Caroline Wang",
+        "year": "Junior",
+        "avg_score": 52.0,
+        "avg_attendance": 56.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S106",
+        "name": "Emma Garcia",
+        "year": "Sophomore",
+        "avg_score": 54.7,
+        "avg_attendance": 56.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S202",
+        "name": "Ethan Adams",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 67.9,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S190",
+        "name": "Kinsley Clark",
+        "year": "Sophomore",
+        "avg_score": 65.4,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S166",
+        "name": "Liam Davis",
+        "year": "Junior",
+        "avg_score": 66.2,
+        "avg_attendance": 71.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S130",
+        "name": "Skylar Green",
+        "year": "Sophomore",
+        "avg_score": 67.4,
+        "avg_attendance": 70.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S118",
+        "name": "Emilia Robinson",
+        "year": "Freshman",
+        "avg_score": 72.1,
+        "avg_attendance": 72.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S178",
+        "name": "Jack Kim",
+        "year": "Senior",
+        "avg_score": 72.1,
+        "avg_attendance": 73.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S214",
+        "name": "Grayson Park",
+        "year": "Sophomore",
+        "avg_score": 73.0,
+        "avg_attendance": 71.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S142",
+        "name": "Victoria Mitchell",
+        "year": "Junior",
+        "avg_score": 73.9,
+        "avg_attendance": 70.1,
+        "at_risk": "No",
+        "category": "Medium"
+      }
+    ]
+  },
+  {
+    "prof_id": "P018",
+    "name": "Dr. Kennedy Ramirez",
+    "first_name": "Kennedy",
+    "email": "kennedy.ramirez@campusiq.edu",
+    "department": "School of Health Science and Wellness",
+    "dept_id": "HSW",
+    "office": "Room 199, Hughes Fieldhouse",
+    "office_hours": "Wed 1pm\u20134pm",
+    "courses_taught": [
+      {
+        "course_code": "HSW-101",
+        "course_title": "Human Anatomy & Physiology",
+        "n_students": 7,
+        "class_avg": 70.0,
+        "class_attendance": 70.9
+      },
+      {
+        "course_code": "HSW-210",
+        "course_title": "Nutrition Science",
+        "n_students": 11,
+        "class_avg": 64.3,
+        "class_attendance": 64.7
+      },
+      {
+        "course_code": "HSW-410",
+        "course_title": "Healthcare Administration",
+        "n_students": 9,
+        "class_avg": 68.7,
+        "class_attendance": 69.2
+      },
+      {
+        "course_code": "HSW-450",
+        "course_title": "Mental Health & Wellness",
+        "n_students": 13,
+        "class_avg": 67.5,
+        "class_attendance": 71.1
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 0,
+      "avg_score": 66.22,
+      "avg_attendance": 67.58
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S106",
+        "name": "Emma Garcia",
+        "year": "Sophomore",
+        "avg_score": 54.7,
+        "avg_attendance": 56.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S154",
+        "name": "Caroline Wang",
+        "year": "Junior",
+        "avg_score": 52.0,
+        "avg_attendance": 56.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S154",
+        "name": "Caroline Wang",
+        "year": "Junior",
+        "avg_score": 52.0,
+        "avg_attendance": 56.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S106",
+        "name": "Emma Garcia",
+        "year": "Sophomore",
+        "avg_score": 54.7,
+        "avg_attendance": 56.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S202",
+        "name": "Ethan Adams",
+        "year": "Freshman",
+        "avg_score": 65.3,
+        "avg_attendance": 67.9,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S190",
+        "name": "Kinsley Clark",
+        "year": "Sophomore",
+        "avg_score": 65.4,
+        "avg_attendance": 65.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S166",
+        "name": "Liam Davis",
+        "year": "Junior",
+        "avg_score": 66.2,
+        "avg_attendance": 71.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S130",
+        "name": "Skylar Green",
+        "year": "Sophomore",
+        "avg_score": 67.4,
+        "avg_attendance": 70.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S118",
+        "name": "Emilia Robinson",
+        "year": "Freshman",
+        "avg_score": 72.1,
+        "avg_attendance": 72.1,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S178",
+        "name": "Jack Kim",
+        "year": "Senior",
+        "avg_score": 72.1,
+        "avg_attendance": 73.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S214",
+        "name": "Grayson Park",
+        "year": "Sophomore",
+        "avg_score": 73.0,
+        "avg_attendance": 71.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S142",
+        "name": "Victoria Mitchell",
+        "year": "Junior",
+        "avg_score": 73.9,
+        "avg_attendance": 70.1,
+        "at_risk": "No",
+        "category": "Medium"
+      }
+    ]
+  },
+  {
+    "prof_id": "P019",
+    "name": "Dr. Genesis Taylor",
+    "first_name": "Genesis",
+    "email": "genesis.taylor@campusiq.edu",
+    "department": "Fine and Performing Arts Department",
+    "dept_id": "FPA",
+    "office": "Room 377, Hughes Fieldhouse",
+    "office_hours": "Wed 1pm\u20134pm",
+    "courses_taught": [
+      {
+        "course_code": "FPA-410",
+        "course_title": "Contemporary Art & Design",
+        "n_students": 10,
+        "class_avg": 66.6,
+        "class_attendance": 65.3
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 5,
+      "high_performers": 4,
+      "avg_score": 69.39,
+      "avg_attendance": 67.52
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S107",
+        "name": "Scarlett Allen",
+        "year": "Freshman",
+        "avg_score": 63.2,
+        "avg_attendance": 62.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S119",
+        "name": "Ezra Harris",
+        "year": "Freshman",
+        "avg_score": 60.2,
+        "avg_attendance": 60.1,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S155",
+        "name": "Thomas Adams",
+        "year": "Junior",
+        "avg_score": 66.3,
+        "avg_attendance": 63.2,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S203",
+        "name": "Isabella Liu",
+        "year": "Sophomore",
+        "avg_score": 63.6,
+        "avg_attendance": 62.6,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S215",
+        "name": "Sophia Allen",
+        "year": "Freshman",
+        "avg_score": 54.0,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S215",
+        "name": "Sophia Allen",
+        "year": "Freshman",
+        "avg_score": 54.0,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S119",
+        "name": "Ezra Harris",
+        "year": "Freshman",
+        "avg_score": 60.2,
+        "avg_attendance": 60.1,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S107",
+        "name": "Scarlett Allen",
+        "year": "Freshman",
+        "avg_score": 63.2,
+        "avg_attendance": 62.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S203",
+        "name": "Isabella Liu",
+        "year": "Sophomore",
+        "avg_score": 63.6,
+        "avg_attendance": 62.6,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S155",
+        "name": "Thomas Adams",
+        "year": "Junior",
+        "avg_score": 66.3,
+        "avg_attendance": 63.2,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S167",
+        "name": "Hunter Singh",
+        "year": "Junior",
+        "avg_score": 70.6,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S179",
+        "name": "Amelia Thomas",
+        "year": "Sophomore",
+        "avg_score": 76.9,
+        "avg_attendance": 74.2,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S143",
+        "name": "Kennedy Nguyen",
+        "year": "Senior",
+        "avg_score": 77.5,
+        "avg_attendance": 76.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S191",
+        "name": "Logan Miller",
+        "year": "Senior",
+        "avg_score": 80.7,
+        "avg_attendance": 77.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S131",
+        "name": "Isaac Campbell",
+        "year": "Sophomore",
+        "avg_score": 80.9,
+        "avg_attendance": 75.8,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P020",
+    "name": "Prof. Gabriel Martin",
+    "first_name": "Prof.",
+    "email": "gabriel.martin@campusiq.edu",
+    "department": "Fine and Performing Arts Department",
+    "dept_id": "FPA",
+    "office": "Room 262, Owens Library",
+    "office_hours": "Wed 1pm\u20134pm",
+    "courses_taught": [
+      {
+        "course_code": "FPA-245",
+        "course_title": "Theatre & Performance",
+        "n_students": 12,
+        "class_avg": 67.4,
+        "class_attendance": 65.5
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 5,
+      "high_performers": 4,
+      "avg_score": 69.39,
+      "avg_attendance": 67.52
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S107",
+        "name": "Scarlett Allen",
+        "year": "Freshman",
+        "avg_score": 63.2,
+        "avg_attendance": 62.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S119",
+        "name": "Ezra Harris",
+        "year": "Freshman",
+        "avg_score": 60.2,
+        "avg_attendance": 60.1,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S155",
+        "name": "Thomas Adams",
+        "year": "Junior",
+        "avg_score": 66.3,
+        "avg_attendance": 63.2,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S203",
+        "name": "Isabella Liu",
+        "year": "Sophomore",
+        "avg_score": 63.6,
+        "avg_attendance": 62.6,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S215",
+        "name": "Sophia Allen",
+        "year": "Freshman",
+        "avg_score": 54.0,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S215",
+        "name": "Sophia Allen",
+        "year": "Freshman",
+        "avg_score": 54.0,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S119",
+        "name": "Ezra Harris",
+        "year": "Freshman",
+        "avg_score": 60.2,
+        "avg_attendance": 60.1,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S107",
+        "name": "Scarlett Allen",
+        "year": "Freshman",
+        "avg_score": 63.2,
+        "avg_attendance": 62.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S203",
+        "name": "Isabella Liu",
+        "year": "Sophomore",
+        "avg_score": 63.6,
+        "avg_attendance": 62.6,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S155",
+        "name": "Thomas Adams",
+        "year": "Junior",
+        "avg_score": 66.3,
+        "avg_attendance": 63.2,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S167",
+        "name": "Hunter Singh",
+        "year": "Junior",
+        "avg_score": 70.6,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S179",
+        "name": "Amelia Thomas",
+        "year": "Sophomore",
+        "avg_score": 76.9,
+        "avg_attendance": 74.2,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S143",
+        "name": "Kennedy Nguyen",
+        "year": "Senior",
+        "avg_score": 77.5,
+        "avg_attendance": 76.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S191",
+        "name": "Logan Miller",
+        "year": "Senior",
+        "avg_score": 80.7,
+        "avg_attendance": 77.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S131",
+        "name": "Isaac Campbell",
+        "year": "Sophomore",
+        "avg_score": 80.9,
+        "avg_attendance": 75.8,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P021",
+    "name": "Dr. Carter Park",
+    "first_name": "Carter",
+    "email": "carter.park@campusiq.edu",
+    "department": "Fine and Performing Arts Department",
+    "dept_id": "FPA",
+    "office": "Room 307, Valk Center",
+    "office_hours": "Mon/Wed 10am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "FPA-101",
+        "course_title": "Introduction to Visual Arts",
+        "n_students": 14,
+        "class_avg": 71.1,
+        "class_attendance": 71.3
+      },
+      {
+        "course_code": "FPA-210",
+        "course_title": "Music Theory",
+        "n_students": 12,
+        "class_avg": 73.6,
+        "class_attendance": 74.0
+      },
+      {
+        "course_code": "FPA-320",
+        "course_title": "Digital Media Art",
+        "n_students": 10,
+        "class_avg": 67.9,
+        "class_attendance": 67.9
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 5,
+      "high_performers": 4,
+      "avg_score": 69.39,
+      "avg_attendance": 67.52
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S107",
+        "name": "Scarlett Allen",
+        "year": "Freshman",
+        "avg_score": 63.2,
+        "avg_attendance": 62.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S119",
+        "name": "Ezra Harris",
+        "year": "Freshman",
+        "avg_score": 60.2,
+        "avg_attendance": 60.1,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S155",
+        "name": "Thomas Adams",
+        "year": "Junior",
+        "avg_score": 66.3,
+        "avg_attendance": 63.2,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S203",
+        "name": "Isabella Liu",
+        "year": "Sophomore",
+        "avg_score": 63.6,
+        "avg_attendance": 62.6,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S215",
+        "name": "Sophia Allen",
+        "year": "Freshman",
+        "avg_score": 54.0,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S215",
+        "name": "Sophia Allen",
+        "year": "Freshman",
+        "avg_score": 54.0,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S119",
+        "name": "Ezra Harris",
+        "year": "Freshman",
+        "avg_score": 60.2,
+        "avg_attendance": 60.1,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S107",
+        "name": "Scarlett Allen",
+        "year": "Freshman",
+        "avg_score": 63.2,
+        "avg_attendance": 62.4,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S203",
+        "name": "Isabella Liu",
+        "year": "Sophomore",
+        "avg_score": 63.6,
+        "avg_attendance": 62.6,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S155",
+        "name": "Thomas Adams",
+        "year": "Junior",
+        "avg_score": 66.3,
+        "avg_attendance": 63.2,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S167",
+        "name": "Hunter Singh",
+        "year": "Junior",
+        "avg_score": 70.6,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S179",
+        "name": "Amelia Thomas",
+        "year": "Sophomore",
+        "avg_score": 76.9,
+        "avg_attendance": 74.2,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S143",
+        "name": "Kennedy Nguyen",
+        "year": "Senior",
+        "avg_score": 77.5,
+        "avg_attendance": 76.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S191",
+        "name": "Logan Miller",
+        "year": "Senior",
+        "avg_score": 80.7,
+        "avg_attendance": 77.8,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S131",
+        "name": "Isaac Campbell",
+        "year": "Sophomore",
+        "avg_score": 80.9,
+        "avg_attendance": 75.8,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P022",
+    "name": "Dr. Samuel Perez",
+    "first_name": "Samuel",
+    "email": "samuel.perez@campusiq.edu",
+    "department": "Humanities and Social Sciences Department",
+    "dept_id": "HSS",
+    "office": "Room 328, Owens Library",
+    "office_hours": "Fri 9am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "HSS-101",
+        "course_title": "Introduction to Sociology",
+        "n_students": 12,
+        "class_avg": 75.5,
+        "class_attendance": 73.3
+      },
+      {
+        "course_code": "HSS-245",
+        "course_title": "Political Science",
+        "n_students": 12,
+        "class_avg": 70.8,
+        "class_attendance": 68.8
+      },
+      {
+        "course_code": "HSS-320",
+        "course_title": "Psychology of Behavior",
+        "n_students": 9,
+        "class_avg": 69.0,
+        "class_attendance": 67.1
+      },
+      {
+        "course_code": "HSS-410",
+        "course_title": "Ethics & Philosophy",
+        "n_students": 12,
+        "class_avg": 66.6,
+        "class_attendance": 67.7
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 5,
+      "avg_score": 71.02,
+      "avg_attendance": 70.52
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S120",
+        "name": "Gabriel Jackson",
+        "year": "Junior",
+        "avg_score": 51.3,
+        "avg_attendance": 55.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S168",
+        "name": "Daniel Brown",
+        "year": "Sophomore",
+        "avg_score": 69.6,
+        "avg_attendance": 64.3,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S192",
+        "name": "Hannah Ramirez",
+        "year": "Senior",
+        "avg_score": 63.9,
+        "avg_attendance": 59.9,
+        "at_risk": "Yes",
+        "category": "Medium"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S120",
+        "name": "Gabriel Jackson",
+        "year": "Junior",
+        "avg_score": 51.3,
+        "avg_attendance": 55.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S192",
+        "name": "Hannah Ramirez",
+        "year": "Senior",
+        "avg_score": 63.9,
+        "avg_attendance": 59.9,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S168",
+        "name": "Daniel Brown",
+        "year": "Sophomore",
+        "avg_score": 69.6,
+        "avg_attendance": 64.3,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S216",
+        "name": "Hudson Lopez",
+        "year": "Freshman",
+        "avg_score": 67.5,
+        "avg_attendance": 68.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S180",
+        "name": "Mason Perez",
+        "year": "Freshman",
+        "avg_score": 71.1,
+        "avg_attendance": 73.0,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S156",
+        "name": "James Jackson",
+        "year": "Senior",
+        "avg_score": 75.2,
+        "avg_attendance": 74.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S204",
+        "name": "Charlotte Clark",
+        "year": "Senior",
+        "avg_score": 75.3,
+        "avg_attendance": 73.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S144",
+        "name": "Connor Nguyen",
+        "year": "Senior",
+        "avg_score": 76.3,
+        "avg_attendance": 74.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S108",
+        "name": "Brooklyn Gonzalez",
+        "year": "Senior",
+        "avg_score": 76.8,
+        "avg_attendance": 77.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S132",
+        "name": "Oliver Robinson",
+        "year": "Senior",
+        "avg_score": 83.1,
+        "avg_attendance": 84.1,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P023",
+    "name": "Dr. Ezra Moore",
+    "first_name": "Ezra",
+    "email": "ezra.moore@campusiq.edu",
+    "department": "Humanities and Social Sciences Department",
+    "dept_id": "HSS",
+    "office": "Room 301, Garrett-Strong",
+    "office_hours": "Fri 9am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "HSS-450",
+        "course_title": "Anthropology",
+        "n_students": 10,
+        "class_avg": 73.0,
+        "class_attendance": 73.7
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 5,
+      "avg_score": 71.02,
+      "avg_attendance": 70.52
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S120",
+        "name": "Gabriel Jackson",
+        "year": "Junior",
+        "avg_score": 51.3,
+        "avg_attendance": 55.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S168",
+        "name": "Daniel Brown",
+        "year": "Sophomore",
+        "avg_score": 69.6,
+        "avg_attendance": 64.3,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S192",
+        "name": "Hannah Ramirez",
+        "year": "Senior",
+        "avg_score": 63.9,
+        "avg_attendance": 59.9,
+        "at_risk": "Yes",
+        "category": "Medium"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S120",
+        "name": "Gabriel Jackson",
+        "year": "Junior",
+        "avg_score": 51.3,
+        "avg_attendance": 55.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S192",
+        "name": "Hannah Ramirez",
+        "year": "Senior",
+        "avg_score": 63.9,
+        "avg_attendance": 59.9,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S168",
+        "name": "Daniel Brown",
+        "year": "Sophomore",
+        "avg_score": 69.6,
+        "avg_attendance": 64.3,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S216",
+        "name": "Hudson Lopez",
+        "year": "Freshman",
+        "avg_score": 67.5,
+        "avg_attendance": 68.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S180",
+        "name": "Mason Perez",
+        "year": "Freshman",
+        "avg_score": 71.1,
+        "avg_attendance": 73.0,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S156",
+        "name": "James Jackson",
+        "year": "Senior",
+        "avg_score": 75.2,
+        "avg_attendance": 74.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S204",
+        "name": "Charlotte Clark",
+        "year": "Senior",
+        "avg_score": 75.3,
+        "avg_attendance": 73.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S144",
+        "name": "Connor Nguyen",
+        "year": "Senior",
+        "avg_score": 76.3,
+        "avg_attendance": 74.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S108",
+        "name": "Brooklyn Gonzalez",
+        "year": "Senior",
+        "avg_score": 76.8,
+        "avg_attendance": 77.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S132",
+        "name": "Oliver Robinson",
+        "year": "Senior",
+        "avg_score": 83.1,
+        "avg_attendance": 84.1,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P024",
+    "name": "Dr. Lucy Perez",
+    "first_name": "Lucy",
+    "email": "lucy.perez@campusiq.edu",
+    "department": "Humanities and Social Sciences Department",
+    "dept_id": "HSS",
+    "office": "Room 140, Garrett-Strong",
+    "office_hours": "By appointment",
+    "courses_taught": [
+      {
+        "course_code": "HSS-210",
+        "course_title": "World History",
+        "n_students": 12,
+        "class_avg": 71.6,
+        "class_attendance": 74.8
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 5,
+      "avg_score": 71.02,
+      "avg_attendance": 70.52
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S120",
+        "name": "Gabriel Jackson",
+        "year": "Junior",
+        "avg_score": 51.3,
+        "avg_attendance": 55.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S168",
+        "name": "Daniel Brown",
+        "year": "Sophomore",
+        "avg_score": 69.6,
+        "avg_attendance": 64.3,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S192",
+        "name": "Hannah Ramirez",
+        "year": "Senior",
+        "avg_score": 63.9,
+        "avg_attendance": 59.9,
+        "at_risk": "Yes",
+        "category": "Medium"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S120",
+        "name": "Gabriel Jackson",
+        "year": "Junior",
+        "avg_score": 51.3,
+        "avg_attendance": 55.7,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S192",
+        "name": "Hannah Ramirez",
+        "year": "Senior",
+        "avg_score": 63.9,
+        "avg_attendance": 59.9,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S168",
+        "name": "Daniel Brown",
+        "year": "Sophomore",
+        "avg_score": 69.6,
+        "avg_attendance": 64.3,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S216",
+        "name": "Hudson Lopez",
+        "year": "Freshman",
+        "avg_score": 67.5,
+        "avg_attendance": 68.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S180",
+        "name": "Mason Perez",
+        "year": "Freshman",
+        "avg_score": 71.1,
+        "avg_attendance": 73.0,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S156",
+        "name": "James Jackson",
+        "year": "Senior",
+        "avg_score": 75.2,
+        "avg_attendance": 74.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S204",
+        "name": "Charlotte Clark",
+        "year": "Senior",
+        "avg_score": 75.3,
+        "avg_attendance": 73.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S144",
+        "name": "Connor Nguyen",
+        "year": "Senior",
+        "avg_score": 76.3,
+        "avg_attendance": 74.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S108",
+        "name": "Brooklyn Gonzalez",
+        "year": "Senior",
+        "avg_score": 76.8,
+        "avg_attendance": 77.4,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S132",
+        "name": "Oliver Robinson",
+        "year": "Senior",
+        "avg_score": 83.1,
+        "avg_attendance": 84.1,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P025",
+    "name": "Prof. Oliver Wilson",
+    "first_name": "Prof.",
+    "email": "oliver.wilson@campusiq.edu",
+    "department": "International Study",
+    "dept_id": "INT",
+    "office": "Room 193, Martindale Hall",
+    "office_hours": "Mon/Wed 10am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "INT-320",
+        "course_title": "Study Abroad Preparation",
+        "n_students": 12,
+        "class_avg": 62.5,
+        "class_attendance": 66.5
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 4,
+      "high_performers": 3,
+      "avg_score": 66.57,
+      "avg_attendance": 68.91
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S145",
+        "name": "Joseph Anderson",
+        "year": "Sophomore",
+        "avg_score": 53.1,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S157",
+        "name": "Oliver Robinson",
+        "year": "Freshman",
+        "avg_score": 51.6,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S169",
+        "name": "Hunter Torres",
+        "year": "Freshman",
+        "avg_score": 55.6,
+        "avg_attendance": 59.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S193",
+        "name": "Leah Chen",
+        "year": "Freshman",
+        "avg_score": 48.8,
+        "avg_attendance": 54.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S193",
+        "name": "Leah Chen",
+        "year": "Freshman",
+        "avg_score": 48.8,
+        "avg_attendance": 54.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S157",
+        "name": "Oliver Robinson",
+        "year": "Freshman",
+        "avg_score": 51.6,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S145",
+        "name": "Joseph Anderson",
+        "year": "Sophomore",
+        "avg_score": 53.1,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S169",
+        "name": "Hunter Torres",
+        "year": "Freshman",
+        "avg_score": 55.6,
+        "avg_attendance": 59.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S181",
+        "name": "Claire Scott",
+        "year": "Sophomore",
+        "avg_score": 66.2,
+        "avg_attendance": 69.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S121",
+        "name": "Bella Gonzalez",
+        "year": "Freshman",
+        "avg_score": 67.8,
+        "avg_attendance": 66.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S133",
+        "name": "Jackson Liu",
+        "year": "Sophomore",
+        "avg_score": 73.7,
+        "avg_attendance": 75.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S217",
+        "name": "Anthony Jones",
+        "year": "Sophomore",
+        "avg_score": 78.3,
+        "avg_attendance": 79.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S205",
+        "name": "Hazel Wilson",
+        "year": "Senior",
+        "avg_score": 84.7,
+        "avg_attendance": 85.3,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S109",
+        "name": "Alexander Lewis",
+        "year": "Junior",
+        "avg_score": 85.9,
+        "avg_attendance": 82.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P026",
+    "name": "Prof. Anthony Williams",
+    "first_name": "Prof.",
+    "email": "anthony.williams@campusiq.edu",
+    "department": "International Study",
+    "dept_id": "INT",
+    "office": "Room 270, Owens Library",
+    "office_hours": "Mon/Thu 11am\u20131pm",
+    "courses_taught": [
+      {
+        "course_code": "INT-101",
+        "course_title": "Global Perspectives",
+        "n_students": 13,
+        "class_avg": 67.2,
+        "class_attendance": 69.3
+      },
+      {
+        "course_code": "INT-410",
+        "course_title": "Global Economics",
+        "n_students": 12,
+        "class_avg": 65.6,
+        "class_attendance": 68.5
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 4,
+      "high_performers": 3,
+      "avg_score": 66.57,
+      "avg_attendance": 68.91
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S145",
+        "name": "Joseph Anderson",
+        "year": "Sophomore",
+        "avg_score": 53.1,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S157",
+        "name": "Oliver Robinson",
+        "year": "Freshman",
+        "avg_score": 51.6,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S169",
+        "name": "Hunter Torres",
+        "year": "Freshman",
+        "avg_score": 55.6,
+        "avg_attendance": 59.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S193",
+        "name": "Leah Chen",
+        "year": "Freshman",
+        "avg_score": 48.8,
+        "avg_attendance": 54.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S193",
+        "name": "Leah Chen",
+        "year": "Freshman",
+        "avg_score": 48.8,
+        "avg_attendance": 54.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S157",
+        "name": "Oliver Robinson",
+        "year": "Freshman",
+        "avg_score": 51.6,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S145",
+        "name": "Joseph Anderson",
+        "year": "Sophomore",
+        "avg_score": 53.1,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S169",
+        "name": "Hunter Torres",
+        "year": "Freshman",
+        "avg_score": 55.6,
+        "avg_attendance": 59.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S181",
+        "name": "Claire Scott",
+        "year": "Sophomore",
+        "avg_score": 66.2,
+        "avg_attendance": 69.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S121",
+        "name": "Bella Gonzalez",
+        "year": "Freshman",
+        "avg_score": 67.8,
+        "avg_attendance": 66.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S133",
+        "name": "Jackson Liu",
+        "year": "Sophomore",
+        "avg_score": 73.7,
+        "avg_attendance": 75.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S217",
+        "name": "Anthony Jones",
+        "year": "Sophomore",
+        "avg_score": 78.3,
+        "avg_attendance": 79.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S205",
+        "name": "Hazel Wilson",
+        "year": "Senior",
+        "avg_score": 84.7,
+        "avg_attendance": 85.3,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S109",
+        "name": "Alexander Lewis",
+        "year": "Junior",
+        "avg_score": 85.9,
+        "avg_attendance": 82.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P027",
+    "name": "Dr. Mia Williams",
+    "first_name": "Mia",
+    "email": "mia.williams@campusiq.edu",
+    "department": "International Study",
+    "dept_id": "INT",
+    "office": "Room 422, Martindale Hall",
+    "office_hours": "Tue 10am\u201312pm, Thu 3pm\u20135pm",
+    "courses_taught": [
+      {
+        "course_code": "INT-210",
+        "course_title": "International Relations",
+        "n_students": 13,
+        "class_avg": 69.7,
+        "class_attendance": 72.6
+      },
+      {
+        "course_code": "INT-245",
+        "course_title": "Cultural Studies",
+        "n_students": 10,
+        "class_avg": 73.7,
+        "class_attendance": 71.8
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 4,
+      "high_performers": 3,
+      "avg_score": 66.57,
+      "avg_attendance": 68.91
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S145",
+        "name": "Joseph Anderson",
+        "year": "Sophomore",
+        "avg_score": 53.1,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S157",
+        "name": "Oliver Robinson",
+        "year": "Freshman",
+        "avg_score": 51.6,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S169",
+        "name": "Hunter Torres",
+        "year": "Freshman",
+        "avg_score": 55.6,
+        "avg_attendance": 59.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S193",
+        "name": "Leah Chen",
+        "year": "Freshman",
+        "avg_score": 48.8,
+        "avg_attendance": 54.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S193",
+        "name": "Leah Chen",
+        "year": "Freshman",
+        "avg_score": 48.8,
+        "avg_attendance": 54.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S157",
+        "name": "Oliver Robinson",
+        "year": "Freshman",
+        "avg_score": 51.6,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S145",
+        "name": "Joseph Anderson",
+        "year": "Sophomore",
+        "avg_score": 53.1,
+        "avg_attendance": 57.9,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S169",
+        "name": "Hunter Torres",
+        "year": "Freshman",
+        "avg_score": 55.6,
+        "avg_attendance": 59.8,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S181",
+        "name": "Claire Scott",
+        "year": "Sophomore",
+        "avg_score": 66.2,
+        "avg_attendance": 69.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S121",
+        "name": "Bella Gonzalez",
+        "year": "Freshman",
+        "avg_score": 67.8,
+        "avg_attendance": 66.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S133",
+        "name": "Jackson Liu",
+        "year": "Sophomore",
+        "avg_score": 73.7,
+        "avg_attendance": 75.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S217",
+        "name": "Anthony Jones",
+        "year": "Sophomore",
+        "avg_score": 78.3,
+        "avg_attendance": 79.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S205",
+        "name": "Hazel Wilson",
+        "year": "Senior",
+        "avg_score": 84.7,
+        "avg_attendance": 85.3,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S109",
+        "name": "Alexander Lewis",
+        "year": "Junior",
+        "avg_score": 85.9,
+        "avg_attendance": 82.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P028",
+    "name": "Prof. Emilia Johnson",
+    "first_name": "Prof.",
+    "email": "emilia.johnson@campusiq.edu",
+    "department": "Language, Literature, and Writing Department",
+    "dept_id": "LLW",
+    "office": "Room 152, Valk Center",
+    "office_hours": "Tue/Thu 2pm\u20134pm",
+    "courses_taught": [
+      {
+        "course_code": "LLW-210",
+        "course_title": "Introduction to Literature",
+        "n_students": 7,
+        "class_avg": 66.9,
+        "class_attendance": 69.2
+      },
+      {
+        "course_code": "LLW-245",
+        "course_title": "Creative Writing",
+        "n_students": 12,
+        "class_avg": 69.0,
+        "class_attendance": 68.6
+      },
+      {
+        "course_code": "LLW-450",
+        "course_title": "Technical Writing",
+        "n_students": 11,
+        "class_avg": 72.9,
+        "class_attendance": 74.3
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 4,
+      "avg_score": 70.09,
+      "avg_attendance": 70.4
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S110",
+        "name": "Kinsley Chen",
+        "year": "Freshman",
+        "avg_score": 47.9,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S170",
+        "name": "Lucas Campbell",
+        "year": "Senior",
+        "avg_score": 68.7,
+        "avg_attendance": 64.5,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S206",
+        "name": "Allison Brown",
+        "year": "Sophomore",
+        "avg_score": 57.1,
+        "avg_attendance": 56.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S110",
+        "name": "Kinsley Chen",
+        "year": "Freshman",
+        "avg_score": 47.9,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S206",
+        "name": "Allison Brown",
+        "year": "Sophomore",
+        "avg_score": 57.1,
+        "avg_attendance": 56.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S170",
+        "name": "Lucas Campbell",
+        "year": "Senior",
+        "avg_score": 68.7,
+        "avg_attendance": 64.5,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S194",
+        "name": "Andrew Adams",
+        "year": "Freshman",
+        "avg_score": 67.3,
+        "avg_attendance": 72.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S158",
+        "name": "Ryan Wang",
+        "year": "Junior",
+        "avg_score": 68.2,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S146",
+        "name": "Aurora Young",
+        "year": "Freshman",
+        "avg_score": 73.0,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S218",
+        "name": "Aubrey Davis",
+        "year": "Sophomore",
+        "avg_score": 76.1,
+        "avg_attendance": 79.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S134",
+        "name": "Caroline Lee",
+        "year": "Freshman",
+        "avg_score": 78.0,
+        "avg_attendance": 78.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S182",
+        "name": "Claire Anderson",
+        "year": "Freshman",
+        "avg_score": 80.8,
+        "avg_attendance": 80.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S122",
+        "name": "Olivia Nelson",
+        "year": "Sophomore",
+        "avg_score": 83.8,
+        "avg_attendance": 80.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P029",
+    "name": "Dr. Lucas Miller",
+    "first_name": "Lucas",
+    "email": "lucas.miller@campusiq.edu",
+    "department": "Language, Literature, and Writing Department",
+    "dept_id": "LLW",
+    "office": "Room 498, Hughes Fieldhouse",
+    "office_hours": "By appointment",
+    "courses_taught": [],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 4,
+      "avg_score": 70.09,
+      "avg_attendance": 70.4
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S110",
+        "name": "Kinsley Chen",
+        "year": "Freshman",
+        "avg_score": 47.9,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S170",
+        "name": "Lucas Campbell",
+        "year": "Senior",
+        "avg_score": 68.7,
+        "avg_attendance": 64.5,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S206",
+        "name": "Allison Brown",
+        "year": "Sophomore",
+        "avg_score": 57.1,
+        "avg_attendance": 56.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S110",
+        "name": "Kinsley Chen",
+        "year": "Freshman",
+        "avg_score": 47.9,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S206",
+        "name": "Allison Brown",
+        "year": "Sophomore",
+        "avg_score": 57.1,
+        "avg_attendance": 56.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S170",
+        "name": "Lucas Campbell",
+        "year": "Senior",
+        "avg_score": 68.7,
+        "avg_attendance": 64.5,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S194",
+        "name": "Andrew Adams",
+        "year": "Freshman",
+        "avg_score": 67.3,
+        "avg_attendance": 72.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S158",
+        "name": "Ryan Wang",
+        "year": "Junior",
+        "avg_score": 68.2,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S146",
+        "name": "Aurora Young",
+        "year": "Freshman",
+        "avg_score": 73.0,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S218",
+        "name": "Aubrey Davis",
+        "year": "Sophomore",
+        "avg_score": 76.1,
+        "avg_attendance": 79.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S134",
+        "name": "Caroline Lee",
+        "year": "Freshman",
+        "avg_score": 78.0,
+        "avg_attendance": 78.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S182",
+        "name": "Claire Anderson",
+        "year": "Freshman",
+        "avg_score": 80.8,
+        "avg_attendance": 80.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S122",
+        "name": "Olivia Nelson",
+        "year": "Sophomore",
+        "avg_score": 83.8,
+        "avg_attendance": 80.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P030",
+    "name": "Dr. Logan Hill",
+    "first_name": "Logan",
+    "email": "logan.hill@campusiq.edu",
+    "department": "Language, Literature, and Writing Department",
+    "dept_id": "LLW",
+    "office": "Room 172, Garrett-Strong",
+    "office_hours": "Tue 10am\u201312pm, Thu 3pm\u20135pm",
+    "courses_taught": [
+      {
+        "course_code": "LLW-101",
+        "course_title": "Composition & Rhetoric",
+        "n_students": 12,
+        "class_avg": 74.7,
+        "class_attendance": 74.1
+      },
+      {
+        "course_code": "LLW-320",
+        "course_title": "World Literature",
+        "n_students": 12,
+        "class_avg": 69.5,
+        "class_attendance": 69.4
+      },
+      {
+        "course_code": "LLW-410",
+        "course_title": "Linguistics",
+        "n_students": 9,
+        "class_avg": 64.8,
+        "class_attendance": 66.7
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 4,
+      "avg_score": 70.09,
+      "avg_attendance": 70.4
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S110",
+        "name": "Kinsley Chen",
+        "year": "Freshman",
+        "avg_score": 47.9,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S170",
+        "name": "Lucas Campbell",
+        "year": "Senior",
+        "avg_score": 68.7,
+        "avg_attendance": 64.5,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S206",
+        "name": "Allison Brown",
+        "year": "Sophomore",
+        "avg_score": 57.1,
+        "avg_attendance": 56.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S110",
+        "name": "Kinsley Chen",
+        "year": "Freshman",
+        "avg_score": 47.9,
+        "avg_attendance": 53.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S206",
+        "name": "Allison Brown",
+        "year": "Sophomore",
+        "avg_score": 57.1,
+        "avg_attendance": 56.3,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S170",
+        "name": "Lucas Campbell",
+        "year": "Senior",
+        "avg_score": 68.7,
+        "avg_attendance": 64.5,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S194",
+        "name": "Andrew Adams",
+        "year": "Freshman",
+        "avg_score": 67.3,
+        "avg_attendance": 72.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S158",
+        "name": "Ryan Wang",
+        "year": "Junior",
+        "avg_score": 68.2,
+        "avg_attendance": 67.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S146",
+        "name": "Aurora Young",
+        "year": "Freshman",
+        "avg_score": 73.0,
+        "avg_attendance": 71.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S218",
+        "name": "Aubrey Davis",
+        "year": "Sophomore",
+        "avg_score": 76.1,
+        "avg_attendance": 79.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S134",
+        "name": "Caroline Lee",
+        "year": "Freshman",
+        "avg_score": 78.0,
+        "avg_attendance": 78.1,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S182",
+        "name": "Claire Anderson",
+        "year": "Freshman",
+        "avg_score": 80.8,
+        "avg_attendance": 80.6,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S122",
+        "name": "Olivia Nelson",
+        "year": "Sophomore",
+        "avg_score": 83.8,
+        "avg_attendance": 80.6,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P031",
+    "name": "Dr. Caleb Lewis",
+    "first_name": "Caleb",
+    "email": "caleb.lewis@campusiq.edu",
+    "department": "Mathematics and Statistics Department",
+    "dept_id": "MTH",
+    "office": "Room 127, Martindale Hall",
+    "office_hours": "Mon/Wed/Fri 9am\u201310am",
+    "courses_taught": [
+      {
+        "course_code": "MTH-101",
+        "course_title": "College Algebra",
+        "n_students": 8,
+        "class_avg": 70.7,
+        "class_attendance": 72.6
+      },
+      {
+        "course_code": "MTH-310",
+        "course_title": "Discrete Mathematics",
+        "n_students": 7,
+        "class_avg": 69.2,
+        "class_attendance": 68.8
+      },
+      {
+        "course_code": "MTH-350",
+        "course_title": "Probability & Statistics",
+        "n_students": 13,
+        "class_avg": 64.1,
+        "class_attendance": 64.5
+      },
+      {
+        "course_code": "MTH-420",
+        "course_title": "Differential Equations",
+        "n_students": 13,
+        "class_avg": 69.8,
+        "class_attendance": 70.2
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 3,
+      "avg_score": 68.64,
+      "avg_attendance": 69.03
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S171",
+        "name": "Charles Jones",
+        "year": "Sophomore",
+        "avg_score": 68.8,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S195",
+        "name": "Sophia Sanchez",
+        "year": "Junior",
+        "avg_score": 53.7,
+        "avg_attendance": 57.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S207",
+        "name": "Carter Smith",
+        "year": "Senior",
+        "avg_score": 49.7,
+        "avg_attendance": 56.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S207",
+        "name": "Carter Smith",
+        "year": "Senior",
+        "avg_score": 49.7,
+        "avg_attendance": 56.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S195",
+        "name": "Sophia Sanchez",
+        "year": "Junior",
+        "avg_score": 53.7,
+        "avg_attendance": 57.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S171",
+        "name": "Charles Jones",
+        "year": "Sophomore",
+        "avg_score": 68.8,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S159",
+        "name": "Grayson Carter",
+        "year": "Sophomore",
+        "avg_score": 64.7,
+        "avg_attendance": 67.5,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S135",
+        "name": "Scarlett Kumar",
+        "year": "Freshman",
+        "avg_score": 67.3,
+        "avg_attendance": 66.0,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S183",
+        "name": "Ava Rivera",
+        "year": "Freshman",
+        "avg_score": 67.9,
+        "avg_attendance": 69.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S123",
+        "name": "Thomas Jackson",
+        "year": "Freshman",
+        "avg_score": 70.9,
+        "avg_attendance": 70.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S111",
+        "name": "Samantha Shah",
+        "year": "Sophomore",
+        "avg_score": 80.6,
+        "avg_attendance": 78.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S147",
+        "name": "Nathan Brown",
+        "year": "Freshman",
+        "avg_score": 81.2,
+        "avg_attendance": 81.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S219",
+        "name": "Mateo Hill",
+        "year": "Freshman",
+        "avg_score": 81.6,
+        "avg_attendance": 78.7,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P032",
+    "name": "Dr. Charlotte Green",
+    "first_name": "Charlotte",
+    "email": "charlotte.green@campusiq.edu",
+    "department": "Mathematics and Statistics Department",
+    "dept_id": "MTH",
+    "office": "Room 307, Martindale Hall",
+    "office_hours": "Mon/Thu 11am\u20131pm",
+    "courses_taught": [
+      {
+        "course_code": "MTH-201",
+        "course_title": "Calculus I",
+        "n_students": 12,
+        "class_avg": 73.4,
+        "class_attendance": 73.1
+      },
+      {
+        "course_code": "MTH-240",
+        "course_title": "Linear Algebra",
+        "n_students": 7,
+        "class_avg": 65.9,
+        "class_attendance": 62.0
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 3,
+      "avg_score": 68.64,
+      "avg_attendance": 69.03
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S171",
+        "name": "Charles Jones",
+        "year": "Sophomore",
+        "avg_score": 68.8,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S195",
+        "name": "Sophia Sanchez",
+        "year": "Junior",
+        "avg_score": 53.7,
+        "avg_attendance": 57.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S207",
+        "name": "Carter Smith",
+        "year": "Senior",
+        "avg_score": 49.7,
+        "avg_attendance": 56.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S207",
+        "name": "Carter Smith",
+        "year": "Senior",
+        "avg_score": 49.7,
+        "avg_attendance": 56.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S195",
+        "name": "Sophia Sanchez",
+        "year": "Junior",
+        "avg_score": 53.7,
+        "avg_attendance": 57.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S171",
+        "name": "Charles Jones",
+        "year": "Sophomore",
+        "avg_score": 68.8,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S159",
+        "name": "Grayson Carter",
+        "year": "Sophomore",
+        "avg_score": 64.7,
+        "avg_attendance": 67.5,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S135",
+        "name": "Scarlett Kumar",
+        "year": "Freshman",
+        "avg_score": 67.3,
+        "avg_attendance": 66.0,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S183",
+        "name": "Ava Rivera",
+        "year": "Freshman",
+        "avg_score": 67.9,
+        "avg_attendance": 69.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S123",
+        "name": "Thomas Jackson",
+        "year": "Freshman",
+        "avg_score": 70.9,
+        "avg_attendance": 70.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S111",
+        "name": "Samantha Shah",
+        "year": "Sophomore",
+        "avg_score": 80.6,
+        "avg_attendance": 78.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S147",
+        "name": "Nathan Brown",
+        "year": "Freshman",
+        "avg_score": 81.2,
+        "avg_attendance": 81.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S219",
+        "name": "Mateo Hill",
+        "year": "Freshman",
+        "avg_score": 81.6,
+        "avg_attendance": 78.7,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P033",
+    "name": "Dr. Gabriella Anderson",
+    "first_name": "Gabriella",
+    "email": "gabriella.anderson@campusiq.edu",
+    "department": "Mathematics and Statistics Department",
+    "dept_id": "MTH",
+    "office": "Room 237, Martindale Hall",
+    "office_hours": "Tue/Thu 2pm\u20134pm",
+    "courses_taught": [],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 3,
+      "high_performers": 3,
+      "avg_score": 68.64,
+      "avg_attendance": 69.03
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S171",
+        "name": "Charles Jones",
+        "year": "Sophomore",
+        "avg_score": 68.8,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S195",
+        "name": "Sophia Sanchez",
+        "year": "Junior",
+        "avg_score": 53.7,
+        "avg_attendance": 57.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S207",
+        "name": "Carter Smith",
+        "year": "Senior",
+        "avg_score": 49.7,
+        "avg_attendance": 56.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S207",
+        "name": "Carter Smith",
+        "year": "Senior",
+        "avg_score": 49.7,
+        "avg_attendance": 56.2,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S195",
+        "name": "Sophia Sanchez",
+        "year": "Junior",
+        "avg_score": 53.7,
+        "avg_attendance": 57.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S171",
+        "name": "Charles Jones",
+        "year": "Sophomore",
+        "avg_score": 68.8,
+        "avg_attendance": 64.7,
+        "at_risk": "Yes",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S159",
+        "name": "Grayson Carter",
+        "year": "Sophomore",
+        "avg_score": 64.7,
+        "avg_attendance": 67.5,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S135",
+        "name": "Scarlett Kumar",
+        "year": "Freshman",
+        "avg_score": 67.3,
+        "avg_attendance": 66.0,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S183",
+        "name": "Ava Rivera",
+        "year": "Freshman",
+        "avg_score": 67.9,
+        "avg_attendance": 69.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S123",
+        "name": "Thomas Jackson",
+        "year": "Freshman",
+        "avg_score": 70.9,
+        "avg_attendance": 70.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S111",
+        "name": "Samantha Shah",
+        "year": "Sophomore",
+        "avg_score": 80.6,
+        "avg_attendance": 78.7,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S147",
+        "name": "Nathan Brown",
+        "year": "Freshman",
+        "avg_score": 81.2,
+        "avg_attendance": 81.0,
+        "at_risk": "No",
+        "category": "High"
+      },
+      {
+        "student_id": "S219",
+        "name": "Mateo Hill",
+        "year": "Freshman",
+        "avg_score": 81.6,
+        "avg_attendance": 78.7,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P034",
+    "name": "Dr. Caroline Lopez",
+    "first_name": "Caroline",
+    "email": "caroline.lopez@campusiq.edu",
+    "department": "Natural Sciences Department",
+    "dept_id": "NAT",
+    "office": "Room 142, Martindale Hall",
+    "office_hours": "Mon/Wed/Fri 9am\u201310am",
+    "courses_taught": [
+      {
+        "course_code": "NAT-210",
+        "course_title": "General Chemistry",
+        "n_students": 11,
+        "class_avg": 69.8,
+        "class_attendance": 73.1
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 1,
+      "avg_score": 66.57,
+      "avg_attendance": 69.83
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S196",
+        "name": "Isaiah Chen",
+        "year": "Freshman",
+        "avg_score": 52.9,
+        "avg_attendance": 57.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S220",
+        "name": "Lucy Garcia",
+        "year": "Senior",
+        "avg_score": 56.4,
+        "avg_attendance": 63.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S196",
+        "name": "Isaiah Chen",
+        "year": "Freshman",
+        "avg_score": 52.9,
+        "avg_attendance": 57.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S220",
+        "name": "Lucy Garcia",
+        "year": "Senior",
+        "avg_score": 56.4,
+        "avg_attendance": 63.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S208",
+        "name": "Camila Liu",
+        "year": "Senior",
+        "avg_score": 63.0,
+        "avg_attendance": 67.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S160",
+        "name": "Grayson Park",
+        "year": "Freshman",
+        "avg_score": 65.4,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S136",
+        "name": "Kinsley Lee",
+        "year": "Senior",
+        "avg_score": 66.6,
+        "avg_attendance": 70.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S112",
+        "name": "Nova Ramirez",
+        "year": "Junior",
+        "avg_score": 67.3,
+        "avg_attendance": 70.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S148",
+        "name": "Evelyn Green",
+        "year": "Sophomore",
+        "avg_score": 69.1,
+        "avg_attendance": 68.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S172",
+        "name": "Benjamin Nelson",
+        "year": "Senior",
+        "avg_score": 71.3,
+        "avg_attendance": 75.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S124",
+        "name": "Elena Anderson",
+        "year": "Freshman",
+        "avg_score": 73.6,
+        "avg_attendance": 74.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S184",
+        "name": "Scarlett Jones",
+        "year": "Freshman",
+        "avg_score": 80.2,
+        "avg_attendance": 82.2,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P035",
+    "name": "Dr. Luna Lewis",
+    "first_name": "Luna",
+    "email": "luna.lewis@campusiq.edu",
+    "department": "Natural Sciences Department",
+    "dept_id": "NAT",
+    "office": "Room 389, Garrett-Strong",
+    "office_hours": "Mon/Wed 10am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "NAT-101",
+        "course_title": "General Biology",
+        "n_students": 9,
+        "class_avg": 65.6,
+        "class_attendance": 67.6
+      },
+      {
+        "course_code": "NAT-450",
+        "course_title": "Microbiology",
+        "n_students": 11,
+        "class_avg": 63.1,
+        "class_attendance": 68.7
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 1,
+      "avg_score": 66.57,
+      "avg_attendance": 69.83
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S196",
+        "name": "Isaiah Chen",
+        "year": "Freshman",
+        "avg_score": 52.9,
+        "avg_attendance": 57.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S220",
+        "name": "Lucy Garcia",
+        "year": "Senior",
+        "avg_score": 56.4,
+        "avg_attendance": 63.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S196",
+        "name": "Isaiah Chen",
+        "year": "Freshman",
+        "avg_score": 52.9,
+        "avg_attendance": 57.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S220",
+        "name": "Lucy Garcia",
+        "year": "Senior",
+        "avg_score": 56.4,
+        "avg_attendance": 63.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S208",
+        "name": "Camila Liu",
+        "year": "Senior",
+        "avg_score": 63.0,
+        "avg_attendance": 67.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S160",
+        "name": "Grayson Park",
+        "year": "Freshman",
+        "avg_score": 65.4,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S136",
+        "name": "Kinsley Lee",
+        "year": "Senior",
+        "avg_score": 66.6,
+        "avg_attendance": 70.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S112",
+        "name": "Nova Ramirez",
+        "year": "Junior",
+        "avg_score": 67.3,
+        "avg_attendance": 70.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S148",
+        "name": "Evelyn Green",
+        "year": "Sophomore",
+        "avg_score": 69.1,
+        "avg_attendance": 68.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S172",
+        "name": "Benjamin Nelson",
+        "year": "Senior",
+        "avg_score": 71.3,
+        "avg_attendance": 75.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S124",
+        "name": "Elena Anderson",
+        "year": "Freshman",
+        "avg_score": 73.6,
+        "avg_attendance": 74.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S184",
+        "name": "Scarlett Jones",
+        "year": "Freshman",
+        "avg_score": 80.2,
+        "avg_attendance": 82.2,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  },
+  {
+    "prof_id": "P036",
+    "name": "Dr. Aisha Hernandez",
+    "first_name": "Aisha",
+    "email": "aisha.hernandez@campusiq.edu",
+    "department": "Natural Sciences Department",
+    "dept_id": "NAT",
+    "office": "Room 488, Owens Library",
+    "office_hours": "Mon/Wed 10am\u201312pm",
+    "courses_taught": [
+      {
+        "course_code": "NAT-245",
+        "course_title": "Physics I: Mechanics",
+        "n_students": 7,
+        "class_avg": 71.1,
+        "class_attendance": 73.2
+      },
+      {
+        "course_code": "NAT-320",
+        "course_title": "Organic Chemistry",
+        "n_students": 9,
+        "class_avg": 64.0,
+        "class_attendance": 66.9
+      },
+      {
+        "course_code": "NAT-410",
+        "course_title": "Environmental Science",
+        "n_students": 10,
+        "class_avg": 68.9,
+        "class_attendance": 71.1
+      }
+    ],
+    "dept_stats": {
+      "total_students": 10,
+      "at_risk_count": 2,
+      "high_performers": 1,
+      "avg_score": 66.57,
+      "avg_attendance": 69.83
+    },
+    "at_risk_students": [
+      {
+        "student_id": "S196",
+        "name": "Isaiah Chen",
+        "year": "Freshman",
+        "avg_score": 52.9,
+        "avg_attendance": 57.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S220",
+        "name": "Lucy Garcia",
+        "year": "Senior",
+        "avg_score": 56.4,
+        "avg_attendance": 63.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      }
+    ],
+    "all_students": [
+      {
+        "student_id": "S196",
+        "name": "Isaiah Chen",
+        "year": "Freshman",
+        "avg_score": 52.9,
+        "avg_attendance": 57.1,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S220",
+        "name": "Lucy Garcia",
+        "year": "Senior",
+        "avg_score": 56.4,
+        "avg_attendance": 63.6,
+        "at_risk": "Yes",
+        "category": "Low"
+      },
+      {
+        "student_id": "S208",
+        "name": "Camila Liu",
+        "year": "Senior",
+        "avg_score": 63.0,
+        "avg_attendance": 67.8,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S160",
+        "name": "Grayson Park",
+        "year": "Freshman",
+        "avg_score": 65.4,
+        "avg_attendance": 68.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S136",
+        "name": "Kinsley Lee",
+        "year": "Senior",
+        "avg_score": 66.6,
+        "avg_attendance": 70.7,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S112",
+        "name": "Nova Ramirez",
+        "year": "Junior",
+        "avg_score": 67.3,
+        "avg_attendance": 70.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S148",
+        "name": "Evelyn Green",
+        "year": "Sophomore",
+        "avg_score": 69.1,
+        "avg_attendance": 68.3,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S172",
+        "name": "Benjamin Nelson",
+        "year": "Senior",
+        "avg_score": 71.3,
+        "avg_attendance": 75.6,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S124",
+        "name": "Elena Anderson",
+        "year": "Freshman",
+        "avg_score": 73.6,
+        "avg_attendance": 74.2,
+        "at_risk": "No",
+        "category": "Medium"
+      },
+      {
+        "student_id": "S184",
+        "name": "Scarlett Jones",
+        "year": "Freshman",
+        "avg_score": 80.2,
+        "avg_attendance": 82.2,
+        "at_risk": "No",
+        "category": "High"
+      }
+    ]
+  }
+]

@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block extra_style %}
+.hero {
+  background: var(--green-900); color: #fff;
+  border-radius: var(--radius); padding: 40px;
+  margin-bottom: 32px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+.hero::before {
+  content: "CAMPUS"; position: absolute;
+  font-family: var(--serif); font-style: italic; font-weight: 800;
+  font-size: 260px; line-height: 0.8;
+  color: rgba(255,255,255,0.04);
+  right: -40px; bottom: -80px; pointer-events: none;
+}
+.hero-left { z-index: 1; max-width: 600px; }
+.hero-left .eyebrow { color: rgba(255,255,255,0.7); }
+.hero-left h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(32px, 4vw, 48px); line-height: 1.05;
+  letter-spacing: -0.025em; margin-top: 8px;
+}
+.hero-left h1 em { font-style: italic; font-weight: 400; color: #8fd4b3; }
+.hero-left p { color: rgba(255,255,255,0.7); margin-top: 10px; font-size: 15px; }
+.hero-right { z-index: 1; display: flex; gap: 32px; }
+.hero-right .n {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 56px; letter-spacing: -0.03em; line-height: 1;
+}
+.hero-right .l {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-top: 6px; color: rgba(255,255,255,0.7);
+}
+
+/* Stats strip */
+.stats-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 14px; margin-bottom: 36px;
+}
+.stat-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px;
+  position: relative; overflow: hidden;
+}
+.stat-card::before {
+  content: ""; position: absolute;
+  right: -28px; top: -28px;
+  width: 90px; height: 90px; border-radius: 50%;
+  background: var(--tint);
+}
+.stat-card .big {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 48px; line-height: 1; letter-spacing: -0.03em;
+  color: var(--accent-color);
+  position: relative; z-index: 1;
+}
+.stat-card .big small {
+  font-family: var(--sans); font-size: 18px; font-weight: 500;
+  margin-left: 2px; opacity: 0.6;
+}
+.stat-card .lbl {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  margin-top: 12px; position: relative; z-index: 1;
+}
+.stat-card.total  { --tint: rgba(108,99,255,0.12); --accent-color: #6c63ff; border-color: rgba(108,99,255,0.3); }
+.stat-card.risk   { --tint: rgba(194,50,59,0.10);  --accent-color: var(--low); }
+.stat-card.high   { --tint: rgba(0,103,71,0.10);   --accent-color: var(--high); }
+.stat-card.avg    { --tint: rgba(201,138,21,0.10); --accent-color: var(--medium); }
+
+/* Clickable stat cards */
+a.stat-card {
+  text-decoration: none; color: inherit; display: block;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+a.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+a.sec-link {
+  text-decoration: none; color: inherit;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+a.sec-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--green-700);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+/* Secondary stats */
+.sec-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 36px; }
+.sec-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sec-card .lbl {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.sec-card .n {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 28px; letter-spacing: -0.015em;
+}
+
+/* Dept breakdown */
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.section-head h2 {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 26px; letter-spacing: -0.015em;
+}
+.section-head h2 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.section-head .count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+.dept-table {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+}
+.dept-table table { width: 100%; border-collapse: collapse; }
+.dept-table th, .dept-table td {
+  padding: 14px 18px; text-align: left;
+  border-bottom: 1px solid var(--line-soft); font-size: 14px;
+}
+.dept-table th {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  background: var(--bg);
+}
+.dept-table tr:last-child td { border-bottom: none; }
+.dept-table tr { cursor: pointer; }
+.dept-table tr:hover td { background: var(--green-50); }
+.dept-table td.name b { font-weight: 600; color: var(--ink); }
+.dept-table td.name span { font-family: var(--mono); font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+.dept-table td.score {
+  font-family: var(--serif); font-weight: 700; font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.dept-table td.score.high { color: var(--high); }
+.dept-table td.score.medium { color: var(--medium); }
+.dept-table td.score.low { color: var(--low); }
+
+.mini-bar {
+  width: 100px; height: 6px; background: var(--line-soft);
+  border-radius: 3px; overflow: hidden; display: inline-block;
+  vertical-align: middle; margin-left: 6px;
+}
+.mini-bar > span {
+  display: block; height: 100%; border-radius: 3px;
+  background: var(--green-700);
+}
+.mini-bar.low > span { background: var(--low); }
+.mini-bar.medium > span { background: var(--medium); }
+
+@media (max-width: 1000px) {
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .sec-stats { grid-template-columns: 1fr; }
+  .hero { flex-direction: column; align-items: flex-start; }
+  .dept-table .hide-sm { display: none; }
+}
+@media (max-width: 600px) { .stats-strip { grid-template-columns: 1fr; } }
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Campus Intelligence</div>
+    <h1>Admin <em>Overview</em></h1>
+    <p>Cross-departmental analytics across {{ stats.total_departments }} schools and departments, with {{ stats.total_students }} students and {{ stats.total_professors }} professors.</p>
+  </div>
+  <div class="hero-right">
+    <div>
+      <div class="n">{{ stats.total_departments }}</div>
+      <div class="l">Departments</div>
+    </div>
+    <div>
+      <div class="n">{{ stats.total_courses }}</div>
+      <div class="l">Courses</div>
+    </div>
+    <div>
+      <div class="n">{{ stats.total_professors }}</div>
+      <div class="l">Faculty</div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-strip">
+  <a class="stat-card total" href="{{ url_for('admin_students', filter='all') }}">
+    <div class="big">{{ stats.total_students }}</div>
+    <div class="lbl">Total Students</div>
+  </a>
+  <a class="stat-card risk" href="{{ url_for('admin_students', filter='at_risk') }}">
+    <div class="big">{{ stats.at_risk_count }}</div>
+    <div class="lbl">At-Risk Students</div>
+  </a>
+  <a class="stat-card high" href="{{ url_for('admin_students', filter='high') }}">
+    <div class="big">{{ stats.high_performers }}</div>
+    <div class="lbl">High Performers</div>
+  </a>
+  <a class="stat-card avg" href="{{ url_for('admin_students', filter='all') }}">
+    <div class="big">{{ stats.avg_score }}<small>/100</small></div>
+    <div class="lbl">Avg Campus Score</div>
+  </a>
+</section>
+
+<section class="sec-stats">
+  <div class="sec-card">
+    <span class="lbl">Avg Attendance</span>
+    <span class="n">{{ stats.avg_attendance }}%</span>
+  </div>
+  <a class="sec-card sec-link" href="{{ url_for('admin_students', filter='medium') }}">
+    <span class="lbl">Medium Performers</span>
+    <span class="n">{{ stats.medium_count }}</span>
+  </a>
+  <a class="sec-card sec-link" href="{{ url_for('admin_students', filter='low') }}">
+    <span class="lbl">Low Performers</span>
+    <span class="n" style="color: var(--low);">{{ stats.low_count }}</span>
+  </a>
+</section>
+
+<div class="section-head">
+  <h2>Department <em>Breakdown</em></h2>
+  <span class="count">{{ depts|length }} departments · sorted by avg score</span>
+</div>
+
+<div class="dept-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Students</th>
+        <th>Avg Score</th>
+        <th class="hide-sm">Attendance</th>
+        <th>At-Risk</th>
+        <th class="hide-sm">High</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in depts %}
+      <tr onclick="window.location='{{ url_for('admin_department', dept_id=d.dept_id) }}'">
+        <td class="name">
+          <b>{{ d.name }}</b>
+          <span>{{ d.dept_id }} · {{ d.school }}</span>
+        </td>
+        <td><b style="font-family: var(--serif); font-size: 18px;">{{ d.n_students }}</b></td>
+        <td class="score {% if d.avg_score >= 75 %}high{% elif d.avg_score >= 60 %}medium{% else %}low{% endif %}">
+          {{ d.avg_score }}
+          <span class="mini-bar {% if d.avg_score < 60 %}low{% elif d.avg_score < 75 %}medium{% endif %}"><span style="width: {{ d.avg_score }}%"></span></span>
+        </td>
+        <td class="hide-sm"><b>{{ d.avg_attendance }}%</b></td>
+        <td>
+          {% if d.at_risk > 0 %}<span class="pill low">{{ d.at_risk }}</span>
+          {% else %}<span style="color: var(--muted);">0</span>{% endif %}
+        </td>
+        <td class="hide-sm">
+          {% if d.high_count > 0 %}<span class="pill high">{{ d.high_count }}</span>
+          {% else %}<span style="color: var(--muted);">0</span>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

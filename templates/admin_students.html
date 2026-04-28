@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block extra_style %}
+.crumbs {
+  display: flex; gap: 8px; align-items: center;
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); margin-bottom: 18px;
+}
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--green-700); text-decoration: underline; text-underline-offset: 3px; }
+.crumbs .sep { opacity: 0.4; }
+
+/* Head */
+.list-head {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 28px 32px;
+  margin-bottom: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+}
+.list-head .eyebrow { margin-bottom: 8px; }
+.list-head h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(26px, 4vw, 36px); line-height: 1;
+  letter-spacing: -0.025em;
+}
+.list-head h1 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.list-head .count-big {
+  display: flex; flex-direction: column; align-items: flex-end;
+}
+.list-head .count-big .n {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 48px; letter-spacing: -0.03em; line-height: 1;
+  color: var(--green-700);
+}
+.list-head .count-big .l {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-top: 6px; color: var(--muted); font-weight: 600;
+}
+
+/* Filter chips */
+.filter-chips {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.filter-chips a {
+  padding: 8px 16px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  color: var(--muted); text-decoration: none;
+  transition: all 0.15s;
+}
+.filter-chips a:hover { color: var(--ink); border-color: var(--muted-2); text-decoration: none; }
+.filter-chips a.active {
+  background: var(--green-700); color: #fff;
+  border-color: var(--green-700);
+}
+.filter-chips a.active:hover { background: var(--green-900); }
+
+/* Filters bar */
+.filters {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.filter-group label {
+  display: block;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  margin-bottom: 6px;
+}
+.filter-group.search { flex: 1; min-width: 220px; }
+.filter-group input,
+.filter-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: var(--sans); font-size: 13px;
+  background: var(--surface); color: var(--ink);
+  min-width: 160px;
+}
+.filter-group input:focus, .filter-group select:focus {
+  outline: none; border-color: var(--green-700);
+  box-shadow: 0 0 0 3px rgba(0,103,71,0.12);
+}
+
+/* Table */
+.roster {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+}
+.roster table { width: 100%; border-collapse: collapse; }
+.roster th, .roster td {
+  padding: 14px 18px; text-align: left;
+  border-bottom: 1px solid var(--line-soft); font-size: 14px;
+}
+.roster th {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600; background: var(--bg);
+}
+.roster tr:last-child td { border-bottom: none; }
+.roster tbody tr { cursor: pointer; }
+.roster tbody tr:hover td { background: var(--green-50); }
+.roster td.name b { font-weight: 600; color: var(--ink); }
+.roster td.name span { font-family: var(--mono); font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+.roster td.dept {
+  font-size: 13px; color: var(--muted);
+  max-width: 220px;
+}
+.roster td.dept b { font-family: var(--mono); font-size: 11px; color: var(--green-700); font-weight: 600; display: block; }
+.roster td.score {
+  font-family: var(--serif); font-weight: 700; font-size: 17px;
+  letter-spacing: -0.01em;
+}
+.roster td.score.high { color: var(--high); }
+.roster td.score.medium { color: var(--medium); }
+.roster td.score.low { color: var(--low); }
+
+@media (max-width: 1000px) {
+  .roster .hide-sm { display: none; }
+  .filters { flex-direction: column; align-items: stretch; }
+}
+{% endblock %}
+
+{% block content %}
+<nav class="crumbs">
+  <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+  <span class="sep">/</span>
+  <span>Students</span>
+  {% if filter != 'all' %}<span class="sep">/</span><span>{{ title }}</span>{% endif %}
+</nav>
+
+<section class="list-head">
+  <div>
+    <div class="eyebrow">Campus-Wide Student Directory</div>
+    <h1>{{ title.split(' ')[0] }} <em>{{ ' '.join(title.split(' ')[1:]) }}</em></h1>
+  </div>
+  <div class="count-big">
+    <div class="n" id="visibleCount">{{ students|length }}</div>
+    <div class="l">Students Matching</div>
+  </div>
+</section>
+
+<!-- Filter chips (server-side filter bookmarks) -->
+<div class="filter-chips">
+  <a href="{{ url_for('admin_students', filter='all') }}" class="{% if filter == 'all' %}active{% endif %}">
+    All · {{ stats.total_students }}
+  </a>
+  <a href="{{ url_for('admin_students', filter='at_risk') }}" class="{% if filter == 'at_risk' %}active{% endif %}">
+    At-Risk · {{ stats.at_risk_count }}
+  </a>
+  <a href="{{ url_for('admin_students', filter='high') }}" class="{% if filter == 'high' %}active{% endif %}">
+    High · {{ stats.high_performers }}
+  </a>
+  <a href="{{ url_for('admin_students', filter='medium') }}" class="{% if filter == 'medium' %}active{% endif %}">
+    Medium · {{ stats.medium_count }}
+  </a>
+  <a href="{{ url_for('admin_students', filter='low') }}" class="{% if filter == 'low' %}active{% endif %}">
+    Low · {{ stats.low_count }}
+  </a>
+</div>
+
+<!-- Client-side filter bar -->
+<div class="filters">
+  <div class="filter-group">
+    <label>Year</label>
+    <select id="yearFilter">
+      <option value="all">All years</option>
+      <option value="Freshman">Freshman</option>
+      <option value="Sophomore">Sophomore</option>
+      <option value="Junior">Junior</option>
+      <option value="Senior">Senior</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Department</label>
+    <select id="deptFilter">
+      <option value="all">All departments</option>
+      {% set seen = [] %}
+      {% for s in students %}
+        {% if s.dept_id not in seen %}
+          {% if seen.append(s.dept_id) %}{% endif %}
+          <option value="{{ s.dept_id }}">{{ s.dept_name }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+  <div class="filter-group search">
+    <label>Search</label>
+    <input type="text" id="searchFilter" placeholder="Name, ID, or program…">
+  </div>
+</div>
+
+<div class="roster">
+  <table>
+    <thead>
+      <tr>
+        <th>Name · ID</th>
+        <th class="hide-sm">Department</th>
+        <th class="hide-sm">Year</th>
+        <th>Avg Score</th>
+        <th>Attendance</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="rosterBody">
+      {% if students %}
+        {% for s in students %}
+        <tr onclick="window.location='{{ url_for('admin_student_detail', student_id=s.student_id) }}'"
+            data-year="{{ s.year }}"
+            data-dept="{{ s.dept_id }}"
+            data-name="{{ s.name|lower }} {{ s.student_id|lower }} {{ s.program|lower }}">
+          <td class="name">
+            <b>{{ s.name }}</b>
+            <span>{{ s.student_id }} · {{ s.email }}</span>
+          </td>
+          <td class="dept hide-sm">
+            <b>{{ s.dept_id }}</b>
+            {{ s.dept_name }}
+          </td>
+          <td class="hide-sm">{{ s.year }}</td>
+          <td class="score {{ s.status_color }}">{{ s.avg_score }}</td>
+          <td><b style="font-family: var(--serif); font-size: 15px;">{{ s.avg_attendance }}%</b></td>
+          <td>
+            {% if s.at_risk == 'Yes' %}<span class="pill low">At Risk</span>
+            {% else %}<span class="pill {{ s.status_color }}">{{ s.category }}</span>{% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      {% else %}
+        <tr><td colspan="6" style="text-align: center; padding: 40px; color: var(--muted);">No students match this filter.</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <div id="noResults" style="display: none; padding: 40px; text-align: center; color: var(--muted); font-size: 14px;">
+    No students match your search. <a href="#" onclick="clearLocalFilters(); return false;">Clear search filters</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  const rows      = Array.from(document.querySelectorAll('#rosterBody tr[data-name]'));
+  const yearSel   = document.getElementById('yearFilter');
+  const deptSel   = document.getElementById('deptFilter');
+  const searchIn  = document.getElementById('searchFilter');
+  const visEl     = document.getElementById('visibleCount');
+  const noResults = document.getElementById('noResults');
+  const tableBody = document.getElementById('rosterBody');
+
+  let state = { year: 'all', dept: 'all', search: '' };
+
+  function apply() {
+    let visible = 0;
+    rows.forEach(r => {
+      const y = r.dataset.year;
+      const d = r.dataset.dept;
+      const n = r.dataset.name;
+      let show = true;
+      if (state.year !== 'all') show = (y === state.year);
+      if (show && state.dept !== 'all') show = (d === state.dept);
+      if (show && state.search)         show = n.includes(state.search);
+      r.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    visEl.textContent = visible;
+    if (rows.length > 0) {
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+  }
+
+  yearSel.addEventListener('change', () => { state.year = yearSel.value; apply(); });
+  deptSel.addEventListener('change', () => { state.dept = deptSel.value; apply(); });
+  searchIn.addEventListener('input', () => { state.search = searchIn.value.toLowerCase(); apply(); });
+
+  window.clearLocalFilters = function() {
+    state = { year: 'all', dept: 'all', search: '' };
+    yearSel.value = 'all'; deptSel.value = 'all'; searchIn.value = '';
+    apply();
+  };
+})();
+</script>
+{% endblock %}

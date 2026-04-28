@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% block title %}Sign In{% endblock %}
+
+{% block extra_style %}
+body { background: #fff; overflow: hidden; }
+main.shell { max-width: 100%; padding: 0; }
+
+.login-wrap { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+
+.login-left {
+  position: relative;
+  background: var(--green-900);
+  color: #f3f8f5;
+  padding: 56px 56px 40px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.login-left::before {
+  content: "IQ"; position: absolute;
+  font-family: var(--serif); font-style: italic; font-weight: 800;
+  font-size: 720px; line-height: 0.8;
+  color: rgba(255,255,255,0.03);
+  right: -80px; bottom: -120px; pointer-events: none;
+}
+.login-left::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(transparent, transparent 34px, rgba(255,255,255,0.015) 34px, rgba(255,255,255,0.015) 35px);
+  pointer-events: none;
+}
+.login-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--serif); font-size: 22px; font-weight: 800;
+  color: #fff; z-index: 1;
+}
+.login-brand .brand-mark { background: #fff; color: var(--green-900); }
+
+.login-hero { margin-top: 32px; z-index: 1; max-width: 520px; }
+.login-hero .eyebrow { color: rgba(255,255,255,0.7); letter-spacing: 0.2em; }
+.login-hero h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(42px, 5vw, 68px); line-height: 1.02;
+  letter-spacing: -0.03em; margin-top: 16px; color: #fff;
+}
+.login-hero h1 em { font-style: italic; font-weight: 400; color: #8fd4b3; }
+.login-hero p { margin-top: 20px; font-size: 16px; color: rgba(255,255,255,0.75); max-width: 460px; line-height: 1.55; }
+.login-meta { margin-top: 40px; display: flex; gap: 28px; z-index: 1; flex-wrap: wrap; }
+.login-meta div { border-left: 2px solid rgba(143,212,179,0.4); padding-left: 12px; }
+.login-meta .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: rgba(255,255,255,0.55); text-transform: uppercase; }
+.login-meta .v { font-family: var(--serif); font-size: 22px; font-weight: 600; color: #fff; margin-top: 2px; }
+
+.login-right { display: flex; align-items: center; justify-content: center; padding: 40px; position: relative; }
+.login-card { width: 100%; max-width: 460px; }
+.login-card .eyebrow { color: var(--green-700); letter-spacing: 0.2em; }
+.login-card h2 {
+  font-family: var(--serif); font-weight: 800; font-size: 44px;
+  line-height: 1.05; letter-spacing: -0.025em; margin-top: 10px; color: var(--ink);
+}
+.login-card h2 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.login-card > .sub { color: var(--muted); margin-top: 10px; font-size: 15px; }
+
+/* ── Role tabs ── */
+.role-tabs {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 24px;
+  padding: 4px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.role-tab {
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: all 0.15s;
+  font-family: var(--sans);
+}
+.role-tab:hover { color: var(--ink); }
+.role-tab.active {
+  background: var(--surface);
+  color: var(--green-700);
+  box-shadow: var(--shadow-sm);
+}
+.role-tab .icon { display: block; font-size: 18px; margin-bottom: 2px; }
+
+.field { margin-top: 20px; }
+.field label {
+  display: block; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+.field input {
+  width: 100%; padding: 14px 16px;
+  border: 1px solid var(--line); border-radius: 10px;
+  font-family: var(--mono); font-size: 15px; color: var(--ink); background: var(--surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field input:focus { outline: none; border-color: var(--green-700); box-shadow: 0 0 0 3px rgba(0,103,71,0.12); }
+
+.login-card .btn-primary { width: 100%; margin-top: 28px; padding: 14px; justify-content: center; font-size: 15px; }
+
+.login-hint {
+  margin-top: 24px; padding: 14px 16px;
+  background: var(--green-50); border: 1px dashed #cfe5d9;
+  border-radius: 10px; font-size: 13px; color: var(--green-900);
+}
+.login-hint b { font-family: var(--mono); }
+.login-hint.hidden { display: none; }
+
+.login-foot { margin-top: 40px; font-size: 12px; color: var(--muted-2); text-align: center; }
+
+@media (max-width: 900px) {
+  .login-wrap { grid-template-columns: 1fr; }
+  .login-left { padding: 32px; min-height: 280px; }
+  .login-left::before { font-size: 420px; right: -40px; bottom: -80px; }
+  .login-hero h1 { font-size: 36px; }
+  .login-right { padding: 32px 24px; }
+}
+{% endblock %}
+
+{% block content %}
+<div class="login-wrap">
+  <aside class="login-left">
+    <div class="login-brand">
+      <span class="brand-mark">IQ</span>
+      Campus<span style="font-style: italic;">IQ</span>
+    </div>
+
+    <div class="login-hero">
+      <div class="eyebrow">Smart intelligence, for every role</div>
+      <h1>Your campus, <em>all in one view.</em></h1>
+      <p>CampusIQ is the intelligent layer across students, faculty, and admin. Every course, every grade, every insight — unified.</p>
+    </div>
+
+    <div class="login-meta">
+      <div><div class="k">Departments</div><div class="v">12</div></div>
+      <div><div class="k">Courses</div><div class="v">68</div></div>
+      <div><div class="k">Students</div><div class="v">120</div></div>
+      <div><div class="k">Faculty</div><div class="v">36</div></div>
+    </div>
+  </aside>
+
+  <section class="login-right">
+    <div class="login-card">
+      <div class="eyebrow">Portal Access</div>
+      <h2>Welcome <em>back.</em></h2>
+      <p class="sub">Choose your role and sign in.</p>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, msg in messages %}<div class="flash {{ category }}" style="margin-top: 24px;">{{ msg }}</div>{% endfor %}
+      {% endwith %}
+
+      <form method="POST" action="{{ url_for('login') }}" id="loginForm">
+        <div class="role-tabs" role="tablist">
+          <button type="button" class="role-tab {% if selected_role == 'student' %}active{% endif %}" data-role="student"><span class="icon">🎓</span>Student</button>
+          <button type="button" class="role-tab {% if selected_role == 'faculty' %}active{% endif %}" data-role="faculty"><span class="icon">👨‍🏫</span>Faculty</button>
+          <button type="button" class="role-tab {% if selected_role == 'admin' %}active{% endif %}" data-role="admin"><span class="icon">📊</span>Admin</button>
+        </div>
+        <input type="hidden" name="role" id="roleInput" value="{{ selected_role }}">
+
+        <div class="field">
+          <label for="user_id" id="idLabel">Student ID</label>
+          <input type="text" id="user_id" name="user_id" placeholder="S101" autocomplete="username" required autofocus>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in →</button>
+      </form>
+
+      <div class="login-hint" id="hintStudent">
+        <b>Student demo:</b> use ID <b>S101</b> with password <b>S101</b>.
+        Any ID from <b>S101</b>–<b>S220</b> works (password = ID).
+      </div>
+      <div class="login-hint hidden" id="hintFaculty">
+        <b>Faculty demo:</b> use ID <b>P001</b> with password <b>P001</b>.
+        Any ID from <b>P001</b>–<b>P036</b> works (password = ID).
+      </div>
+      <div class="login-hint hidden" id="hintAdmin">
+        <b>Admin demo:</b> use ID <b>ADMIN</b> with password <b>admin123</b>.
+      </div>
+
+      <div class="login-foot">© 2024 CampusIQ · NextGen Learners</div>
+    </div>
+  </section>
+</div>
+
+<script>
+  const tabs    = document.querySelectorAll('.role-tab');
+  const input   = document.getElementById('roleInput');
+  const label   = document.getElementById('idLabel');
+  const userId  = document.getElementById('user_id');
+  const hints   = {
+    student: document.getElementById('hintStudent'),
+    faculty: document.getElementById('hintFaculty'),
+    admin:   document.getElementById('hintAdmin'),
+  };
+  const labels  = { student: "Student ID",  faculty: "Faculty ID", admin: "Admin ID" };
+  const placeholders = { student: "S101", faculty: "P001", admin: "ADMIN" };
+
+  function selectRole(role) {
+    input.value = role;
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.role === role));
+    label.textContent       = labels[role];
+    userId.placeholder      = placeholders[role];
+    Object.entries(hints).forEach(([k, el]) => el.classList.toggle('hidden', k !== role));
+  }
+  tabs.forEach(t => t.addEventListener('click', () => selectRole(t.dataset.role)));
+  // Default to whatever server already set
+  selectRole(input.value || 'student');
+</script>
+{% endblock %}

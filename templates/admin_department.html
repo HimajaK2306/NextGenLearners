@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% block title %}{{ dept.name }}{% endblock %}
+
+{% block extra_style %}
+.crumbs {
+  display: flex; gap: 8px; align-items: center;
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); margin-bottom: 18px;
+}
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--green-700); text-decoration: underline; text-underline-offset: 3px; }
+.crumbs .sep { opacity: 0.4; }
+
+.dept-head {
+  background: var(--green-900); color: #fff;
+  border-radius: var(--radius); padding: 40px;
+  position: relative; overflow: hidden;
+  margin-bottom: 28px;
+}
+.dept-head::before {
+  content: "{{ dept.dept_id }}"; position: absolute;
+  font-family: var(--serif); font-style: italic; font-weight: 800;
+  font-size: 340px; line-height: 0.8;
+  color: rgba(255,255,255,0.04);
+  right: -40px; bottom: -100px; pointer-events: none;
+}
+.dept-head .eyebrow { color: rgba(255,255,255,0.7); }
+.dept-head h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px); line-height: 1.05;
+  letter-spacing: -0.025em; margin-top: 8px;
+}
+.dept-head .subhead {
+  color: rgba(255,255,255,0.65);
+  margin-top: 8px; font-size: 14px;
+  font-family: var(--mono);
+}
+
+/* Stats strip */
+.stats-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 14px; margin-bottom: 32px;
+}
+.stat-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px;
+  position: relative; overflow: hidden;
+}
+.stat-card::before {
+  content: ""; position: absolute;
+  right: -28px; top: -28px;
+  width: 90px; height: 90px; border-radius: 50%;
+  background: var(--tint);
+}
+.stat-card .big {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 48px; line-height: 1; letter-spacing: -0.03em;
+  color: var(--accent-color);
+  position: relative; z-index: 1;
+}
+.stat-card .big small {
+  font-family: var(--sans); font-size: 18px; font-weight: 500;
+  margin-left: 2px; opacity: 0.6;
+}
+.stat-card .lbl {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  margin-top: 12px; position: relative; z-index: 1;
+}
+.stat-card.total  { --tint: rgba(108,99,255,0.12); --accent-color: #6c63ff; border-color: rgba(108,99,255,0.3); }
+.stat-card.risk   { --tint: rgba(194,50,59,0.10);  --accent-color: var(--low); }
+.stat-card.high   { --tint: rgba(0,103,71,0.10);   --accent-color: var(--high); }
+.stat-card.avg    { --tint: rgba(201,138,21,0.10); --accent-color: var(--medium); }
+
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.section-head h2 {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 26px; letter-spacing: -0.015em;
+}
+.section-head h2 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.section-head .count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+.roster {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+}
+.roster table { width: 100%; border-collapse: collapse; }
+.roster th, .roster td {
+  padding: 14px 18px; text-align: left;
+  border-bottom: 1px solid var(--line-soft); font-size: 14px;
+}
+.roster th {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  background: var(--bg);
+}
+.roster tr:last-child td { border-bottom: none; }
+.roster tbody tr:hover td { background: var(--green-50); }
+.roster td.name b { font-weight: 600; color: var(--ink); }
+.roster td.name span { font-family: var(--mono); font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+.roster td.score {
+  font-family: var(--serif); font-weight: 700; font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.roster td.score.high { color: var(--high); }
+.roster td.score.medium { color: var(--medium); }
+.roster td.score.low { color: var(--low); }
+.roster td.att b { font-family: var(--serif); font-weight: 700; font-size: 16px; }
+
+@media (max-width: 1000px) {
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .roster .hide-sm { display: none; }
+}
+@media (max-width: 600px) { .stats-strip { grid-template-columns: 1fr; } }
+{% endblock %}
+
+{% block content %}
+<nav class="crumbs">
+  <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+  <span class="sep">/</span>
+  <span>{{ dept.dept_id }}</span>
+</nav>
+
+<section class="dept-head">
+  <div class="eyebrow">Department Detail</div>
+  <h1>{{ dept.name }}</h1>
+  <div class="subhead">{{ dept.school }} · Code {{ dept.code }} · ID {{ dept.dept_id }}</div>
+</section>
+
+<section class="stats-strip">
+  <div class="stat-card total">
+    <div class="big">{{ stats.total_students }}</div>
+    <div class="lbl">Total Students</div>
+  </div>
+  <div class="stat-card risk">
+    <div class="big">{{ stats.at_risk_count }}</div>
+    <div class="lbl">At-Risk Students</div>
+  </div>
+  <div class="stat-card high">
+    <div class="big">{{ stats.high_performers }}</div>
+    <div class="lbl">High Performers</div>
+  </div>
+  <div class="stat-card avg">
+    <div class="big">{{ stats.avg_score }}<small>/100</small></div>
+    <div class="lbl">Avg Dept Score</div>
+  </div>
+</section>
+
+<div class="section-head">
+  <h2>All <em>Students</em></h2>
+  <span class="count">{{ students|length }} students · sorted by risk</span>
+</div>
+
+<div class="roster">
+  <table>
+    <thead>
+      <tr>
+        <th>Name · ID</th>
+        <th class="hide-sm">Year</th>
+        <th class="hide-sm">Program</th>
+        <th>Avg Score</th>
+        <th>Attendance</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr onclick="window.location='{{ url_for('admin_student_detail', student_id=s.student_id) }}'" style="cursor: pointer;">
+        <td class="name">
+          <b>{{ s.name }}</b>
+          <span>{{ s.student_id }}</span>
+        </td>
+        <td class="hide-sm">{{ s.year }}</td>
+        <td class="hide-sm" style="color: var(--muted);">{{ s.program }}</td>
+        <td class="score {{ s.status_color }}">{{ s.avg_score }}</td>
+        <td class="att"><b>{{ s.avg_attendance }}%</b></td>
+        <td>
+          {% if s.at_risk == 'Yes' %}<span class="pill low">At Risk</span>
+          {% else %}<span class="pill {{ s.status_color }}">{{ s.category }}</span>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,412 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block extra_style %}
+/* ── Profile hero block ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.profile-card::before {
+  content: ""; position: absolute;
+  right: -40px; top: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(0,103,71,0.06), transparent 70%);
+  pointer-events: none;
+}
+.profile-card .eyebrow { margin-bottom: 12px; }
+.profile-card .name {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px); line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+.profile-card .name em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.profile-card .id {
+  font-family: var(--mono); font-size: 13px;
+  color: var(--muted); margin-top: 8px; letter-spacing: 0.02em;
+}
+.profile-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px 28px;
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+}
+.profile-grid .k {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px;
+}
+.profile-grid .v { font-size: 15px; font-weight: 500; }
+
+.stats-panel {
+  background: var(--green-900);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 32px; position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.stats-panel::before {
+  content: "F'24"; position: absolute;
+  font-family: var(--serif); font-style: italic; font-weight: 800;
+  font-size: 320px; line-height: 0.8;
+  color: rgba(255,255,255,0.04);
+  right: -40px; bottom: -60px; pointer-events: none;
+}
+.stats-panel .eyebrow { color: rgba(255,255,255,0.7); }
+.stats-panel .title {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 22px; margin-top: 6px;
+  letter-spacing: -0.015em;
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 28px; margin-top: auto; padding-top: 32px; z-index: 1; }
+.stat { flex: 1; min-width: 100px; }
+.stat .num {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 44px; letter-spacing: -0.02em; line-height: 1;
+}
+.stat .num small {
+  font-family: var(--sans); font-size: 18px; font-weight: 400;
+  opacity: 0.5; margin-left: 2px;
+}
+.stat .lbl {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-top: 8px; color: rgba(255,255,255,0.7);
+}
+
+/* ── Two-column section (reminders + quick prompts + courses) ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
+}
+
+/* ── Smart Reminders block ── */
+.reminders-block h3, .prompts-block h3 {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.reminders-block h3::before {
+  content: "🔔"; font-size: 14px;
+}
+.prompts-block h3::before {
+  content: "✨"; font-size: 14px;
+}
+.reminder-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--upcoming);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  transition: transform 0.15s, border-color 0.15s;
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+}
+.reminder-item:hover { transform: translateX(2px); text-decoration: none; }
+.reminder-item.urgent   { border-left-color: var(--urgent); }
+.reminder-item.soon     { border-left-color: var(--soon); }
+.reminder-item.upcoming { border-left-color: var(--upcoming); }
+
+.reminder-head {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; font-weight: 700;
+  margin-bottom: 4px;
+}
+.reminder-item.urgent   .reminder-head .u { color: var(--urgent); }
+.reminder-item.soon     .reminder-head .u { color: var(--soon); }
+.reminder-item.upcoming .reminder-head .u { color: var(--upcoming); }
+.reminder-head .dot { color: var(--muted); }
+.reminder-head .type { color: var(--ink); }
+
+.reminder-topic {
+  font-size: 14px; font-weight: 600; color: var(--ink);
+  margin-bottom: 2px; line-height: 1.3;
+}
+.reminder-meta {
+  font-size: 12px; color: var(--muted);
+}
+.reminder-meta .course {
+  font-family: var(--mono); font-weight: 600; color: var(--green-700);
+}
+.reminders-empty {
+  background: var(--surface); border: 1px dashed var(--line);
+  border-radius: 10px; padding: 18px; text-align: center;
+  font-size: 13px; color: var(--muted);
+}
+
+/* ── Quick Prompts ── */
+.prompts-block { margin-top: 28px; }
+.prompt-btn {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  font-family: var(--sans);
+  font-size: 14px; font-weight: 500;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+.prompt-btn:hover {
+  border-color: var(--green-700);
+  background: var(--green-50);
+  text-decoration: none;
+}
+.prompt-btn .icon {
+  width: 28px; height: 28px;
+  background: var(--green-100);
+  color: var(--green-700);
+  border-radius: 6px;
+  display: grid; place-items: center;
+  font-size: 14px;
+}
+.prompt-btn .arrow {
+  margin-left: auto; color: var(--muted); font-size: 12px;
+  transition: transform 0.15s, color 0.15s;
+}
+.prompt-btn:hover .arrow { color: var(--green-700); transform: translateX(3px); }
+
+/* ── Section head ── */
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 20px; padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.section-head h2 {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 26px; letter-spacing: -0.015em;
+}
+.section-head h2 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.section-head .count {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); letter-spacing: 0.04em;
+}
+
+/* ── Course grid ── */
+.courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.course-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 20px 16px;
+  text-decoration: none; color: var(--ink);
+  display: flex; flex-direction: column;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.course-card:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--green-700); box-shadow: var(--shadow-md); }
+
+.course-card .code-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.course-card .code {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  color: var(--green-700); letter-spacing: 0.04em;
+}
+.course-card .title {
+  font-family: var(--serif); font-weight: 700; font-size: 19px;
+  line-height: 1.2; letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+  min-height: 46px;
+}
+.course-card .meta { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.course-card .meta span { font-family: var(--mono); }
+
+.course-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  padding-top: 12px; border-top: 1px solid var(--line-soft);
+}
+.course-stats .cs .k {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 2px;
+}
+.course-stats .cs .v {
+  font-family: var(--serif); font-weight: 700; font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.course-stats .cs .v.high   { color: var(--high); }
+.course-stats .cs .v.medium { color: var(--medium); }
+.course-stats .cs .v.low    { color: var(--low); }
+.course-stats .cs .v small {
+  font-family: var(--sans); font-size: 11px;
+  font-weight: 500; color: var(--muted); margin-left: 3px;
+}
+.course-card .go {
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px; font-weight: 600; color: var(--green-700);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.course-card .go .arrow { transition: transform 0.18s; }
+.course-card:hover .go .arrow { transform: translateX(4px); }
+
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .profile-grid { grid-template-columns: repeat(2, 1fr); }
+}
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="profile-card">
+    <div class="eyebrow">Student Profile</div>
+    <div class="name">{{ student.name.split()[0] }} <em>{{ student.name.split()[-1] }}</em></div>
+    <div class="id">{{ student.student_id }}  ·  {{ student.email }}</div>
+
+    <div class="profile-grid">
+      <div>
+        <div class="k">Department</div>
+        <div class="v">{{ dept.name }}</div>
+      </div>
+      <div>
+        <div class="k">Program</div>
+        <div class="v">{{ student.program }}</div>
+      </div>
+      <div>
+        <div class="k">Year</div>
+        <div class="v">{{ student.year }}</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="stats-panel">
+    <div class="eyebrow">Semester Snapshot</div>
+    <div class="title">Fall 2024</div>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="num">{{ overall_avg }}<small>%</small></div>
+        <div class="lbl">Overall Score</div>
+      </div>
+      <div class="stat">
+        <div class="num">{{ courses|length }}</div>
+        <div class="lbl">Courses</div>
+      </div>
+      <div class="stat">
+        <div class="num">{{ overall_att }}<small>%</small></div>
+        <div class="lbl">Attendance</div>
+      </div>
+      <div class="stat">
+        <div class="num">{{ total_credits }}</div>
+        <div class="lbl">Credit Hours</div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- 2-COLUMN: sidebar (reminders + prompts) + courses -->
+<section class="grid-2">
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="reminders-block">
+      <h3>Smart Reminders</h3>
+      {% if reminders %}
+        {% for r in reminders %}
+        <a class="reminder-item {{ r.urgency|lower }}" href="{{ url_for('student_course', course_code=r.course_code) }}">
+          <div class="reminder-head">
+            <span class="u">{{ r.urgency }}</span>
+            <span class="dot">·</span>
+            <span class="type">{{ r.type }}</span>
+          </div>
+          <div class="reminder-topic">{{ r.topic }}</div>
+          <div class="reminder-meta">
+            <span class="course">{{ r.course_code }}</span>
+            · {{ r.due_date }} · {{ r.due_days }}d away
+          </div>
+        </a>
+        {% endfor %}
+      {% else %}
+        <div class="reminders-empty">No upcoming reminders for your courses.</div>
+      {% endif %}
+    </div>
+
+    <div class="prompts-block">
+      <h3>Quick Prompts</h3>
+      <a class="prompt-btn" href="{{ url_for('student_chat') }}?q=Generate%20a%20personalized%207-day%20study%20plan%20based%20on%20my%20weakest%20courses.">
+        <span class="icon">📅</span>Generate Study Plan<span class="arrow">→</span>
+      </a>
+      <a class="prompt-btn" href="{{ url_for('student_chat') }}?q=Identify%20my%20weak%20areas%20and%20tell%20me%20exactly%20which%20modules%20I%20need%20to%20focus%20on.">
+        <span class="icon">🎯</span>Identify Weak Areas<span class="arrow">→</span>
+      </a>
+      <a class="prompt-btn" href="{{ url_for('student_chat') }}?q=Show%20me%20my%20upcoming%20deadlines%20and%20prioritize%20them%20by%20urgency.">
+        <span class="icon">🔔</span>My Reminders<span class="arrow">→</span>
+      </a>
+      <a class="prompt-btn" href="{{ url_for('student_chat') }}?q=Predict%20my%20end-of-semester%20performance%20based%20on%20current%20data.">
+        <span class="icon">🔮</span>Predict Performance<span class="arrow">→</span>
+      </a>
+      <a class="prompt-btn" href="{{ url_for('student_chat') }}?q=Recommend%20the%20best%20campus%20resources%20for%20my%20weakest%20subjects.">
+        <span class="icon">🏛️</span>Campus Resources<span class="arrow">→</span>
+      </a>
+      <a class="prompt-btn" href="{{ url_for('student_chat') }}?q=Build%20me%20a%204-week%20roadmap%20with%20weekly%20milestones%20to%20improve%20my%20weakest%20courses.">
+        <span class="icon">🗺️</span>4-Week Roadmap<span class="arrow">→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- COURSES -->
+  <div>
+    <div class="section-head">
+      <h2>Enrolled <em>Courses</em></h2>
+    </div>
+
+    {% if courses %}
+    <div class="courses">
+      {% for c in courses %}
+        <a class="course-card" href="{{ url_for('student_course', course_code=c.course_code) }}">
+          <div class="code-row">
+            <span class="code">{{ c.course_code }}</span>
+            <span class="pill {{ c.status_color }}">{{ c.letter_grade }}</span>
+          </div>
+          <div class="title">{{ c.course_title }}</div>
+          <div class="meta">
+            <span>{{ c.credits }}</span> credits · <span>{{ c.modules_count }}</span> modules · {{ c.semester }}
+          </div>
+          <div class="course-stats">
+            <div class="cs">
+              <div class="k">Score</div>
+              <div class="v {{ c.status_color }}">{{ c.avg_score }}<small>/100</small></div>
+            </div>
+            <div class="cs">
+              <div class="k">Attendance</div>
+              <div class="v {% if c.avg_attendance < 65 %}low{% elif c.avg_attendance < 80 %}medium{% else %}high{% endif %}">{{ c.avg_attendance }}<small>%</small></div>
+            </div>
+          </div>
+          <div class="go">
+            <span>View course details</span><span class="arrow">→</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="surface" style="padding: 40px; text-align: center; color: var(--muted);">
+      You are not enrolled in any courses for this semester.
+    </div>
+    {% endif %}
+  </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,226 @@
+{
+  "total_students": 120,
+  "total_faculty": 36,
+  "total_depts": 12,
+  "campus_avg_score": 69.66,
+  "campus_avg_attendance": 70.03,
+  "at_risk_count": 29,
+  "high_performers": 37,
+  "medium_performers": 65,
+  "low_performers": 18,
+  "departments": [
+    {
+      "dept_id": "EDU",
+      "name": "School of Education",
+      "school": "Professional Schools",
+      "students": 10,
+      "avg_score": 76.17,
+      "avg_attendance": 75.4,
+      "at_risk": 0,
+      "high": 5,
+      "medium": 5,
+      "low": 0
+    },
+    {
+      "dept_id": "AGR",
+      "name": "School of Agricultural Sciences",
+      "school": "Professional Schools",
+      "students": 10,
+      "avg_score": 73.83,
+      "avg_attendance": 73.72,
+      "at_risk": 1,
+      "high": 6,
+      "medium": 3,
+      "low": 1
+    },
+    {
+      "dept_id": "HSS",
+      "name": "Humanities and Social Sciences Department",
+      "school": "College of Arts and Sciences",
+      "students": 10,
+      "avg_score": 71.02,
+      "avg_attendance": 70.52,
+      "at_risk": 3,
+      "high": 5,
+      "medium": 4,
+      "low": 1
+    },
+    {
+      "dept_id": "CSE",
+      "name": "School of Computer Science and Information Systems",
+      "school": "Professional Schools",
+      "students": 10,
+      "avg_score": 70.72,
+      "avg_attendance": 70.16,
+      "at_risk": 3,
+      "high": 3,
+      "medium": 7,
+      "low": 0
+    },
+    {
+      "dept_id": "LLW",
+      "name": "Language, Literature, and Writing Department",
+      "school": "College of Arts and Sciences",
+      "students": 10,
+      "avg_score": 70.09,
+      "avg_attendance": 70.4,
+      "at_risk": 3,
+      "high": 4,
+      "medium": 4,
+      "low": 2
+    },
+    {
+      "dept_id": "COM",
+      "name": "School of Communication and Mass Media",
+      "school": "Professional Schools",
+      "students": 10,
+      "avg_score": 69.56,
+      "avg_attendance": 70.16,
+      "at_risk": 2,
+      "high": 3,
+      "medium": 5,
+      "low": 2
+    },
+    {
+      "dept_id": "FPA",
+      "name": "Fine and Performing Arts Department",
+      "school": "College of Arts and Sciences",
+      "students": 10,
+      "avg_score": 69.39,
+      "avg_attendance": 67.52,
+      "at_risk": 5,
+      "high": 4,
+      "medium": 5,
+      "low": 1
+    },
+    {
+      "dept_id": "MTH",
+      "name": "Mathematics and Statistics Department",
+      "school": "College of Arts and Sciences",
+      "students": 10,
+      "avg_score": 68.64,
+      "avg_attendance": 69.03,
+      "at_risk": 3,
+      "high": 3,
+      "medium": 5,
+      "low": 2
+    },
+    {
+      "dept_id": "BUS",
+      "name": "Booth School of Business",
+      "school": "Professional Schools",
+      "students": 10,
+      "avg_score": 67.12,
+      "avg_attendance": 67.1,
+      "at_risk": 1,
+      "high": 0,
+      "medium": 9,
+      "low": 1
+    },
+    {
+      "dept_id": "INT",
+      "name": "International Study",
+      "school": "College of Arts and Sciences",
+      "students": 10,
+      "avg_score": 66.57,
+      "avg_attendance": 68.91,
+      "at_risk": 4,
+      "high": 3,
+      "medium": 3,
+      "low": 4
+    },
+    {
+      "dept_id": "NAT",
+      "name": "Natural Sciences Department",
+      "school": "College of Arts and Sciences",
+      "students": 10,
+      "avg_score": 66.57,
+      "avg_attendance": 69.83,
+      "at_risk": 2,
+      "high": 1,
+      "medium": 7,
+      "low": 2
+    },
+    {
+      "dept_id": "HSW",
+      "name": "School of Health Science and Wellness",
+      "school": "Professional Schools",
+      "students": 10,
+      "avg_score": 66.22,
+      "avg_attendance": 67.58,
+      "at_risk": 2,
+      "high": 0,
+      "medium": 8,
+      "low": 2
+    }
+  ],
+  "top_5_students": [
+    {
+      "student_id": "S104",
+      "name": "Andrew Mitchell",
+      "dept_id": "CSE",
+      "avg_score": 86.39
+    },
+    {
+      "student_id": "S109",
+      "name": "Alexander Lewis",
+      "dept_id": "INT",
+      "avg_score": 85.89
+    },
+    {
+      "student_id": "S105",
+      "name": "Claire Ramirez",
+      "dept_id": "EDU",
+      "avg_score": 85.5
+    },
+    {
+      "student_id": "S205",
+      "name": "Hazel Wilson",
+      "dept_id": "INT",
+      "avg_score": 84.72
+    },
+    {
+      "student_id": "S209",
+      "name": "Sebastian Ramirez",
+      "dept_id": "AGR",
+      "avg_score": 84.0
+    }
+  ],
+  "bottom_5_students": [
+    {
+      "student_id": "S125",
+      "name": "Carter Moore",
+      "dept_id": "AGR",
+      "avg_score": 47.33,
+      "at_risk": "Yes"
+    },
+    {
+      "student_id": "S110",
+      "name": "Kinsley Chen",
+      "dept_id": "LLW",
+      "avg_score": 47.89,
+      "at_risk": "Yes"
+    },
+    {
+      "student_id": "S193",
+      "name": "Leah Chen",
+      "dept_id": "INT",
+      "avg_score": 48.83,
+      "at_risk": "Yes"
+    },
+    {
+      "student_id": "S207",
+      "name": "Carter Smith",
+      "dept_id": "MTH",
+      "avg_score": 49.72,
+      "at_risk": "Yes"
+    },
+    {
+      "student_id": "S120",
+      "name": "Gabriel Jackson",
+      "dept_id": "HSS",
+      "avg_score": 51.33,
+      "at_risk": "Yes"
+    }
+  ]
+}

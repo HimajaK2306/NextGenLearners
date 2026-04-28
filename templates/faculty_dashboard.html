@@ -1,0 +1,551 @@
+{% extends "base.html" %}
+{% block title %}Faculty Dashboard{% endblock %}
+
+{% block extra_style %}
+/* ── Hero ── */
+.hero {
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px;
+  margin-bottom: 32px;
+}
+.hero-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 32px;
+  position: relative; overflow: hidden;
+}
+.hero-card::before {
+  content: ""; position: absolute;
+  right: -40px; top: -40px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,103,71,0.06), transparent 70%);
+}
+.hero-card .eyebrow { margin-bottom: 10px; }
+.hero-card h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px); line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+.hero-card h1 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.hero-card .idrow {
+  font-family: var(--mono); font-size: 13px;
+  color: var(--muted); margin-top: 8px; letter-spacing: 0.02em;
+}
+.hero-card .grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px 28px;
+  margin-top: 28px; padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+}
+.hero-card .grid .k {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px;
+}
+.hero-card .grid .v { font-size: 15px; font-weight: 500; }
+
+.dept-card {
+  background: var(--green-900); color: #fff;
+  border-radius: var(--radius); padding: 32px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.dept-card::before {
+  content: "{{ dept.dept_id }}"; position: absolute;
+  font-family: var(--serif); font-style: italic; font-weight: 800;
+  font-size: 260px; line-height: 0.8;
+  color: rgba(255,255,255,0.04);
+  right: -40px; bottom: -80px; pointer-events: none;
+}
+.dept-card .eyebrow { color: rgba(255,255,255,0.7); }
+.dept-card .name {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 26px; margin-top: 6px;
+  letter-spacing: -0.015em; line-height: 1.1;
+  z-index: 1; position: relative;
+}
+.dept-card .ctx {
+  margin-top: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.65);
+  z-index: 1; position: relative;
+}
+
+/* ── Stats strip (matches Image 3 style but on light bg) ── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: ""; position: absolute;
+  right: -28px; top: -28px;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: var(--tint, rgba(108,99,255,0.14));
+}
+.stat-card .big {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 48px; line-height: 1; letter-spacing: -0.03em;
+  color: var(--accent-color);
+  position: relative; z-index: 1;
+}
+.stat-card .big small {
+  font-family: var(--sans); font-size: 18px; font-weight: 500;
+  margin-left: 2px; opacity: 0.6;
+}
+.stat-card .lbl {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  margin-top: 12px; position: relative; z-index: 1;
+}
+.stat-card.total     { --tint: rgba(108,99,255,0.12); --accent-color: #6c63ff; border-color: rgba(108,99,255,0.3); }
+.stat-card.risk      { --tint: rgba(194,50,59,0.10);  --accent-color: var(--low); }
+.stat-card.high      { --tint: rgba(0,103,71,0.10);   --accent-color: var(--high); }
+.stat-card.avg       { --tint: rgba(201,138,21,0.10); --accent-color: var(--medium); }
+
+/* ── Section head ── */
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.section-head h2 {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 26px; letter-spacing: -0.015em;
+}
+.section-head h2 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.section-head .count {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); letter-spacing: 0.04em;
+}
+
+/* ── Courses I teach ── */
+.my-courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.my-course {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 18px 20px;
+}
+.my-course .code {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  color: var(--green-700); letter-spacing: 0.04em;
+}
+.my-course .title {
+  font-family: var(--serif); font-weight: 700; font-size: 17px;
+  letter-spacing: -0.01em; margin-top: 4px; line-height: 1.25;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; min-height: 42px;
+}
+.my-course .row {
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 13px; color: var(--muted);
+}
+.my-course .row .v {
+  font-family: var(--serif); font-weight: 700; font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.my-course .row .v.high   { color: var(--high); }
+.my-course .row .v.medium { color: var(--medium); }
+.my-course .row .v.low    { color: var(--low); }
+
+/* ── Student roster table ── */
+.roster {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.roster table { width: 100%; border-collapse: collapse; }
+.roster th, .roster td {
+  padding: 14px 18px; text-align: left;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 14px;
+}
+.roster th {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  background: var(--bg);
+}
+.roster tr:last-child td { border-bottom: none; }
+.roster tr:hover td { background: var(--green-50); }
+.roster tr { cursor: pointer; }
+.roster td.name b { color: var(--ink); font-weight: 600; }
+.roster td.name span { font-family: var(--mono); font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+.roster td.score {
+  font-family: var(--serif); font-weight: 700; font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.roster td.score.high { color: var(--high); }
+.roster td.score.medium { color: var(--medium); }
+.roster td.score.low { color: var(--low); }
+.roster td.att b { font-family: var(--serif); font-weight: 700; font-size: 16px; }
+
+/* Clickable stat cards */
+a.stat-card {
+  text-decoration: none; color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+a.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+
+/* Clickable course cards */
+a.my-course {
+  text-decoration: none; color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+a.my-course:hover {
+  transform: translateY(-2px);
+  border-color: var(--green-700);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+.my-course .view-link {
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 12px; font-weight: 600;
+  color: var(--green-700);
+  transition: transform 0.15s;
+}
+a.my-course:hover .view-link { transform: translateX(3px); }
+
+/* ── Filters ── */
+.filters {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.filter-group label {
+  display: block;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  margin-bottom: 6px;
+}
+.filter-group.search { flex: 1; min-width: 200px; }
+.filter-group input,
+.filter-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: var(--sans); font-size: 13px;
+  background: var(--surface);
+  color: var(--ink);
+  min-width: 140px;
+}
+.filter-group input:focus,
+.filter-group select:focus {
+  outline: none; border-color: var(--green-700);
+  box-shadow: 0 0 0 3px rgba(0,103,71,0.12);
+}
+.chip-row {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.chip {
+  padding: 7px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chip:hover { color: var(--ink); border-color: var(--muted-2); }
+.chip.active {
+  background: var(--green-700);
+  color: #fff;
+  border-color: var(--green-700);
+}
+.btn-clear {
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 12px; font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--sans);
+  transition: all 0.15s;
+}
+.btn-clear:hover { color: var(--low); border-color: var(--low); }
+
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .roster .hide-sm { display: none; }
+  .filters { flex-direction: column; align-items: stretch; }
+  .filter-group { width: 100%; }
+}
+@media (max-width: 600px) {
+  .stats-strip { grid-template-columns: 1fr; }
+}
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="eyebrow">Faculty Portal</div>
+    <h1>{{ prof.name.split()[0] }} <em>{{ prof.name.split()[-1] }}</em></h1>
+    <div class="idrow">{{ prof.prof_id }}  ·  {{ prof.email }}</div>
+    <div class="grid">
+      <div>
+        <div class="k">Office</div>
+        <div class="v">{{ prof.office }}</div>
+      </div>
+      <div>
+        <div class="k">Office Hours</div>
+        <div class="v">{{ prof.office_hours }}</div>
+      </div>
+      <div>
+        <div class="k">Courses</div>
+        <div class="v">{{ courses|length }} this semester</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="dept-card">
+    <div class="eyebrow">Your Department</div>
+    <div class="name">{{ dept.name }}</div>
+    <div class="ctx">{{ dept.school }} · {{ dept.dept_id }}</div>
+    <div style="margin-top: auto; padding-top: 28px; z-index: 1; position: relative;">
+      <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65);">Department Health</div>
+      <div style="display: flex; gap: 16px; margin-top: 10px;">
+        <span style="padding: 4px 10px; border-radius: 999px; background: rgba(0,212,170,0.15); color: #8fd4b3; font-size: 12px; font-weight: 600;">{{ stats.high_performers }} High</span>
+        <span style="padding: 4px 10px; border-radius: 999px; background: rgba(201,138,21,0.2); color: #ffd48d; font-size: 12px; font-weight: 600;">{{ stats.medium_count }} Medium</span>
+        <span style="padding: 4px 10px; border-radius: 999px; background: rgba(255,107,107,0.15); color: #ff9596; font-size: 12px; font-weight: 600;">{{ stats.low_count }} Low</span>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- Stats strip (clickable — filters the roster below) -->
+<section class="stats-strip">
+  <a class="stat-card total"  href="#roster" data-filter="all">
+    <div class="big">{{ stats.total_students }}</div>
+    <div class="lbl">Total Students</div>
+  </a>
+  <a class="stat-card risk"   href="#roster" data-filter="at_risk">
+    <div class="big">{{ stats.at_risk_count }}</div>
+    <div class="lbl">At-Risk Students</div>
+  </a>
+  <a class="stat-card high"   href="#roster" data-filter="high">
+    <div class="big">{{ stats.high_performers }}</div>
+    <div class="lbl">High Performers</div>
+  </a>
+  <div class="stat-card avg">
+    <div class="big">{{ stats.avg_score }}<small>/100</small></div>
+    <div class="lbl">Avg Dept Score</div>
+  </div>
+</section>
+
+<!-- Courses I teach -->
+{% if courses %}
+<div class="section-head">
+  <h2>Courses <em>I Teach</em></h2>
+  <span class="count">{{ courses|length }} courses · click any to view enrolled students</span>
+</div>
+<div class="my-courses">
+  {% for c in courses %}
+  <a class="my-course" href="{{ url_for('faculty_course_detail', course_code=c.course_code) }}">
+    <div class="code">{{ c.course_code }}</div>
+    <div class="title">{{ c.course_title }}</div>
+    <div class="row">
+      <span>Class avg</span>
+      <span class="v {{ c.status_color }}">{{ c.avg_score }}<small style="font-family: var(--sans); font-size: 11px; color: var(--muted); margin-left: 2px;">/100</small></span>
+    </div>
+    <div class="row" style="margin-top: 0; padding-top: 6px; border-top: none;">
+      <span>{{ c.n_students }} students</span>
+      <span>Att: <b style="color: var(--ink);">{{ c.avg_attendance }}%</b></span>
+    </div>
+    <div class="view-link">View class roster →</div>
+  </a>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Student roster with filters -->
+<div class="section-head" id="roster">
+  <h2>Department <em>Students</em></h2>
+  <span class="count"><span id="visibleCount">{{ students|length }}</span> of {{ students|length }} shown</span>
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <label>Status</label>
+    <div class="chip-row" id="statusFilter">
+      <button class="chip active" data-status="all">All</button>
+      <button class="chip" data-status="at_risk">At-Risk</button>
+      <button class="chip" data-status="high">High</button>
+      <button class="chip" data-status="medium">Medium</button>
+      <button class="chip" data-status="low">Low</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <label>Year</label>
+    <select id="yearFilter">
+      <option value="all">All years</option>
+      <option value="Freshman">Freshman</option>
+      <option value="Sophomore">Sophomore</option>
+      <option value="Junior">Junior</option>
+      <option value="Senior">Senior</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Program</label>
+    <select id="programFilter">
+      <option value="all">All programs</option>
+      {% set seen = [] %}
+      {% for s in students %}
+        {% if s.program not in seen %}
+          {% if seen.append(s.program) %}{% endif %}
+          <option value="{{ s.program }}">{{ s.program }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+  <div class="filter-group search">
+    <label>Search</label>
+    <input type="text" id="searchFilter" placeholder="Name or ID…">
+  </div>
+  <button class="btn-clear" id="clearFilters">Clear</button>
+</div>
+
+<div class="roster">
+  <table>
+    <thead>
+      <tr>
+        <th>Name · ID</th>
+        <th class="hide-sm">Year</th>
+        <th class="hide-sm">Program</th>
+        <th>Avg Score</th>
+        <th>Attendance</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="rosterBody">
+      {% for s in students %}
+      <tr onclick="window.location='{{ url_for('faculty_student_detail', student_id=s.student_id) }}'"
+          data-year="{{ s.year }}"
+          data-program="{{ s.program }}"
+          data-status="{{ s.status_color }}"
+          data-atrisk="{{ s.at_risk }}"
+          data-name="{{ s.name|lower }} {{ s.student_id|lower }}">
+        <td class="name">
+          <b>{{ s.name }}</b>
+          <span>{{ s.student_id }}</span>
+        </td>
+        <td class="hide-sm">{{ s.year }}</td>
+        <td class="hide-sm" style="color: var(--muted);">{{ s.program }}</td>
+        <td class="score {{ s.status_color }}">{{ s.avg_score }}</td>
+        <td class="att"><b>{{ s.avg_attendance }}%</b></td>
+        <td>
+          {% if s.at_risk == 'Yes' %}<span class="pill low">At Risk</span>
+          {% else %}<span class="pill {{ s.status_color }}">{{ s.category }}</span>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div id="noResults" style="display: none; padding: 40px; text-align: center; color: var(--muted); font-size: 14px;">
+    No students match your filters. <a href="#" onclick="document.getElementById('clearFilters').click(); return false;">Clear filters</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  const rows       = Array.from(document.querySelectorAll('#rosterBody tr'));
+  const statusChips= Array.from(document.querySelectorAll('#statusFilter .chip'));
+  const yearSel    = document.getElementById('yearFilter');
+  const progSel    = document.getElementById('programFilter');
+  const searchIn   = document.getElementById('searchFilter');
+  const clearBtn   = document.getElementById('clearFilters');
+  const visEl      = document.getElementById('visibleCount');
+  const noResults  = document.getElementById('noResults');
+  const tableBody  = document.getElementById('rosterBody');
+  const statCards  = document.querySelectorAll('.stat-card[data-filter]');
+
+  let state = { status: 'all', year: 'all', program: 'all', search: '' };
+
+  function applyFilters() {
+    let visible = 0;
+    rows.forEach(r => {
+      const y = r.dataset.year;
+      const p = r.dataset.program;
+      const s = r.dataset.status;
+      const ar = r.dataset.atrisk;
+      const n = r.dataset.name;
+
+      let show = true;
+      if (state.status === 'at_risk') show = (ar === 'Yes');
+      else if (state.status !== 'all') show = (s === state.status);
+
+      if (show && state.year !== 'all')    show = (y === state.year);
+      if (show && state.program !== 'all') show = (p === state.program);
+      if (show && state.search)            show = n.includes(state.search);
+
+      r.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    visEl.textContent = visible;
+    tableBody.style.display = visible === 0 ? 'none' : '';
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function setStatus(status) {
+    state.status = status;
+    statusChips.forEach(c => c.classList.toggle('active', c.dataset.status === status));
+    applyFilters();
+  }
+
+  statusChips.forEach(c => c.addEventListener('click', () => setStatus(c.dataset.status)));
+  yearSel.addEventListener('change', () => { state.year = yearSel.value; applyFilters(); });
+  progSel.addEventListener('change', () => { state.program = progSel.value; applyFilters(); });
+  searchIn.addEventListener('input', () => { state.search = searchIn.value.toLowerCase(); applyFilters(); });
+  clearBtn.addEventListener('click', () => {
+    state = { status: 'all', year: 'all', program: 'all', search: '' };
+    yearSel.value = 'all'; progSel.value = 'all'; searchIn.value = '';
+    statusChips.forEach(c => c.classList.toggle('active', c.dataset.status === 'all'));
+    applyFilters();
+  });
+
+  // Stat cards pre-filter the roster
+  statCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      setStatus(card.dataset.filter);
+      document.getElementById('roster').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
+
+{% endblock %}

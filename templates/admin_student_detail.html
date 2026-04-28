@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}{{ student.name }} — Student Detail{% endblock %}
+
+{% block extra_style %}
+.crumbs {
+  display: flex; gap: 8px; align-items: center;
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); margin-bottom: 18px;
+}
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--green-700); text-decoration: underline; text-underline-offset: 3px; }
+.crumbs .sep { opacity: 0.4; }
+
+.student-head {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 32px;
+  margin-bottom: 28px; position: relative; overflow: hidden;
+}
+.student-head::before {
+  content: ""; position: absolute;
+  right: -40px; top: -40px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(0,103,71,0.06), transparent 70%);
+}
+.student-head .eyebrow { margin-bottom: 10px; }
+.student-head h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px); line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+.student-head h1 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.student-head .idrow {
+  font-family: var(--mono); font-size: 13px;
+  color: var(--muted); margin-top: 8px;
+}
+
+.summary-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-top: 28px; padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+}
+.ss-item { padding-right: 20px; border-right: 1px solid var(--line-soft); }
+.ss-item:last-child { border-right: none; }
+.ss-item .k {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+.ss-item .v {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 36px; letter-spacing: -0.02em; line-height: 1;
+}
+.ss-item .v small { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 3px; }
+.ss-item .v.high { color: var(--high); }
+.ss-item .v.medium { color: var(--medium); }
+.ss-item .v.low { color: var(--low); }
+.ss-item .sub { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.section-head h2 {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 24px; letter-spacing: -0.015em;
+}
+.section-head h2 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.section-head .count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+.courses-table {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+}
+.courses-table table { width: 100%; border-collapse: collapse; }
+.courses-table th, .courses-table td {
+  padding: 14px 18px; text-align: left;
+  border-bottom: 1px solid var(--line-soft); font-size: 14px;
+}
+.courses-table th {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  background: var(--bg);
+}
+.courses-table tr:last-child td { border-bottom: none; }
+.courses-table td.code { font-family: var(--mono); font-weight: 600; color: var(--green-700); font-size: 12px; }
+.courses-table td.title b { font-weight: 600; display: block; }
+.courses-table td.title span { color: var(--muted); font-size: 12px; }
+.courses-table td.score {
+  font-family: var(--serif); font-weight: 700; font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.courses-table td.score.high { color: var(--high); }
+.courses-table td.score.medium { color: var(--medium); }
+.courses-table td.score.low { color: var(--low); }
+
+@media (max-width: 860px) {
+  .summary-strip { grid-template-columns: repeat(2, 1fr); gap: 20px 24px; }
+  .ss-item { border-right: none; padding-right: 0; }
+  .hide-sm { display: none; }
+}
+{% endblock %}
+
+{% block content %}
+<nav class="crumbs">
+  <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+  <span class="sep">/</span>
+  <a href="{{ url_for('admin_department', dept_id=dept.dept_id) }}">{{ dept.dept_id }}</a>
+  <span class="sep">/</span>
+  <span>{{ student.student_id }}</span>
+</nav>
+
+<section class="student-head">
+  <div class="eyebrow">Student Detail · {{ dept.name }}</div>
+  <h1>{{ student.name.split()[0] }} <em>{{ student.name.split()[-1] }}</em></h1>
+  <div class="idrow">{{ student.student_id }}  ·  {{ student.email }}  ·  {{ student.program }}  ·  {{ student.year }}</div>
+
+  <div class="summary-strip">
+    <div class="ss-item">
+      <div class="k">Avg Score</div>
+      {% set score = summary.get('avg_score', 0) %}
+      <div class="v {% if score >= 75 %}high{% elif score >= 60 %}medium{% else %}low{% endif %}">{{ summary.get('avg_score', 0) }}<small>/100</small></div>
+      <div class="sub">{{ summary.get('performance_category', 'N/A') }}</div>
+    </div>
+    <div class="ss-item">
+      <div class="k">Attendance</div>
+      {% set att = summary.get('avg_attendance', 0) %}
+      <div class="v {% if att >= 80 %}high{% elif att >= 65 %}medium{% else %}low{% endif %}">{{ summary.get('avg_attendance', 0) }}<small>%</small></div>
+      <div class="sub">{% if att >= 80 %}Excellent{% elif att >= 65 %}Satisfactory{% else %}Needs attention{% endif %}</div>
+    </div>
+    <div class="ss-item">
+      <div class="k">Courses</div>
+      <div class="v">{{ courses|length }}</div>
+      <div class="sub">Enrolled this semester</div>
+    </div>
+    <div class="ss-item">
+      <div class="k">At Risk</div>
+      {% if summary.get('at_risk') == 'Yes' %}
+        <div class="v low">YES</div>
+        <div class="sub">Intervention recommended</div>
+      {% else %}
+        <div class="v high">NO</div>
+        <div class="sub">On track</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<div class="section-head">
+  <h2>Enrolled <em>Courses</em></h2>
+  <span class="count">{{ courses|length }} courses</span>
+</div>
+
+<div class="courses-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Title</th>
+        <th class="hide-sm">Credits</th>
+        <th>Score</th>
+        <th>Attendance</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in courses %}
+      <tr>
+        <td class="code">{{ c.course_code }}</td>
+        <td class="title"><b>{{ c.course_title }}</b><span>{{ c.modules_count }} modules · {{ c.semester }}</span></td>
+        <td class="hide-sm">{{ c.credits }}</td>
+        <td class="score {{ c.status_color }}">{{ c.avg_score }}<small style="font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--muted); margin-left: 2px;">/100</small></td>
+        <td><b style="font-family: var(--serif); font-size: 16px;">{{ c.avg_attendance }}%</b></td>
+        <td><span class="pill {{ c.status_color }}">{{ c.letter_grade }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

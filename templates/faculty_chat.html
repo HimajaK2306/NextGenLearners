@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+{% block title %}AI Assistant{% endblock %}
+
+{% block extra_style %}
+body { background: var(--bg); }
+main.shell { max-width: 1100px; padding-top: 32px; padding-bottom: 120px; }
+
+/* ── Header ── */
+.chat-head { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; }
+.chat-head .logo {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-900));
+  color: #fff; display: grid; place-items: center;
+  font-family: var(--serif); font-weight: 800; font-size: 24px;
+  font-style: italic;
+  box-shadow: 0 4px 14px rgba(0,103,71,0.2);
+}
+.chat-head h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 36px; line-height: 1; letter-spacing: -0.025em;
+}
+.chat-head h1 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.chat-head .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.key-status {
+  margin-left: auto;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fdf4f4; color: var(--low);
+  border: 1px solid #f3d0d3; cursor: pointer;
+}
+.key-status.ready { background: #f0f7f3; color: var(--green-700); border-color: #cfe5d9; }
+.key-status .dot { width: 7px; height: 7px; background: currentColor; border-radius: 50%; }
+
+/* Chat window */
+.chat-window {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius);
+  min-height: 460px; display: flex; flex-direction: column; overflow: hidden;
+}
+.messages { flex: 1; padding: 28px 32px; overflow-y: auto; min-height: 400px; max-height: 600px; }
+
+.empty-state { text-align: center; padding: 60px 20px; }
+.empty-state .big-icon {
+  width: 64px; height: 64px; margin: 0 auto 16px;
+  border-radius: 16px; background: var(--green-50); color: var(--green-700);
+  display: grid; place-items: center; font-size: 30px;
+}
+.empty-state h3 {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 24px; letter-spacing: -0.015em; margin-bottom: 8px;
+}
+.empty-state p { color: var(--muted); font-size: 14px; max-width: 440px; margin: 0 auto; }
+
+.prompts-empty {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 10px; max-width: 560px; margin: 26px auto 0;
+}
+.prompt-chip {
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px 14px;
+  text-align: left; cursor: pointer;
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 8px;
+  transition: all 0.15s;
+}
+.prompt-chip:hover { background: var(--green-50); border-color: var(--green-700); color: var(--green-700); }
+
+/* Messages */
+.msg { display: flex; gap: 12px; margin-bottom: 24px; animation: fadeup 0.3s ease; }
+@keyframes fadeup { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.msg .avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  flex-shrink: 0; display: grid; place-items: center;
+  font-size: 14px; font-weight: 600; font-family: var(--sans);
+}
+.msg.user .avatar { background: var(--ink); color: #fff; }
+.msg.assistant .avatar {
+  background: linear-gradient(135deg, var(--green-700), var(--green-900)); color: #fff;
+  font-family: var(--serif); font-style: italic; font-weight: 800;
+}
+.msg .bubble { flex: 1; min-width: 0; }
+.msg .who {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px; font-weight: 600;
+}
+.msg .content { font-size: 15px; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; }
+.msg.assistant .content {
+  background: var(--green-50); border: 1px solid #d9ead9;
+  border-radius: 12px; padding: 14px 18px;
+}
+
+.typing-dots {
+  background: var(--green-50); border: 1px solid #d9ead9;
+  border-radius: 12px; padding: 16px 20px;
+  display: inline-flex; gap: 5px; align-items: center;
+}
+.typing-dots span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green-700); animation: typing 1.3s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.15s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Composer */
+.composer { border-top: 1px solid var(--line); padding: 16px 20px; background: var(--surface); }
+.composer form { display: flex; gap: 10px; align-items: flex-end; }
+.composer textarea {
+  flex: 1;
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px;
+  font-family: var(--sans); font-size: 15px;
+  resize: none; min-height: 46px; max-height: 180px;
+  background: var(--bg); color: var(--ink); line-height: 1.5;
+}
+.composer textarea:focus {
+  outline: none; border-color: var(--green-700);
+  box-shadow: 0 0 0 3px rgba(0,103,71,0.12); background: var(--surface);
+}
+.composer .send {
+  padding: 12px 20px;
+  background: var(--green-700); color: #fff;
+  border: none; border-radius: 12px;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: background 0.15s;
+}
+.composer .send:hover { background: var(--green-900); }
+.composer .send:disabled { background: var(--muted-2); cursor: not-allowed; }
+
+.prompt-strip { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.prompt-strip button {
+  font-size: 12px; font-weight: 500;
+  padding: 6px 12px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 999px;
+  color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s;
+}
+.prompt-strip button:hover { background: var(--green-50); border-color: var(--green-700); color: var(--green-700); }
+
+/* Right rail — dept stats */
+.chat-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px; align-items: start;
+}
+.rail h4 {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+  margin-bottom: 12px;
+}
+.rail-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 14px;
+  margin-bottom: 10px;
+}
+.rail-card .k {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.rail-card .v {
+  font-family: var(--serif); font-weight: 700; font-size: 24px;
+  letter-spacing: -0.015em; margin-top: 4px;
+}
+.rail-card .v small { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 2px; }
+.rail-card .v.high { color: var(--high); }
+.rail-card .v.low  { color: var(--low); }
+.rail-card .dept-name { font-weight: 500; font-size: 13px; color: var(--ink); margin-top: 4px; line-height: 1.3; }
+
+/* API key modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(13,15,18,0.5);
+  display: none; align-items: center; justify-content: center;
+  z-index: 100;
+}
+.modal-backdrop.show { display: flex; }
+.modal {
+  background: var(--surface); border-radius: var(--radius);
+  padding: 32px; max-width: 460px; width: 90%;
+  box-shadow: 0 20px 60px rgba(13,15,18,0.2);
+}
+.modal h3 {
+  font-family: var(--serif); font-weight: 700;
+  font-size: 24px; letter-spacing: -0.015em;
+}
+.modal p { color: var(--muted); font-size: 14px; margin: 8px 0 20px; }
+.modal input {
+  width: 100%; padding: 12px 14px;
+  border: 1px solid var(--line); border-radius: 10px;
+  font-family: var(--mono); font-size: 14px;
+}
+.modal input:focus { outline: none; border-color: var(--green-700); box-shadow: 0 0 0 3px rgba(0,103,71,0.12); }
+.modal .actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+.modal .modal-err { color: var(--low); font-size: 13px; margin-top: 10px; }
+
+@media (max-width: 880px) {
+  .chat-layout { grid-template-columns: 1fr; }
+  .rail { display: none; }
+  .prompts-empty { grid-template-columns: 1fr; }
+}
+{% endblock %}
+
+{% block content %}
+<div class="chat-head">
+  <div class="logo">IQ</div>
+  <div>
+    <h1>AI <em>Assistant</em></h1>
+    <div class="sub">Dept-scoped insights on your students and courses.</div>
+  </div>
+  <button class="key-status" id="keyStatus" onclick="openKeyModal()" title="Change API key">
+    <span class="dot"></span> <span id="keyStatusLabel">API key required</span>
+  </button>
+</div>
+
+<div class="chat-layout">
+  <div class="chat-window">
+    <div class="messages" id="messages">
+      <div class="empty-state" id="emptyState">
+        <div class="big-icon">📊</div>
+        <h3>How can I help you today?</h3>
+        <p>Ask about at-risk students, grade trends, intervention strategies — all scoped to your department.</p>
+        <div class="prompts-empty">
+          <button class="prompt-chip" onclick="askPrompt('Give me the full list of at-risk students in my department, sorted by urgency, with their weakest courses and attendance patterns.')">⚠️ At-Risk List</button>
+          <button class="prompt-chip" onclick="askPrompt('Show me students with both low scores (<60) AND low attendance (<65%) — the double-risk cases that need immediate intervention.')">🚨 Double-Risk Alert</button>
+          <button class="prompt-chip" onclick="askPrompt('Analyze performance patterns across each course I teach. Which modules have the highest concentration of struggling students?')">📊 Subject Analytics</button>
+          <button class="prompt-chip" onclick="askPrompt('Suggest concrete intervention plans for the bottom 5 students in my department, with specific actions for each.')">📋 Intervention Plans</button>
+          <button class="prompt-chip" onclick="askPrompt('Compare performance across my courses. Which course has the strongest class average and which needs the most attention?')">📈 Class Comparison</button>
+          <button class="prompt-chip" onclick="askPrompt('Identify patterns in who is at-risk by year (Freshman/Sophomore/Junior/Senior) and recommend year-specific interventions.')">🎯 Risk by Year</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="composer">
+      <form id="chatForm">
+        <textarea id="msgInput" placeholder="Ask your AI assistant anything… (⏎ to send, Shift+⏎ for new line)" rows="1" required></textarea>
+        <button type="submit" class="send" id="sendBtn">Send</button>
+      </form>
+      <div class="prompt-strip">
+        <button type="button" onclick="askPrompt('Give me the full list of at-risk students in my department, sorted by urgency, with their weakest courses and attendance patterns.')">⚠️ At-Risk List</button>
+        <button type="button" onclick="askPrompt('Show me students with both low scores (<60) AND low attendance (<65%) — the double-risk cases that need immediate intervention.')">🚨 Double-Risk</button>
+        <button type="button" onclick="askPrompt('Analyze performance patterns across each course I teach. Which modules have the highest concentration of struggling students?')">📊 Subject Analytics</button>
+        <button type="button" onclick="askPrompt('Suggest concrete intervention plans for the bottom 5 students in my department, with specific actions for each.')">📋 Interventions</button>
+        <button type="button" onclick="askPrompt('Compare performance across my courses. Which course has the strongest class average and which needs the most attention?')">📈 Class Comparison</button>
+      </div>
+    </div>
+  </div>
+
+  <aside class="rail">
+    <h4>📊 Department Snapshot</h4>
+    <div class="rail-card">
+      <div class="k">Department</div>
+      <div class="dept-name">{{ dept.name }}</div>
+    </div>
+    <div class="rail-card">
+      <div class="k">Total Students</div>
+      <div class="v">{{ stats.total_students }}</div>
+    </div>
+    <div class="rail-card">
+      <div class="k">At-Risk</div>
+      <div class="v low">{{ stats.at_risk_count }}</div>
+    </div>
+    <div class="rail-card">
+      <div class="k">High Performers</div>
+      <div class="v high">{{ stats.high_performers }}</div>
+    </div>
+    <div class="rail-card">
+      <div class="k">Avg Score</div>
+      <div class="v">{{ stats.avg_score }}<small>/100</small></div>
+    </div>
+  </aside>
+</div>
+
+<!-- API key modal -->
+<div class="modal-backdrop" id="keyModal">
+  <div class="modal">
+    <h3>OpenAI API Key</h3>
+    <p>Paste your OpenAI API key (starts with <code style="font-family: var(--mono);">sk-</code>). It is stored only in your server-side session — never saved to disk.</p>
+    <input id="keyInput" type="password" placeholder="sk-..." autocomplete="off">
+    <div class="modal-err" id="keyErr" style="display: none;"></div>
+    <div class="actions">
+      <button class="btn btn-ghost" onclick="closeKeyModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveKey()">Save key</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const msgs = [];
+const messagesEl  = document.getElementById('messages');
+const emptyState  = document.getElementById('emptyState');
+const input       = document.getElementById('msgInput');
+const form        = document.getElementById('chatForm');
+const sendBtn     = document.getElementById('sendBtn');
+const keyStatusBtn   = document.getElementById('keyStatus');
+const keyStatusLabel = document.getElementById('keyStatusLabel');
+const keyModal    = document.getElementById('keyModal');
+const keyInput    = document.getElementById('keyInput');
+const keyErr      = document.getElementById('keyErr');
+
+input.addEventListener('input', () => {
+  input.style.height = 'auto';
+  input.style.height = Math.min(input.scrollHeight, 180) + 'px';
+});
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
+});
+
+async function checkKeyStatus() {
+  const r = await fetch('/api/apikey/status');
+  const d = await r.json();
+  if (d.has_key) {
+    keyStatusBtn.classList.add('ready');
+    keyStatusLabel.textContent = 'API key ready';
+  } else {
+    keyStatusBtn.classList.remove('ready');
+    keyStatusLabel.textContent = 'API key required';
+  }
+  return d.has_key;
+}
+checkKeyStatus();
+
+function openKeyModal() { keyErr.style.display = 'none'; keyInput.value = ''; keyModal.classList.add('show'); setTimeout(() => keyInput.focus(), 50); }
+function closeKeyModal() { keyModal.classList.remove('show'); }
+keyModal.addEventListener('click', (e) => { if (e.target === keyModal) closeKeyModal(); });
+
+async function saveKey() {
+  const key = keyInput.value.trim();
+  if (!key) return;
+  keyErr.style.display = 'block'; keyErr.style.color = 'var(--muted)';
+  keyErr.textContent = 'Saving and testing key against OpenAI…';
+  const r = await fetch('/api/apikey', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({api_key: key}) });
+  const d = await r.json();
+  if (!r.ok) { keyErr.style.color = 'var(--low)'; keyErr.textContent = d.error || 'Error saving key.'; return; }
+  const t = await fetch('/api/apikey/test', { method: 'POST' });
+  const td = await t.json();
+  if (t.ok && td.ok) {
+    keyErr.style.color = 'var(--high)'; keyErr.textContent = '✓ ' + td.message;
+    setTimeout(() => { closeKeyModal(); checkKeyStatus(); }, 800);
+  } else {
+    keyErr.style.color = 'var(--low)'; keyErr.textContent = '✗ ' + (td.message || td.error || 'Key test failed.');
+  }
+}
+
+function askPrompt(text) { input.value = text; input.dispatchEvent(new Event('input')); input.focus(); form.requestSubmit(); }
+
+function addMessage(role, content) {
+  if (emptyState && emptyState.parentNode) emptyState.remove();
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  const init = role === 'user' ? '{{ prof.name.split()[-1][0]|upper }}' : 'IQ';
+  div.innerHTML = `<div class="avatar">${init}</div><div class="bubble"><div class="who">${role === 'user' ? 'You' : 'CampusIQ'}</div><div class="content"></div></div>`;
+  div.querySelector('.content').textContent = content;
+  messagesEl.appendChild(div);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+
+function showTyping() {
+  if (emptyState && emptyState.parentNode) emptyState.remove();
+  const div = document.createElement('div');
+  div.className = 'msg assistant typing'; div.id = 'typingIndicator';
+  div.innerHTML = `<div class="avatar">IQ</div><div class="bubble"><div class="who">CampusIQ</div><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  messagesEl.appendChild(div); messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+function hideTyping() { const t = document.getElementById('typingIndicator'); if (t) t.remove(); }
+
+async function sendMessage(text) {
+  const hasKey = await checkKeyStatus();
+  if (!hasKey) { openKeyModal(); return; }
+  addMessage('user', text);
+  msgs.push({role: 'user', content: text});
+  input.value = ''; input.style.height = 'auto';
+  sendBtn.disabled = true; showTyping();
+  try {
+    const r = await fetch('/api/chat', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message: text, history: msgs.slice(0, -1)}),
+    });
+    const d = await r.json(); hideTyping();
+    if (!r.ok) {
+      if (d.error === 'no_key') { addMessage('assistant', 'Please add your OpenAI API key to start chatting.'); openKeyModal(); }
+      else if (d.error === 'bad_key') { addMessage('assistant', d.detail || 'Your API key is invalid. Please enter a valid OpenAI API key.'); openKeyModal(); }
+      else if (d.error === 'quota') { addMessage('assistant', '⚠️ ' + (d.detail || 'Your OpenAI account is out of credit.')); }
+      else if (d.error === 'model_access') { addMessage('assistant', '⚠️ ' + (d.detail || "Your key doesn't have access to this model.")); }
+      else addMessage('assistant', '⚠️ ' + (d.detail || d.error || 'Something went wrong.'));
+      return;
+    }
+    addMessage('assistant', d.reply);
+    msgs.push({role: 'assistant', content: d.reply});
+  } catch (e) { hideTyping(); addMessage('assistant', 'Network error: ' + e.message); }
+  finally { sendBtn.disabled = false; input.focus(); }
+}
+
+form.addEventListener('submit', (e) => { e.preventDefault(); const text = input.value.trim(); if (text) sendMessage(text); });
+</script>
+{% endblock %}

@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% block title %}Reminders{% endblock %}
+
+{% block extra_style %}
+.rem-head {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 22px;
+}
+.rem-head::before {
+  content: ""; position: absolute;
+  right: -30px; top: -30px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(201,138,21,0.08), transparent 70%);
+  pointer-events: none;
+}
+.rem-head .bell {
+  width: 64px; height: 64px; border-radius: 16px;
+  background: linear-gradient(135deg, #ffc64d, #c98a15);
+  color: #fff;
+  display: grid; place-items: center;
+  font-size: 32px;
+  box-shadow: 0 6px 16px rgba(201,138,21,0.25);
+}
+.rem-head .eyebrow { margin-bottom: 6px; }
+.rem-head h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px); line-height: 1;
+  letter-spacing: -0.025em;
+}
+.rem-head h1 em { font-style: italic; font-weight: 400; color: var(--green-700); }
+.rem-head .sub { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+.rem-count-tile {
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 100px;
+  background: var(--bg);
+}
+.rem-count-tile .n {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 36px; letter-spacing: -0.02em; line-height: 1;
+  color: var(--ink);
+}
+.rem-count-tile .l {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-top: 6px; font-weight: 600;
+}
+
+/* ── Urgency group sections ── */
+.urgency-group { margin-bottom: 32px; }
+.urgency-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 10px; margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.urgency-title .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: currentColor;
+}
+.urgency-title .count {
+  margin-left: auto;
+  color: var(--muted); letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.urgency-title.urgent   { color: var(--urgent); }
+.urgency-title.soon     { color: var(--soon); }
+.urgency-title.upcoming { color: var(--upcoming); }
+
+/* ── Reminder rows ── */
+.rem-row {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--upcoming);
+  border-radius: 10px;
+  padding: 16px 22px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 22px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.rem-row:hover {
+  transform: translateX(2px);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+.rem-row.urgent   { border-left-color: var(--urgent); }
+.rem-row.soon     { border-left-color: var(--soon); }
+.rem-row.upcoming { border-left-color: var(--upcoming); }
+
+.rem-row .days {
+  width: 74px;
+  padding: 8px 0;
+  text-align: center;
+  border-radius: 8px;
+  background: var(--bg);
+}
+.rem-row .days .n {
+  font-family: var(--serif); font-weight: 800;
+  font-size: 26px; letter-spacing: -0.02em; line-height: 1;
+}
+.rem-row.urgent   .days .n { color: var(--urgent); }
+.rem-row.soon     .days .n { color: var(--soon); }
+.rem-row.upcoming .days .n { color: var(--upcoming); }
+.rem-row .days .l {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-top: 3px; font-weight: 600;
+}
+
+.rem-row .body .type {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.rem-row.urgent   .body .type { color: var(--urgent); }
+.rem-row.soon     .body .type { color: var(--soon); }
+.rem-row.upcoming .body .type { color: var(--upcoming); }
+
+.rem-row .body .topic {
+  font-family: var(--serif); font-weight: 700; font-size: 19px;
+  letter-spacing: -0.01em; line-height: 1.25;
+}
+.rem-row .body .course {
+  font-family: var(--mono); font-weight: 600; font-size: 12px;
+  color: var(--green-700); margin-top: 4px;
+}
+
+.rem-row .due {
+  font-size: 13px; color: var(--muted); text-align: right;
+}
+.rem-row .due b { color: var(--ink); font-weight: 600; display: block; font-family: var(--serif); font-size: 15px; }
+
+.rem-row .priority-badge {
+  padding: 4px 10px;
+  background: rgba(194,50,59,0.10);
+  color: var(--low);
+  border-radius: 999px;
+  font-family: var(--mono); font-size: 10px;
+  font-weight: 700; letter-spacing: 0.1em;
+}
+
+.empty-group {
+  padding: 22px;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 860px) {
+  .rem-head { grid-template-columns: auto 1fr; gap: 16px; }
+  .rem-head .rem-count-tile { display: none; }
+  .rem-row { grid-template-columns: auto 1fr; }
+  .rem-row .due, .rem-row .priority-badge { display: none; }
+}
+{% endblock %}
+
+{% block content %}
+
+<section class="rem-head">
+  <div class="bell">🔔</div>
+  <div>
+    <div class="eyebrow">Smart Reminders</div>
+    <h1>All your <em>deadlines</em></h1>
+    <div class="sub">Prioritized by urgency, with weak-course items flagged as priority.</div>
+  </div>
+  <div class="rem-count-tile">
+    <div class="n">{{ reminders|length }}</div>
+    <div class="l">Total</div>
+  </div>
+</section>
+
+<!-- URGENT group -->
+<div class="urgency-group">
+  <div class="urgency-title urgent">
+    <span class="dot"></span>
+    <span>Urgent · due within 3 days</span>
+    <span class="count">{{ grouped['URGENT']|length }} items</span>
+  </div>
+  {% if grouped['URGENT'] %}
+    {% for r in grouped['URGENT'] %}
+    <a class="rem-row urgent" href="{{ url_for('student_course', course_code=r.course_code) }}">
+      <div class="days">
+        <div class="n">{{ r.due_days }}</div>
+        <div class="l">Day{% if r.due_days != 1 %}s{% endif %}</div>
+      </div>
+      <div class="body">
+        <div class="type">{{ r.type }}</div>
+        <div class="topic">{{ r.topic }}</div>
+        <div class="course">{{ r.course_code }} · {{ r.course_title }}</div>
+      </div>
+      <div class="due">
+        <b>{{ r.due_date.split(',')[0] }}</b>
+        {{ r.due_date.split(',')[1] }}
+      </div>
+      {% if r.priority %}<span class="priority-badge">Priority</span>{% else %}<span></span>{% endif %}
+    </a>
+    {% endfor %}
+  {% else %}
+    <div class="empty-group">Nothing urgent. Keep at it!</div>
+  {% endif %}
+</div>
+
+<!-- SOON group -->
+<div class="urgency-group">
+  <div class="urgency-title soon">
+    <span class="dot"></span>
+    <span>Soon · due within a week</span>
+    <span class="count">{{ grouped['SOON']|length }} items</span>
+  </div>
+  {% if grouped['SOON'] %}
+    {% for r in grouped['SOON'] %}
+    <a class="rem-row soon" href="{{ url_for('student_course', course_code=r.course_code) }}">
+      <div class="days">
+        <div class="n">{{ r.due_days }}</div>
+        <div class="l">Days</div>
+      </div>
+      <div class="body">
+        <div class="type">{{ r.type }}</div>
+        <div class="topic">{{ r.topic }}</div>
+        <div class="course">{{ r.course_code }} · {{ r.course_title }}</div>
+      </div>
+      <div class="due">
+        <b>{{ r.due_date.split(',')[0] }}</b>
+        {{ r.due_date.split(',')[1] }}
+      </div>
+      {% if r.priority %}<span class="priority-badge">Priority</span>{% else %}<span></span>{% endif %}
+    </a>
+    {% endfor %}
+  {% else %}
+    <div class="empty-group">Nothing due this week.</div>
+  {% endif %}
+</div>
+
+<!-- UPCOMING group -->
+<div class="urgency-group">
+  <div class="urgency-title upcoming">
+    <span class="dot"></span>
+    <span>Upcoming · further out</span>
+    <span class="count">{{ grouped['UPCOMING']|length }} items</span>
+  </div>
+  {% if grouped['UPCOMING'] %}
+    {% for r in grouped['UPCOMING'] %}
+    <a class="rem-row upcoming" href="{{ url_for('student_course', course_code=r.course_code) }}">
+      <div class="days">
+        <div class="n">{{ r.due_days }}</div>
+        <div class="l">Days</div>
+      </div>
+      <div class="body">
+        <div class="type">{{ r.type }}</div>
+        <div class="topic">{{ r.topic }}</div>
+        <div class="course">{{ r.course_code }} · {{ r.course_title }}</div>
+      </div>
+      <div class="due">
+        <b>{{ r.due_date.split(',')[0] }}</b>
+        {{ r.due_date.split(',')[1] }}
+      </div>
+      {% if r.priority %}<span class="priority-badge">Priority</span>{% else %}<span></span>{% endif %}
+    </a>
+    {% endfor %}
+  {% else %}
+    <div class="empty-group">No upcoming items yet.</div>
+  {% endif %}
+</div>
+
+{% endblock %}
